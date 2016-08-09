@@ -1,6 +1,5 @@
 <?php
 define('IN_ECS', true);
-define('IN_ECTOUCH', true);
 require(dirname(__FILE__) . '/../includes/init.php');
 require ('callback.php');
 $wechatObj = new wechatCallbackapi();

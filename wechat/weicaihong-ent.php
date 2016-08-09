@@ -1,6 +1,5 @@
 <?php
 define('IN_ECS', true);
-define('IN_ECTOUCH', true);
 if (file_exists('wx_init.php')) {
 	require('wx_init.php');
 } else {
