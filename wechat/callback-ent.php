@@ -172,7 +172,7 @@ class wechatCallbackapi {
 								$db -> query($wxch_user_sql);
 							} else {
 							    $ecs_user_name = 'wx:' . $fromUsername;
-							    $ecs_user_pass = $ecs_password;
+							    $ecs_user_pass = md5($ec_pwd . $ecs_user_name);
 							    $ecs_user_email = $fromUsername . '@wx.null';
 							    $user->add_user($ecs_user_name, $ecs_user_pass, $ecs_user_email);
 							    $ecs_update = " UPDATE `$thistable` SET `wxid` = '$fromUsername', `user_rank` = 99, `wxch_bd` = 'ok' WHERE `user_name` = '$ecs_user_name' ";
