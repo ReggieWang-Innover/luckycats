@@ -49,13 +49,15 @@ if(!empty($openid) && strlen($openid) == 28)
 	}
 	$_SESSION['wxid'] = $openid;
 	$is_login = 0;
+	/*
 	if ($is_login == 0) 
 	{
 		$user->login($w_res['user_name'], null, true);
 		update_user_info();
 		recalculate_price();
 		$is_login = 1;
-	}
+	}*/
+	
 	if($is_login == 0) 
 	{
 		$user->set_session($w_res['user_name']);
