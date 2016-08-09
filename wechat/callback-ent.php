@@ -171,12 +171,24 @@ class wechatCallbackapi {
 								$wxch_user_sql = "INSERT INTO `$thistable` (`user_id`,`user_name`,`password`,`wxid`,`user_rank`,`wxch_bd`) VALUES ('$ecs_user_id','$uc_username','$ecs_password','$fromUsername','99','no')";
 								$db -> query($wxch_user_sql);
 							} else {
+							    $ecs_user_name = 'wx:' . $fromUsername;
+							    $ecs_user_pass = $ecs_password;
+							    $ecs_user_email = $fromUsername . '@wx.null';
+							    $user->add_user($ecs_user_name, $ecs_user_pass, $ecs_user_email);
+							    $ecs_update = " UPDATE `$thistable` SET `wxid` = '$fromUsername', `user_rank` = 99, `wxch_bd` = 'ok' WHERE `user_name` = '$ecs_user_name' ";
+							    $db -> query($ecs_update);
+							    
+							    $ecs_update = " UPDATE `wxch_user` SET `uname` = '$ecs_user_name', `setp` = 3 WHERE `wxid` = '$fromUsername' ";
+							    $db -> query($ecs_update);
+							    
+							    /*
 								$wxch_user_sql = "INSERT INTO `$thistable` ( `user_name`,`password`,`wxid`,`user_rank`,`wxch_bd`) VALUES ('$fromUsername','$ec_pwd','$fromUsername','99','no')";
 								$db -> query($wxch_user_sql);
 								$ecs_user_id = $db -> insert_id();
 								$ecs_user_name = 'wx' . $ecs_user_id;
 								$ecs_update = " UPDATE `$thistable` SET `user_name` = '$ecs_user_name' WHERE `user_id` = '$ecs_user_id'";
 								$db -> query($ecs_update);
+								*/
 							} 
 						} 
 					} 
