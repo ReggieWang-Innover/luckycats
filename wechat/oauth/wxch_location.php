@@ -1,5 +1,7 @@
 <?php
 define('IN_ECS', true);
+define('IN_ECTOUCH', true);
+
 $uri = $_SESSION['uri'];
 if(empty($uri)) 
 {

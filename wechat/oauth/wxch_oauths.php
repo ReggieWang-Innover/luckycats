@@ -1,5 +1,7 @@
 <?php
 define('IN_ECS', true);
+define('IN_ECTOUCH', true);
+
 require (dirname(__FILE__) . '/../../mobile/include/init.php');
 $uri = !empty($_GET['uri']) ? $_GET['uri'] : '';
 if(empty($uri)) 
