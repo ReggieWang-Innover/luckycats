@@ -1,5 +1,6 @@
 <?php
 define('IN_ECS', true);
+define('IN_ECTOUCH', true);
 require(dirname(__FILE__) . '/../includes/init.php');
 $wxid = !empty($_GET['wxid']) ? $_GET['wxid'] : '';
 if(!empty($wxid)) 

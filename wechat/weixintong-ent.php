@@ -1,5 +1,6 @@
 <?php
 define('IN_ECS', true);
+define('IN_ECTOUCH', true);
 error_reporting(0);
 require(dirname(__FILE__) . '/../includes/init.php');
 require('callback-ent.php');
