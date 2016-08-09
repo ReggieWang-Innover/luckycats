@@ -124,9 +124,11 @@ class wechatCallbackapi {
 				$user_id = $ret['user_id'];
 			} 
 			$ret = $db -> getRow("SELECT `wxid` FROM `wxch_user` WHERE `wxid` = '$fromUsername'");
+			$wxuname = 'u';
 			if (empty($ret)) {
 				if (!empty($fromUsername)) {
 					$db -> query("INSERT INTO `wxch_user` (`subscribe`, `wxid` , `dateline`) VALUES ('1','$fromUsername','$time')");
+					$wxuname = $wxuname . $db-> insert_id();
 				} 
 			} else {
 				$db -> query("UPDATE  `wxch_user` SET  `subscribe` =  '1',`dateline` = '$time' WHERE  `wxch_user`.`wxid` = '$fromUsername';");
@@ -145,6 +147,7 @@ class wechatCallbackapi {
 				$sql_del = "UPDATE `$thistable` SET `user_rank` = '99',`wxch_bd`='no' WHERE `wxid` ='$fromUsername'";
 				$db -> query($sql_del);
 			} 
+			
 			if (empty($uname)) {
 				$wxch_user_name_sql = "SELECT `user_name` FROM `$thistable` WHERE `wxch_bd`='ok' AND `wxid` = '$fromUsername'";
 				$wxch_user_name = $db -> getOne($wxch_user_name_sql);
@@ -171,9 +174,9 @@ class wechatCallbackapi {
 								$wxch_user_sql = "INSERT INTO `$thistable` (`user_id`,`user_name`,`password`,`wxid`,`user_rank`,`wxch_bd`) VALUES ('$ecs_user_id','$uc_username','$ecs_password','$fromUsername','99','no')";
 								$db -> query($wxch_user_sql);
 							} else {
-							    $ecs_user_name = 'wx:' . $fromUsername;
+							    $ecs_user_name = 'wx:' . $wxuname;
 							    $ecs_user_pass = md5($ec_pwd . $ecs_user_name);
-							    $ecs_user_email = $fromUsername . '@wx.null';
+							    $ecs_user_email = $wxuname . '@wx.null';
 							    $user->add_user($ecs_user_name, $ecs_user_pass, $ecs_user_email);
 							    $ecs_update = " UPDATE `$thistable` SET `wxid` = '$fromUsername', `user_rank` = 99, `wxch_bd` = 'ok' WHERE `user_name` = '$ecs_user_name' ";
 							    $db -> query($ecs_update);
@@ -193,7 +196,7 @@ class wechatCallbackapi {
 						} 
 					} 
 				} else {
-					$wxch_user_sql = " UPDATE `$thistable` SET `user_rank` = '99',`wxch_bd`='no' WHERE `wxid` ='$fromUsername'";
+					$wxch_user_sql = " UPDATE `$thistable` SET `user_rank` = '99',`wxch_bd`='ok' WHERE `wxid` ='$fromUsername'";
 					$db -> query($wxch_user_sql);
 				} 
 			} 
