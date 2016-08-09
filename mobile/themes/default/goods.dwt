@@ -111,7 +111,9 @@ function showPic(){
     <!-- {/if} --></li>
     <!--{/if}--> 
 	<!-- {foreach from=$rank_prices item=rank_price key=key} 会员等级对应的价格-->
+	<!-- {if $rank_price.price neq $goods.shop_price_formated} 会员等级优惠-->
     <li>{$rank_price.rank_name}：<b class="price" id="ECS_RANKPRICE_{$key}">{$rank_price.price}</b></li>
+    <!--{/if}-->
     <!--{/foreach}-->
   </ul>
   <!--{if $goods.is_promote and $goods.gmt_end_time } 促销--> 
