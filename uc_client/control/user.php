@@ -243,6 +243,11 @@ class usercontrol extends base {
 	}
 
 	function _check_username($username) {
+	    if (preg_match('^wx:', $username))
+	    {
+	        return 1;
+	    }
+	    
 		$username = addslashes(trim(stripslashes($username)));
 		if(!$_ENV['user']->check_username($username)) {
 			return UC_USER_CHECK_USERNAME_FAILED;
