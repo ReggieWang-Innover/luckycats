@@ -243,7 +243,7 @@ class usercontrol extends base {
 	}
 
 	function _check_username($username) {
-	    if (preg_match('^wx:', $username))
+	    if (preg_match('/^wx:/', $username))
 	    {
 	        return 1;
 	    }

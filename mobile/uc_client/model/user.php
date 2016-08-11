@@ -39,7 +39,7 @@ class usermodel {
 	}
 
 	function check_username($username) {
-		$weixinexp = '^wx:';
+		$weixinexp = '/^wx:/';
 		if (preg_match($weixinexp, username))
 		{
 			return TRUE;
