@@ -305,6 +305,8 @@ elseif($action == 'oath')
 			show_message( $c->get_error() , '首页', $ecs->url() , 'error');
 		}
 		header('Location: '.$url);
+		
+		error_log($url);
 	}
 	else
 	{
