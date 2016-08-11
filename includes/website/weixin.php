@@ -41,31 +41,31 @@ if (defined('WEBSITE') || defined('GETINFO'))
 		array('type'=>'text' , 'name'=>'APP_KEY', 'value'=>''),
 		array('type'=>'text' , 'name' => 'APP_SECRET' , 'value' => ''),
 	);
-	
-	if (!defined('WEBSITE'))
-	{
-	    include_once(dirname(__FILE__).'/oath2.class.php');
-	    class website extends oath2
-	    {
-	        function website()
-	        {
-	            $this->app_key = APP_KEY;
-	            $this->app_secret = APP_SECRET;
-	            $this->authorizeURL = 'https://open.weixin.qq.com/connect/qrconnect?';
-	        }
-	        
-	        function login($callblock)
-	        {
-	            //https://open.weixin.qq.com/connect/qrconnect?appid=XXXXXX&response_type=code&scope=snsapi_login&redirect_uri=http%3A%2F%2Fwww.doute365.com%2Fuser.php%3Fact%3Dweixin&state=XXXXXXXX
-	            return $this->authorizeURL
-	                 . 'appid=' . $this->app_key
-	                 . '&response_type=code'
-	                 . '&scope=snsapi_login'
-	                 . '&redirect_uri=' . $callblock
-	                 . '&state=' . $this->app_secret;
-	        }
-	    }
-	}
+}
+
+if (!defined('WEBSITE'))
+{
+    include_once(dirname(__FILE__).'/oath2.class.php');
+    class website extends oath2
+    {
+        function website()
+        {
+            $this->app_key = APP_KEY;
+            $this->app_secret = APP_SECRET;
+            $this->authorizeURL = 'https://open.weixin.qq.com/connect/qrconnect?';
+        }
+        
+        function login($callblock)
+        {
+            //https://open.weixin.qq.com/connect/qrconnect?appid=XXXXXX&response_type=code&scope=snsapi_login&redirect_uri=http%3A%2F%2Fwww.doute365.com%2Fuser.php%3Fact%3Dweixin&state=XXXXXXXX
+            return $this->authorizeURL
+                 . 'appid=' . $this->app_key
+                 . '&response_type=code'
+                 . '&scope=snsapi_login'
+                 . '&redirect_uri=' . $callblock
+                 . '&state=' . $this->app_secret;
+        }
+    }
 }
 
 
