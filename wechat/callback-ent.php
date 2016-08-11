@@ -158,41 +158,15 @@ class wechatCallbackapi {
 						$wxch_nobd_wxid_sql = "SELECT `wxid` FROM `$thistable` WHERE `wxch_bd`='no' AND `wxid` = '$fromUsername'";
 						$wxch_nobd_wxid = $db -> getOne($wxch_nobd_wxid_sql);
 						if (empty($wxch_nobd_wxid)) {
-							if (file_exists('uc_state.php')) {
-								include('uc_state.php');
-							} 
-							if ($uc_state) {
-								$salt = $uc_salt;
-								$uc_pwd = $uc_pwd;
-								$uc_sql = "INSERT INTO $uc_table (`username`, `password`, `salt`) VALUES ('$fromUsername', '$uc_pwd', '$salt')";
-								$db -> query($uc_sql);
-								$ecs_user_id = $db -> insert_id();
-								$uc_username = 'wx' . $ecs_user_id;
-								$uc_update = "UPDATE $uc_table  SET `username` = '$uc_username' WHERE `uid` = '$ecs_user_id'";
-								$db -> query($uc_update);
-								$ecs_password = md5($ecs_password);
-								$wxch_user_sql = "INSERT INTO `$thistable` (`user_id`,`user_name`,`password`,`wxid`,`user_rank`,`wxch_bd`) VALUES ('$ecs_user_id','$uc_username','$ecs_password','$fromUsername','99','no')";
-								$db -> query($wxch_user_sql);
-							} else {
-							    $ecs_user_name = 'wx:' . $wxuname;
-							    $ecs_user_pass = md5($ec_pwd . $ecs_user_name);
-							    $ecs_user_email = $wxuname . '@wx.null';
-							    $user->add_user($ecs_user_name, $ecs_user_pass, $ecs_user_email);
-							    $ecs_update = " UPDATE `$thistable` SET `wxid` = '$fromUsername', `user_rank` = 99, `wxch_bd` = 'ok' WHERE `user_name` = '$ecs_user_name' ";
-							    $db -> query($ecs_update);
+							$ecs_user_name = 'wx:' . $fromUsername;
+							$ecs_user_pass = md5($ec_pwd . $ecs_user_name);
+							$ecs_user_email = $wxuname . '@wx.null';
+							$user->add_user($ecs_user_name, $ecs_user_pass, $ecs_user_email);
+							$ecs_update = " UPDATE `$thistable` SET `wxid` = '$fromUsername', `user_rank` = 99, `wxch_bd` = 'ok' WHERE `user_name` = '$ecs_user_name' ";
+							$db -> query($ecs_update);
 							    
-							    $ecs_update = " UPDATE `wxch_user` SET `uname` = '$ecs_user_name', `setp` = 3 WHERE `wxid` = '$fromUsername' ";
-							    $db -> query($ecs_update);
-							    
-							    /*
-								$wxch_user_sql = "INSERT INTO `$thistable` ( `user_name`,`password`,`wxid`,`user_rank`,`wxch_bd`) VALUES ('$fromUsername','$ec_pwd','$fromUsername','99','no')";
-								$db -> query($wxch_user_sql);
-								$ecs_user_id = $db -> insert_id();
-								$ecs_user_name = 'wx' . $ecs_user_id;
-								$ecs_update = " UPDATE `$thistable` SET `user_name` = '$ecs_user_name' WHERE `user_id` = '$ecs_user_id'";
-								$db -> query($ecs_update);
-								*/
-							} 
+							$ecs_update = " UPDATE `wxch_user` SET `uname` = '$ecs_user_name', `setp` = 3 WHERE `wxid` = '$fromUsername' ";
+							$db -> query($ecs_update); 
 						} 
 					} 
 				} else {
