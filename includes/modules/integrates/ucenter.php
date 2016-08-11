@@ -205,14 +205,33 @@ class ucenter extends integrate
         $this->ucdata = uc_call("uc_user_synlogout");   //同步退出
         return true;
     }
-
+    
+    /*
+     * 检查指定用户是否存在以及用户名是否合法
+     * */
+    function check_add_user($username)
+    {
+        return uc_call("uc_user_checkname", array($username));
+    }
+    
     /*添加用户*/
     function add_user($username, $password, $email)
     {
         /* 检测用户名 */
-        if ($this->check_user($username))
+        $checkname = $this->check_add_user($username);
+        if ($checkname == -3)
         {
             $this->error = ERR_USERNAME_EXISTS;
+            return false;
+        }
+        elseif ($checkname == -2)
+        {
+            $this->error = ERR_USERNAME_NOT_ALLOW;
+            return false;
+        }
+        elseif ($checkname <= 0) 
+        {
+            $this->error = ERR_INVALID_USERNAME;
             return false;
         }
 
@@ -285,6 +304,7 @@ class ucenter extends integrate
             return  true;
         }
     }
+    
 
     /**
      * 检测Email是否合法
