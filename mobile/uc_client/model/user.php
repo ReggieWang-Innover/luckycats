@@ -4,283 +4,283 @@
 	[UCenter] (C)2001-2099 Comsenz Inc.
 	This is NOT a freeware, use is subject to license terms
 
-	$Id: user.php 1174 2014-11-03 04:38:12Z hypowang $
+	$Id: user.php 1179 2014-11-03 07:11:25Z hypowang $
 */
 
 !defined('IN_UC') && exit('Access Denied');
 
-define('UC_USER_CHECK_USERNAME_FAILED', -1);
-define('UC_USER_USERNAME_BADWORD', -2);
-define('UC_USER_USERNAME_EXISTS', -3);
-define('UC_USER_EMAIL_FORMAT_ILLEGAL', -4);
-define('UC_USER_EMAIL_ACCESS_ILLEGAL', -5);
-define('UC_USER_EMAIL_EXISTS', -6);
+class usermodel {
 
-class usercontrol extends base {
+	var $db;
+	var $base;
 
-
-	function __construct() {
-		$this->usercontrol();
+	function __construct(&$base) {
+		$this->usermodel($base);
 	}
 
-	function usercontrol() {
-		parent::__construct();
-		$this->load('user');
-		$this->app = $this->cache['apps'][UC_APPID];
+	function usermodel(&$base) {
+		$this->base = $base;
+		$this->db = $base->db;
 	}
 
-	function onsynlogin() {
-		$this->init_input();
-		$uid = $this->input('uid');
-		if($this->app['synlogin']) {
-			if($this->user = $_ENV['user']->get_user_by_uid($uid)) {
-				$synstr = '';
-				foreach($this->cache['apps'] as $appid => $app) {
-					if($app['synlogin'] && $app['appid'] != $this->app['appid']) {
-						$synstr .= '<script type="text/javascript" src="'.$app['url'].'/api/uc.php?time='.$this->time.'&code='.urlencode($this->authcode('action=synlogin&username='.$this->user['username'].'&uid='.$this->user['uid'].'&password='.$this->user['password']."&time=".$this->time, 'ENCODE', $app['authkey'])).'"></script>';
-					}
-				}
-				return $synstr;
+	function get_user_by_uid($uid) {
+		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE uid='$uid'");
+		return $arr;
+	}
+
+	function get_user_by_username($username) {
+		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
+		return $arr;
+	}
+
+	function get_user_by_email($email) {
+		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE email='$email'");
+		return $arr;
+	}
+
+	function check_username($username) {
+		$weixinexp = '^wx:';
+		if (preg_match($weixinexp, username))
+		{
+			return TRUE;
+		}
+		
+		$guestexp = '\xA1\xA1|\xAC\xA3|^Guest|^\xD3\xCE\xBF\xCD|\xB9\x43\xAB\xC8';
+		$len = $this->dstrlen($username);
+		if($len > 15 || $len < 3 || preg_match("/\s+|^c:\\con\\con|[%,\*\"\s\<\>\&]|$guestexp/is", $username)) {
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
+	function dstrlen($str) {
+		if(strtolower(UC_CHARSET) != 'utf-8') {
+			return strlen($str);
+		}
+		$count = 0;
+		for($i = 0; $i < strlen($str); $i++){
+			$value = ord($str[$i]);
+			if($value > 127) {
+				$count++;
+				if($value >= 192 && $value <= 223) $i++;
+				elseif($value >= 224 && $value <= 239) $i = $i + 2;
+				elseif($value >= 240 && $value <= 247) $i = $i + 3;
+		    	}
+	    		$count++;
+		}
+		return $count;
+	}
+
+	function check_mergeuser($username) {
+		$data = $this->db->result_first("SELECT count(*) FROM ".UC_DBTABLEPRE."mergemembers WHERE appid='".$this->base->app['appid']."' AND username='$username'");
+		return $data;
+	}
+
+	function check_usernamecensor($username) {
+		$_CACHE['badwords'] = $this->base->cache('badwords');
+		$censorusername = $this->base->get_setting('censorusername');
+		$censorusername = $censorusername['censorusername'];
+		$censorexp = '/^('.str_replace(array('\\*', "\r\n", ' '), array('.*', '|', ''), preg_quote(($censorusername = trim($censorusername)), '/')).')$/i';
+		$usernamereplaced = isset($_CACHE['badwords']['findpattern']) && !empty($_CACHE['badwords']['findpattern']) ? @preg_replace($_CACHE['badwords']['findpattern'], $_CACHE['badwords']['replace'], $username) : $username;
+		if(($usernamereplaced != $username) || ($censorusername && preg_match($censorexp, $username))) {
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+
+	function check_usernameexists($username) {
+		$data = $this->db->result_first("SELECT username FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
+		return $data;
+	}
+
+	function check_emailformat($email) {
+		return strlen($email) > 6 && strlen($email) <= 32 && preg_match("/^([a-z0-9\-_.+]+)@([a-z0-9\-]+[.][a-z0-9\-.]+)$/", $email);
+	}
+
+	function check_emailaccess($email) {
+		$setting = $this->base->get_setting(array('accessemail', 'censoremail'));
+		$accessemail = $setting['accessemail'];
+		$censoremail = $setting['censoremail'];
+		$accessexp = '/('.str_replace("\r\n", '|', preg_quote(trim($accessemail), '/')).')$/i';
+		$censorexp = '/('.str_replace("\r\n", '|', preg_quote(trim($censoremail), '/')).')$/i';
+		if($accessemail || $censoremail) {
+			if(($accessemail && !preg_match($accessexp, $email)) || ($censoremail && preg_match($censorexp, $email))) {
+				return FALSE;
+			} else {
+				return TRUE;
 			}
+		} else {
+			return TRUE;
 		}
-		return '';
 	}
 
-	function onsynlogout() {
-		$this->init_input();
-		if($this->app['synlogin']) {
-			$synstr = '';
-			foreach($this->cache['apps'] as $appid => $app) {
-				if($app['synlogin'] && $app['appid'] != $this->app['appid']) {
-					$synstr .= '<script type="text/javascript" src="'.$app['url'].'/api/uc.php?time='.$this->time.'&code='.urlencode($this->authcode('action=synlogout&time='.$this->time, 'ENCODE', $app['authkey'])).'"></script>';
-				}
-			}
-			return $synstr;
-		}
-		return '';
+	function check_emailexists($email, $username = '') {
+		$sqladd = $username !== '' ? "AND username<>'$username'" : '';
+		$email = $this->db->result_first("SELECT email FROM  ".UC_DBTABLEPRE."members WHERE email='$email' $sqladd");
+		return $email;
 	}
 
-	function onregister() {
-		$this->init_input();
-		$username = $this->input('username');
-		$password =  $this->input('password');
-		$email = $this->input('email');
-		$questionid = $this->input('questionid');
-		$answer = $this->input('answer');
-		$regip = $this->input('regip');
+	function check_login($username, $password, &$user) {
+		$user = $this->get_user_by_username($username);
+		if(empty($user['username'])) {
+			return -1;
+		} elseif($user['password'] != md5(md5($password).$user['salt'])) {
+			return -2;
+		}
+		return $user['uid'];
+	}
 
-		if(($status = $this->_check_username($username)) < 0) {
-			return $status;
-		}
-		if(($status = $this->_check_email($email)) < 0) {
-			return $status;
-		}
-		$uid = $_ENV['user']->add_user($username, $password, $email, 0, $questionid, $answer, $regip);
+	function add_user($username, $password, $email, $uid = 0, $questionid = '', $answer = '', $regip = '') {
+		$regip = empty($regip) ? $this->base->onlineip : $regip;
+		$salt = substr(uniqid(rand()), -6);
+		$password = md5(md5($password).$salt);
+		$sqladd = $uid ? "uid='".intval($uid)."'," : '';
+		$sqladd .= $questionid > 0 ? " secques='".$this->quescrypt($questionid, $answer)."'," : " secques='',";
+		$this->db->query("INSERT INTO ".UC_DBTABLEPRE."members SET $sqladd username='$username', password='$password', email='$email', regip='$regip', regdate='".$this->base->time."', salt='$salt'");
+		$uid = $this->db->insert_id();
+		$this->db->query("INSERT INTO ".UC_DBTABLEPRE."memberfields SET uid='$uid'");
 		return $uid;
 	}
 
-	function onedit() {
-		$this->init_input();
-		$username = $this->input('username');
-		$oldpw = $this->input('oldpw');
-		$newpw = $this->input('newpw');
-		$email = $this->input('email');
-		$ignoreoldpw = $this->input('ignoreoldpw');
-		$questionid = $this->input('questionid');
-		$answer = $this->input('answer');
+	function edit_user($username, $oldpw, $newpw, $email, $ignoreoldpw = 0, $questionid = '', $answer = '') {
+		$data = $this->db->fetch_first("SELECT username, uid, password, salt FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
 
-		if(!$ignoreoldpw && $email && ($status = $this->_check_email($email, $username)) < 0) {
-			return $status;
-		}
-		$status = $_ENV['user']->edit_user($username, $oldpw, $newpw, $email, $ignoreoldpw, $questionid, $answer);
-
-		if($newpw && $status > 0) {
-			$this->load('note');
-			$_ENV['note']->add('updatepw', 'username='.urlencode($username).'&password=');
-			$_ENV['note']->send();
-		}
-		return $status;
-	}
-
-	function onlogin() {
-		$this->init_input();
-		$isuid = $this->input('isuid');
-		$username = $this->input('username');
-		$password = $this->input('password');
-		$checkques = $this->input('checkques');
-		$questionid = $this->input('questionid');
-		$answer = $this->input('answer');
-		$ip = $this->input('ip');
-
-		$this->settings['login_failedtime'] = is_null($this->settings['login_failedtime']) ? 5 : $this->settings['login_failedtime'];
-
-		if($ip && $this->settings['login_failedtime'] && !$loginperm = $_ENV['user']->can_do_login($username, $ip)) {
-			$status = -4;
-			return array($status, '', $password, '', 0);
+		if($ignoreoldpw) {
+			$isprotected = $this->db->result_first("SELECT COUNT(*) FROM ".UC_DBTABLEPRE."protectedmembers WHERE uid = '$data[uid]'");
+			if($isprotected) {
+				return -8;
+			}
 		}
 
-		if($isuid == 1) {
-			$user = $_ENV['user']->get_user_by_uid($username);
-		} elseif($isuid == 2) {
-			$user = $_ENV['user']->get_user_by_email($username);
+		if(!$ignoreoldpw && $data['password'] != md5(md5($oldpw).$data['salt'])) {
+			return -1;
+		}
+
+		$sqladd = $newpw ? "password='".md5(md5($newpw).$data['salt'])."'" : '';
+		$sqladd .= $email ? ($sqladd ? ',' : '')." email='$email'" : '';
+		if($questionid !== '') {
+			if($questionid > 0) {
+				$sqladd .= ($sqladd ? ',' : '')." secques='".$this->quescrypt($questionid, $answer)."'";
+			} else {
+				$sqladd .= ($sqladd ? ',' : '')." secques=''";
+			}
+		}
+		if($sqladd || $emailadd) {
+			$this->db->query("UPDATE ".UC_DBTABLEPRE."members SET $sqladd WHERE username='$username'");
+			return $this->db->affected_rows();
 		} else {
-			$user = $_ENV['user']->get_user_by_username($username);
-		}
-
-		$passwordmd5 = preg_match('/^\w{32}$/', $password) ? $password : md5($password);
-		if(empty($user)) {
-			$status = -1;
-		} elseif($user['password'] != md5($passwordmd5.$user['salt'])) {
-			$status = -2;
-		} elseif($checkques && $user['secques'] != $_ENV['user']->quescrypt($questionid, $answer)) {
-			$status = -3;
-		} else {
-			$status = $user['uid'];
-		}
-		if($ip && $this->settings['login_failedtime'] && $status <= 0) {
-			$_ENV['user']->loginfailed($username, $ip);
-		}
-		$merge = $status != -1 && !$isuid && $_ENV['user']->check_mergeuser($username) ? 1 : 0;
-		return array($status, $user['username'], $password, $user['email'], $merge);
-	}
-
-	function onlogincheck() {
-		$this->init_input();
-		$username = $this->input('username');
-		$ip = $this->input('ip');
-		return $_ENV['user']->can_do_login($username, $ip);
-	}
-
-	function oncheck_email() {
-		$this->init_input();
-		$email = $this->input('email');
-		return $this->_check_email($email);
-	}
-
-	function oncheck_username() {
-		$this->init_input();
-		$username = $this->input('username');
-		if(($status = $this->_check_username($username)) < 0) {
-			return $status;
-		} else {
-			return 1;
+			return -7;
 		}
 	}
 
-	function onget_user() {
-		$this->init_input();
-		$username = $this->input('username');
-		if(!$this->input('isuid')) {
-			$status = $_ENV['user']->get_user_by_username($username);
-		} else {
-			$status = $_ENV['user']->get_user_by_uid($username);
+	function delete_user($uidsarr) {
+		$uidsarr = (array)$uidsarr;
+		if(!$uidsarr) {
+			return 0;
 		}
-		if($status) {
-			return array($status['uid'],$status['username'],$status['email']);
+		$uids = $this->base->implode($uidsarr);
+		$arr = $this->db->fetch_all("SELECT uid FROM ".UC_DBTABLEPRE."protectedmembers WHERE uid IN ($uids)");
+		$puids = array();
+		foreach((array)$arr as $member) {
+			$puids[] = $member['uid'];
+		}
+		$uids = $this->base->implode(array_diff($uidsarr, $puids));
+		if($uids) {
+			$this->db->query("DELETE FROM ".UC_DBTABLEPRE."members WHERE uid IN($uids)");
+			$this->db->query("DELETE FROM ".UC_DBTABLEPRE."memberfields WHERE uid IN($uids)");
+			uc_user_deleteavatar($uidsarr);
+			$this->base->load('note');
+			$_ENV['note']->add('deleteuser', "ids=$uids");
+			return $this->db->affected_rows();
 		} else {
 			return 0;
 		}
 	}
 
-
-	function ongetprotected() {
-		$this->init_input();
-		$protectedmembers = $this->db->fetch_all("SELECT uid,username FROM ".UC_DBTABLEPRE."protectedmembers GROUP BY username");
-		return $protectedmembers;
+	function get_total_num($sqladd = '') {
+		$data = $this->db->result_first("SELECT COUNT(*) FROM ".UC_DBTABLEPRE."members $sqladd");
+		return $data;
 	}
 
-	function ondelete() {
-		$this->init_input();
-		$uid = $this->input('uid');
-		return $_ENV['user']->delete_user($uid);
+	function get_list($page, $ppp, $totalnum, $sqladd) {
+		$start = $this->base->page_get_start($page, $ppp, $totalnum);
+		$data = $this->db->fetch_all("SELECT * FROM ".UC_DBTABLEPRE."members $sqladd LIMIT $start, $ppp");
+		return $data;
 	}
 
-	function onaddprotected() {
-		$this->init_input();
-		$username = $this->input('username');
-		$admin = $this->input('admin');
-		$appid = $this->app['appid'];
-		$usernames = (array)$username;
-		foreach($usernames as $username) {
-			$user = $_ENV['user']->get_user_by_username($username);
-			$uid = $user['uid'];
-			$this->db->query("REPLACE INTO ".UC_DBTABLEPRE."protectedmembers SET uid='$uid', username='$username', appid='$appid', dateline='{$this->time}', admin='$admin'", 'SILENT');
+	function name2id($usernamesarr) {
+		$usernamesarr = uc_addslashes($usernamesarr, 1, TRUE);
+		$usernames = $this->base->implode($usernamesarr);
+		$query = $this->db->query("SELECT uid FROM ".UC_DBTABLEPRE."members WHERE username IN($usernames)");
+		$arr = array();
+		while($user = $this->db->fetch_array($query)) {
+			$arr[] = $user['uid'];
 		}
-		return $this->db->errno() ? -1 : 1;
+		return $arr;
 	}
 
-	function ondeleteprotected() {
-		$this->init_input();
-		$username = $this->input('username');
-		$appid = $this->app['appid'];
-		$usernames = (array)$username;
-		foreach($usernames as $username) {
-			$this->db->query("DELETE FROM ".UC_DBTABLEPRE."protectedmembers WHERE username='$username' AND appid='$appid'");
+	function id2name($uidarr) {
+		$arr = array();
+		$query = $this->db->query("SELECT uid, username FROM ".UC_DBTABLEPRE."members WHERE uid IN (".$this->base->implode($uidarr).")");
+		while($user = $this->db->fetch_array($query)) {
+			$arr[$user['uid']] = $user['username'];
 		}
-		return $this->db->errno() ? -1 : 1;
+		return $arr;
 	}
 
-	function onmerge() {
-		$this->init_input();
-		$oldusername = $this->input('oldusername');
-		$newusername = $this->input('newusername');
-		$uid = $this->input('uid');
-		$password = $this->input('password');
-		$email = $this->input('email');
-		if(($status = $this->_check_username($newusername)) < 0) {
-			return $status;
+	function quescrypt($questionid, $answer) {
+		return $questionid > 0 && $answer != '' ? substr(md5($answer.md5($questionid)), 16, 8) : '';
+	}
+
+	function can_do_login($username, $ip = '') {
+
+		$check_times = $this->base->settings['login_failedtime'] < 1 ? 5 : $this->base->settings['login_failedtime'];
+
+		$username = substr(md5($username), 8, 15);
+		$expire = 15 * 60;
+		if(!$ip) {
+			$ip = $this->base->onlineip;
 		}
-		$uid = $_ENV['user']->add_user($newusername, $password, $email, $uid);
-		$this->db->query("DELETE FROM ".UC_DBTABLEPRE."mergemembers WHERE appid='".$this->app['appid']."' AND username='$oldusername'");
-		return $uid;
-	}
 
-	function onmerge_remove() {
-		$this->init_input();
-		$username = $this->input('username');
-		$this->db->query("DELETE FROM ".UC_DBTABLEPRE."mergemembers WHERE appid='".$this->app['appid']."' AND username='$username'");
-		return NULL;
-	}
-
-	function _check_username($username) {
-	    if (preg_match('^wx:', $username))
-	    {
-	        return 1;
-	    }
-	    
-		$username = addslashes(trim(stripslashes($username)));
-		if(!$_ENV['user']->check_username($username)) {
-			return UC_USER_CHECK_USERNAME_FAILED;
-		} elseif(!$_ENV['user']->check_usernamecensor($username)) {
-			return UC_USER_USERNAME_BADWORD;
-		} elseif($_ENV['user']->check_usernameexists($username)) {
-			return UC_USER_USERNAME_EXISTS;
+		$ip_check = $user_check = array();
+		$query = $this->db->query("SELECT * FROM ".UC_DBTABLEPRE."failedlogins WHERE ip='".$ip."' OR ip='$username'");
+		while($row = $this->db->fetch_array($query)) {
+			if($row['ip'] === $username) {
+				$user_check = $row;
+			} elseif($row['ip'] === $ip) {
+				$ip_check = $row;
+			}
 		}
-		return 1;
-	}
 
-	function _check_email($email, $username = '') {
-		if(empty($this->settings)) {
-			$this->settings = $this->cache('settings');
+		if(empty($ip_check) || ($this->base->time - $ip_check['lastupdate'] > $expire)) {
+			$ip_check = array();
+			$this->db->query("REPLACE INTO ".UC_DBTABLEPRE."failedlogins (ip, count, lastupdate) VALUES ('{$ip}', '0', '{$this->base->time}')");
 		}
-		if(!$_ENV['user']->check_emailformat($email)) {
-			return UC_USER_EMAIL_FORMAT_ILLEGAL;
-		} elseif(!$_ENV['user']->check_emailaccess($email)) {
-			return UC_USER_EMAIL_ACCESS_ILLEGAL;
-		} elseif(!$this->settings['doublee'] && $_ENV['user']->check_emailexists($email, $username)) {
-			return UC_USER_EMAIL_EXISTS;
-		} else {
-			return 1;
+
+		if(empty($user_check) || ($this->base->time - $user_check['lastupdate'] > $expire)) {
+			$user_check = array();
+			$this->db->query("REPLACE INTO ".UC_DBTABLEPRE."failedlogins (ip, count, lastupdate) VALUES ('{$username}', '0', '{$this->base->time}')");
 		}
+
+		if ($ip_check || $user_check) {
+			$time_left = min(($check_times - $ip_check['count']), ($check_times - $user_check['count']));
+			return $time_left;
+
+		}
+
+		$this->db->query("DELETE FROM ".UC_DBTABLEPRE."failedlogins WHERE lastupdate<".($this->base->time - ($expire + 1)), 'UNBUFFERED');
+
+		return $check_times;
 	}
 
-	function onuploadavatar() {
+	function loginfailed($username, $ip = '') {
+		$username = substr(md5($username), 8, 15);
+		if(!$ip) {
+			$ip = $this->base->onlineip;
+		}
+		$this->db->query("UPDATE ".UC_DBTABLEPRE."failedlogins SET count=count+1, lastupdate='".$this->base->time."' WHERE ip='".$ip."' OR ip='$username'");
 	}
 
-	function onrectavatar() {
-	}
-	function flashdata_decode($s) {
-	}
 }
-
-?>
