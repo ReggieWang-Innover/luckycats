@@ -33,7 +33,7 @@ if (window.screen.width < 1280)
       <h3 class="title">{insert name='cat_name' id=$category}</h3>
     </div>    
   </div>
-  <!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem --> </div>
+  <!-- #BeginLibraryItem "/library/goods_list_cat.lbi" --><!-- #EndLibraryItem --> </div>
 <!-- #BeginLibraryItem "/library/shop_alert.lbi" --><!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <!-- .site-footer END -->
