@@ -1868,7 +1868,6 @@ a:hover,a:focus {
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
-	width:270px;
 	text-align:center
 }
 .xm-goods-item .item-title a {
