@@ -1851,7 +1851,7 @@ a:hover,a:focus {
 }
 .xm-goods-item .item-thumb {
 	height:200px;
-	padding:0 0 10px;
+	padding:0 0 20px;
 	text-align:center
 }
 .xm-goods-item .item-thumb img {
@@ -1868,7 +1868,8 @@ a:hover,a:focus {
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	overflow:hidden;
-	_zoom:1
+	width:270px;
+	text-align:center
 }
 .xm-goods-item .item-title a {
 	color:#333
@@ -1879,7 +1880,8 @@ a:hover,a:focus {
 }
 .xm-goods-item .item-price {
 	height:21px;
-	padding:0 10px
+	padding:0 10px;
+	text-align:center
 }
 .xm-goods-item .item-price .sep {
 	margin:0 10px;
@@ -1900,7 +1902,8 @@ a:hover,a:focus {
 	padding:0 10px 19px;
 	border-bottom:1px solid #dfdfdf;
 	font-size:12px;
-	color:#8c8c8c
+	color:#8c8c8c;
+	text-align:center
 }
 .xm-goods-item .item-star .icon-stat {
 	position:relative;
