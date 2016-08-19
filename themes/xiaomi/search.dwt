@@ -96,7 +96,7 @@ function search_order(sort){
               <div class="xm-goods-item">
                 <div class="item-thumb"> <a href="{$goods.url}"> <img src="{$goods.goods_thumb}" alt="{$goods.goods_name} " /> </a> </div>
                 <div class="item-info">
-                  <h3 class="item-title"> <a href="{$goods.url}">{$goods.goods_name}</a> </h3>
+                  <div class="item-title"> <a href="{$goods.url}">{$goods.goods_name}</a> </div>
                   <div class="item-price"> <!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--><span class="sep">|</span><del>{$goods.market_price}</del> </div>
                   <div class="item-star"> <span class="icon-stat icon-stat-5"></span> <span class="item-comments">{insert name='goods_comment' id=$goods.goods_id}人评价</span> </div>
                   <div class="item-actions"> <a onclick="getmousepos(event)" class="btn btn-small btn-primary J_addCart" href="javascript:addToCart({$goods.goods_id})"><i class="iconfont">&#xe624;</i>购物车</a> <a class="btn btn-dake btn-small J_addFav" href="javascript:collect({$goods.goods_id});"><i class="iconfont">&#xe60a;</i>收藏</a> </div>

@@ -72,7 +72,7 @@ if (window.screen.width < 1280)
               <div class="xm-goods-item">
                 <div class="item-thumb"> <a href="{$goods.url}"> <img src="{$goods.goods_thumb}" alt="{$goods.goods_name} " /> </a> </div>
                 <div class="item-info">
-                  <span class="item-title"> <a href="{$goods.url}">{$goods.goods_name}</a> </span>
+                  <div class="item-title"> <a href="{$goods.url}">{$goods.goods_name}</a> </div>
                   <div class="item-price"> {$lang.exchange_integral}<font class="shop_s">{$goods.exchange_integral}</font></div>
                   <div class="item-star"> <span class="icon-stat icon-stat-5"></span> <span class="item-comments">{insert name='goods_comment' id=$goods.goods_id}人评价</span> </div>
                   <div class="item-actions"> <a  href="{$goods.url}" class="btn btn-small btn-primary J_addCart"><i class="iconfont">&#xe624;</i>查看详细</a> <a class="btn btn-dake btn-small J_addFav" href="javascript:collect({$goods.goods_id});"><i class="iconfont">&#xe60a;</i>收藏</a> </div>
