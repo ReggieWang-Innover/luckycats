@@ -83,7 +83,7 @@ document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/9
     </div>
   </div>
   <div class="header-nav clearfix">
-    <div id="J_categoryContainer" class="nav-category"> <a class="btn-category-list" href="catalog.php">全部商品分类</a>
+    <div id="J_categoryContainer" class="nav-category"> <a class="btn-category-list" href="catalog.php">幸运土猫</a>
       <div class="nav-category-section" style="display: none;">
         <ul class="nav-category-list">
           <!--{foreach from=get_categories_tree() item=cat name=cat_tree}-->

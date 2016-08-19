@@ -399,7 +399,13 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
     assign_dynamic('category'); // 动态内容
 }
 
-$smarty->display('category.dwt', $cache_id);
+if ($cat_id == 1)
+{
+    $smarty->display('category_cat.dwt', $cache_id);
+}
+else {
+    $smarty->display('category.dwt', $cache_id);
+}
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION
