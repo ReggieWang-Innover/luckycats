@@ -31,7 +31,25 @@ if (window.screen.width < 1280)
   <div class="xm-line-box filter-box">
     <div class="box-hd">
       <h3 class="title">{insert name='cat_name' id=$category}</h3>
-    </div>    
+    </div>
+    <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+    <div class="box-bd">
+      <div class="filter-lists">
+        <!--{foreach from=$filter_attr_list item=filter_attr}-->
+        <dl class="xm-filter-list  category-filter-list clearfix">
+          <dt>{$filter_attr.filter_attr_name|escape:html} </dt>
+          <dd>
+            <ul id="typeAdapt" class="clearfix">
+              <!--{foreach from=$filter_attr.attr_list item=attr name=filter_attr}-->
+              <li class="{if $smarty.foreach.filter_attr.iteration eq 1}first{/if} {if $attr.selected}current{/if}"> <a href="{$attr.url}">{$attr.attr_value}</a> </li>
+              <!--{/foreach}-->
+            </ul>
+          </dd>
+        </dl>
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!-- {/if} -->
   </div>
   <!-- #BeginLibraryItem "/library/goods_list_cat.lbi" --><!-- #EndLibraryItem --> </div>
 <!-- #BeginLibraryItem "/library/shop_alert.lbi" --><!-- #EndLibraryItem -->
