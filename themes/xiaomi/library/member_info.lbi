@@ -13,8 +13,10 @@
  <span class="sep">|</span>
  <a href="user.php?act=register">注册</a>
  <span class="sep">|</span>
- <a href="user.php?act=oath&type=qq"><img src="images/qq_logo_16.png"></a>
+<!--
+<a href="user.php?act=oath&type=qq"><img src="images/qq_logo_16.png"></a>
 <a href="user.php?act=oath&type=weibo"><img src="images/sina_login_16.png"></a>
 <a href="user.php?act=oath&type=alipay"><img src="images/alipay_logo_16.gif"></a>
 <a href="user.php?act=oath&type=taobao"><img src="images/taobao_logo_16.gif"></a>
+-->
 {/if}

@@ -12,8 +12,10 @@
  <span class="sep">|</span>
  <a href="user.php?act=register">注册</a>
  <span class="sep">|</span>
+<!--
  <a href="user.php?act=oath&type=qq"><img src="themes/xiaomi/images/qq_logo_16.png"></a>
 <a href="user.php?act=oath&type=weibo"><img src="themes/xiaomi/images/sina_login_16.png"></a>
 <a href="user.php?act=oath&type=alipay"><img src="themes/xiaomi/images/alipay_logo_16.gif"></a>
 <a href="user.php?act=oath&type=taobao"><img src="themes/xiaomi/images/taobao_logo_16.gif"></a>
+-->
 <?php endif; ?>

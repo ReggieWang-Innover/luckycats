@@ -68,14 +68,14 @@ document.write("<link rel='stylesheet' type='text/css' href='themes/xiaomi/css/9
                 <tbody><tr>
                   <td height="30" colspan="4" style="padding-bottom:15px">使用合作网站账号登录：</td>
                 </tr>
+                <!--
                 <tr>
-                  <td><a href="user.php?act=oath&type=qq"><img src="images/qq_login.gif"/></a>
-</td>
-                                   <td><a href="user.php?act=oath&type=weibo"><img src="images/sina_login_logo.gif"/></a>
-</td>                  <td><a href="user.php?act=oath&type=alipay"><img src="images/alipay_login.png"/></a>
-</td><td><a href="user.php?act=oath&type=taobao"><img src="images/taobao_login.gif"/></a>
-</td>
+                  <td><a href="user.php?act=oath&type=qq"><img src="images/qq_login.gif"/></a></td>
+                  <td><a href="user.php?act=oath&type=weibo"><img src="images/sina_login_logo.gif"/></a></td>
+                  <td><a href="user.php?act=oath&type=alipay"><img src="images/alipay_login.png"/></a></td>
+                  <td><a href="user.php?act=oath&type=taobao"><img src="images/taobao_login.gif"/></a></td>
                 </tr>
+                -->
               </tbody>
 			  </table>
             </div>
