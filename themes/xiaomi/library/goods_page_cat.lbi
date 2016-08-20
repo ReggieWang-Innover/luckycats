@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- S 面包屑 -->
-<div class="container breadcrumbs"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<div class="container breadcrumbs">{include file='library/ur_here.lbi '}</div>
 <!-- E 面包屑 -->
 <div class="goods-detail container">
   <div class="goods-detail-info row clearfix">
@@ -108,12 +108,12 @@
 	
 	
   </div>
-  <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
+  {include file='library/goods_fittings.lbi '}
   <div class="row goods-detail-desc">
     
     <!--S left side-->
     <div class="span5">
-  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+    {include file='library/history.lbi '}
   <div class="xm-box goods-alsobuy xm-goods-side-list" id="goodsAlsoBuy">
     <div class="box-hd">
       <div class="title"> 买过的人还买了 </div>
@@ -180,7 +180,7 @@
 			var comment_rank = "{insert name='comments_rank' id=$id}";
 		</script>
       <!--S 商品评论 -->
-      <div id="ECS_COMMENT"><div id="goodsComment"> <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --></div></div>
+      {include file='library/comments.lbi '}
 
       <!--E 商品评论 -->
     
