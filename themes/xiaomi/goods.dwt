@@ -57,6 +57,9 @@ var jiangpeiKey={
 <!--{if $goods.cat_id neq 1}-->
 <!-- #BeginLibraryItem "/library/goods_page.lbi" -->
 <!-- #EndLibraryItem -->
+<!--{else}-->
+<!-- #BeginLibraryItem "/library/goods_page_cat.lbi" -->
+<!-- #EndLibraryItem -->
 <!--{/if}-->
 
 <div id="modal-faq" class="modal-faq modal hide">
