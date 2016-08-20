@@ -180,7 +180,7 @@
 			var comment_rank = "{insert name='comments_rank' id=$id}";
 		</script>
       <!--S 商品评论 -->
-      <div id="goodsComment"> <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --></div>
+      <div id="ECS_COMMENT"><div id="goodsComment"> <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --></div></div>
 
       <!--E 商品评论 -->
     
