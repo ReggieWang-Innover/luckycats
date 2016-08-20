@@ -370,7 +370,7 @@ else
 
     /* 获得符合条件的商品总数 */
     $sql   = "SELECT COUNT(*) FROM " .$ecs->table('goods'). " AS g ".
-        "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in ".
+        "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in AND g.cat_id <> 1".
         "AND (( 1 " . $categories . $keywords . $brand . $min_price . $max_price . $intro . $outstock ." ) ".$tag_where." )";
     $count = $db->getOne($sql);
 
@@ -389,7 +389,7 @@ else
                     "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ".
             "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in ".
                 "AND (( 1 " . $categories . $keywords . $brand . $min_price . $max_price . $intro . $outstock . " ) ".$tag_where." ) " .
-                "AND g.cat_id = 1 " . 
+                "AND g.cat_id <> 1 " . 
             "ORDER BY $sort $order";
     $res = $db->SelectLimit($sql, $size, ($page - 1) * $size);
 
