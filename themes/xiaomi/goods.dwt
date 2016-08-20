@@ -54,9 +54,10 @@ var jiangpeiKey={
 
 
 </script>
-
+<!--{if $goods.cat_id neq 1}-->
 <!-- #BeginLibraryItem "/library/goods_page.lbi" -->
 <!-- #EndLibraryItem -->
+<!--{/if}-->
 
 <div id="modal-faq" class="modal-faq modal hide">
   <div class="modal-header faq-header"> <a type="button" data-dismiss="modal" class="close"><i class="iconfont">&#xe617;</i></a>
