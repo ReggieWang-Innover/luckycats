@@ -98,12 +98,6 @@
 			changePrice();
 			}
 		  </script>
-		  <dd class="goods-info-head-colors clearfix" style=" border-top:0px"> <span>数量：</span>
-              <input type="text" value="1" style="width:50px" name="number" id="buy_num" maxlength="5" onblur="changePrice()" >
-			  
-			  <strong style="margin-left:20PX">{$lang.amount}：</strong><font id="ECS_GOODS_AMOUNT" style="font-size:18PX; color:#FF0000; font-weight:bold"></font>
-            </dd>
-            <dd class="goods-info-head-cart" id="goodsDetailBtnBox"> <a onclick="getmousepos(event)" href="javascript:addToCart({$goods.goods_id})" id="goodsDetailAddCartBtn" class="btn btn-primary goods-add-cart-btn"> <i class="iconfont ">&#xe624;</i>加入购物车</a> <a id="goodsDetailCollectBtn" href="javascript:collect({$goods.goods_id})" class="btn btn-dake  goods-collect-btn"> <i class="iconfont">&#xe60a;</i> </a> </dd>
           </dl>
         </dt>
 	  </form>	
