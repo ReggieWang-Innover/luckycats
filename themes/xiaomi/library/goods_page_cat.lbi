@@ -102,7 +102,7 @@
         </dt>
 	  </form>	
         <dd class="goods-info-head-intro"> </dd>
-        <dd class="goods-info-foot"> <span class="iconfont">&#xe602;</span> <a href="category.php?id={$goods.cat_id}">查看更多{insert name='cat_name' id=$goods.cat_id}</a> </dd>
+        <dd class="goods-info-foot"> <span class="iconfont">&#xe602;</span> <a href="category.php?id=1">查看更多待领养的猫咪</a> </dd>
       </dl>
     </div>
 	
@@ -143,7 +143,6 @@
             <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
             <li> <a href="#goodsParam">规格参数</a> </li>
             <li> <a href="#goodsComment">评价晒单</a> </li>
-    
             <li> <a href="#serQue">售后服务</a> </li>
           </ul>
         </div>
@@ -181,7 +180,7 @@
 			var comment_rank = "{insert name='comments_rank' id=$id}";
 		</script>
       <!--S 商品评论 -->
-      <div id="ECS_COMMENT"> <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --></div>
+      <div id="goodsComment"> <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem --></div>
 
       <!--E 商品评论 -->
     
