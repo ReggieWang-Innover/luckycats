@@ -838,6 +838,14 @@ a:hover,a:focus {
 	line-height:50px;
 	color:#333
 }
+.xm-line-box .box-hd .title_center {
+	margin:0;
+	font-size:18px;
+	font-weight:400;
+	line-height:50px;
+	color:#333;
+	text-align:center
+}
 .xm-line-box .box-hd .title small {
 	margin-left:10px;
 	font-size:12px

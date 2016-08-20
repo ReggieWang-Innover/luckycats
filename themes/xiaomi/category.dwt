@@ -29,7 +29,7 @@ if (window.screen.width < 1280)
 <div class="container">
   <div class="xm-line-box filter-box">
     <div class="box-hd">
-      <h3 class="title">{insert name='cat_name' id=$category}</h3>
+      <h3 class="title_center">{insert name='cat_name' id=$category}</h3>
     </div>
     <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
     <div class="box-bd">
