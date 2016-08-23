@@ -116,7 +116,7 @@
     <?php echo $this->fetch('library/history.lbi'); ?>
   <div class="xm-box goods-alsobuy xm-goods-side-list" id="goodsAlsoBuy">
     <div class="box-hd">
-      <div class="title"> 买过的人还买了 </div>
+      <div class="title"> 也许你也喜欢 </div>
     </div>
     <div class="box-bd">
       <ul>
