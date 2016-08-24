@@ -1388,6 +1388,9 @@ function get_cat_recommend_goods( $type = "", $cat_id = 0, $cat_num = 0, $brand 
 				$time = gmtime( );
 				$sql .= " AND is_promote = 1 AND promote_start_date <= '".$time."' AND promote_end_date >= '{$time}'";
 		}
+		
+		$sql .= " AND goods_type <> 1 ";
+		
 		$cats = get_children( $cat_id );
 		if ( !empty( $cats ) )
 		{
