@@ -445,7 +445,7 @@ function insert_menu_goods( $arr )
 						$temp = $index == 1 ? "class=\"first\"" : "";
 						$str .= "<li ".$temp."> <a class=\"item-detail\" href=\"".$row['url']."\"> <span class=\"title\" style=\"font-size:20px;\">".$row['name']."</span> <span class=\"desc\">".$row['brief']."</span>";
 						
-						if ($cat_id !== 1)
+						if ($cat_id != 1)
 						{
 						  $str .= " <span class=\"price\">售价<b>".$row['shop_price']."</b></span>";
 						}
