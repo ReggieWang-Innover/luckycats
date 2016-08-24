@@ -443,7 +443,13 @@ function insert_menu_goods( $arr )
 				{
 						$index += 1;
 						$temp = $index == 1 ? "class=\"first\"" : "";
-						$str .= "<li ".$temp."> <a class=\"item-detail\" href=\"".$row['url']."\"> <span class=\"title\" style=\"font-size:20px;\">".$row['name']."</span> <span class=\"desc\">".$row['brief']."</span> <span class=\"price\">售价<b>".$row['shop_price']."</b></span> <span class=\"thumb\"> <img src=\"".$row['thumb']."\"  style=\"width:160px; height:160px\" alt=\"".$row['name']."\"/> </span> </a> </li>";
+						$str .= "<li ".$temp."> <a class=\"item-detail\" href=\"".$row['url']."\"> <span class=\"title\" style=\"font-size:20px;\">".$row['name']."</span> <span class=\"desc\">".$row['brief']."</span>";
+						
+						if ($row['goods_type'] != 1)
+						{
+						  $str .= " <span class=\"price\">售价<b>".$row['shop_price']."</b></span>";
+						}
+						$str .= " <span class=\"thumb\"> <img src=\"".$row['thumb']."\"  style=\"width:160px; height:160px\" alt=\"".$row['name']."\"/> </span> </a> </li>";
 				}
 				$str .= "</ul></div>";
 		}
@@ -1356,7 +1362,7 @@ function get_cat_recommend_goods( $type = "", $cat_id = 0, $cat_num = 0, $brand 
 		$brand_where = 0 < $brand ? " AND g.brand_id = '".$brand."'" : "";
 		$price_where = 0 < $min ? " AND g.shop_price >= ".$min." " : "";
 		$price_where .= 0 < $max ? " AND g.shop_price <= ".$max." " : "";
-		$sql = "SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price,g.seller_note,g.is_shipping, ".( "IFNULL(mp.user_price, g.shop_price * '".$_SESSION['discount']."') AS shop_price, " )."(select AVG(r.comment_rank) from ".$GLOBALS['ecs']->table( "comment" )." as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from ".$GLOBALS['ecs']->table( "order_goods" )." as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name,b.brand_id,b.brand_logo FROM ".$GLOBALS['ecs']->table( "goods" )." AS g LEFT JOIN ".$GLOBALS['ecs']->table( "brand" )." AS b ON b.brand_id = g.brand_id LEFT JOIN ".$GLOBALS['ecs']->table( "member_price" )." AS mp ".( "ON mp.goods_id = g.goods_id AND mp.user_rank = '".$_SESSION['user_rank']."' " )."WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ".$brand_where.$price_where.$ext;
+		$sql = "SELECT g.goods_id, g.goods_name, g.goods_type, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price,g.seller_note,g.is_shipping, ".( "IFNULL(mp.user_price, g.shop_price * '".$_SESSION['discount']."') AS shop_price, " )."(select AVG(r.comment_rank) from ".$GLOBALS['ecs']->table( "comment" )." as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from ".$GLOBALS['ecs']->table( "order_goods" )." as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name,b.brand_id,b.brand_logo FROM ".$GLOBALS['ecs']->table( "goods" )." AS g LEFT JOIN ".$GLOBALS['ecs']->table( "brand" )." AS b ON b.brand_id = g.brand_id LEFT JOIN ".$GLOBALS['ecs']->table( "member_price" )." AS mp ".( "ON mp.goods_id = g.goods_id AND mp.user_rank = '".$_SESSION['user_rank']."' " )."WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ".$brand_where.$price_where.$ext;
 		$num = 0;
 		$type2lib = array( "best" => "recommend_best", "new" => "recommend_new", "hot" => "recommend_hot", "promote" => "recommend_promotion" );
 		if ( $cat_num == 0 )
