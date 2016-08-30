@@ -124,7 +124,7 @@
 	  <!--{foreach from=$related_goods item=releated_goods_data}-->
         <li> <a href="{$releated_goods_data.url}" target="_blank">
           <h2>{$releated_goods_data.short_name}</h2>
-          <h2>{if $releated_goods_data.promote_price neq 0}{$releated_goods_data.formated_promote_price}{else}{$releated_goods_data.shop_price}{/if}</h2>
+          <h2>{$releated_goods_data.brief}</h2>
           <div class="star"> <span class="icon-stat icon-stat-5"></span> </div>
           <img class="leftImg" src="{$releated_goods_data.goods_thumb}"  alt=""> </a>
 		  </li>

@@ -295,7 +295,7 @@ function get_linked_goods($goods_id)
 {
     $sql = 'SELECT g.goods_id, g.goods_name, g.goods_thumb, g.goods_img, g.shop_price AS org_price, ' .
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
-                'g.market_price, g.promote_price, g.promote_start_date, g.promote_end_date ' .
+                'g.market_price, g.promote_price, g.promote_start_date, g.promote_end_date, g.goods_brief ' .
             'FROM ' . $GLOBALS['ecs']->table('link_goods') . ' lg ' .
             'LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ON g.goods_id = lg.link_goods_id ' .
             "LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
@@ -316,7 +316,8 @@ function get_linked_goods($goods_id)
         $arr[$row['goods_id']]['market_price'] = price_format($row['market_price']);
         $arr[$row['goods_id']]['shop_price']   = price_format($row['shop_price']);
         $arr[$row['goods_id']]['url']          = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
-
+        $arr[$row['goods_id']]['brief']        = $row['goods_brief'];
+        
         if ($row['promote_price'] > 0)
         {
             $arr[$row['goods_id']]['promote_price'] = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
