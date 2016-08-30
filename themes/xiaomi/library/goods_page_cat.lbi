@@ -138,18 +138,14 @@
     <div class="span15">
     
       <!--S 规格-->
-      <div class="box-hd">
-        <ul class="items clearfix J_pro_related_btns">
-          <li class="current"> <a href="#goodsParam">基本信息</a> </li>
-          <li> <a href="#goodsDesc">猫咪介绍</a> </li>
-          <li> <a href="#goodsComment">围观点评</a> </li>
-          <li> <a href="#serQue">领养Q&amp;A</a> </li>
-        </ul>
-      </div>
-      
-      <div class="xm-box goods-detail-standard" id="goodsParam">
+      <div class="xm-box goods-detail-box" id="goodsParam">
         <div class="box-hd">
-          <div class="title">基本信息 </div>
+          <ul class="items clearfix J_pro_related_btns">
+            <li class="current"> <a href="#goodsParam">基本信息</a> </li>
+            <li> <a href="#goodsDesc">猫咪介绍</a> </li>
+            <li> <a href="#goodsComment">围观点评</a> </li>
+            <li> <a href="#serQue">领养Q&amp;A</a> </li>
+          </ul>
         </div>
         <div class="box-bd">
           <table>
