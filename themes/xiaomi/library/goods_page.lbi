@@ -125,17 +125,19 @@
 </div>
     <!--E left side-->
     <div class="span15">
-      <!-- 商品描述 -->
-      <div class="xm-box  goods-detail-box " id="goodsDetail">
+      <div class="xm-box goods-detail-box" id="goodsDescBegin">
         <div class="box-hd">
           <ul class="items clearfix J_pro_related_btns">
             <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
             <li> <a href="#goodsParam">规格参数</a> </li>
             <li> <a href="#goodsComment">评价晒单</a> </li>
-    
             <li> <a href="#serQue">售后服务</a> </li>
           </ul>
         </div>
+      </div>
+    
+      <!-- 商品描述 -->
+      <div class="xm-box  goods-detail-box " id="goodsDetail">
         <div class="box-bd" id="goodsDesc">
           
 		  {$goods.goods_desc}

@@ -137,7 +137,7 @@
     <!--E left side-->
     <div class="span15">
     
-      <div class="xm-box goods-detail-box" >
+      <div class="xm-box goods-detail-box" id="goodsDescBegin">
         <div class="box-hd">
           <ul class="items clearfix J_pro_related_btns">
             <li class="current"> <a href="#goodsParam">基本信息</a> </li>
