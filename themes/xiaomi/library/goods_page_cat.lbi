@@ -136,33 +136,31 @@
 </div>
     <!--E left side-->
     <div class="span15">
-      <!-- 商品描述 -->
-      <div class="xm-box  goods-detail-box " id="goodsDetail">
-        <div class="box-hd">
-          <ul class="items clearfix J_pro_related_btns">
-            <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
-            <li> <a href="#goodsParam">规格参数</a> </li>
-            <li> <a href="#goodsComment">评价晒单</a> </li>
-            <li> <a href="#serQue">售后服务</a> </li>
-          </ul>
-        </div>
-        <div class="box-bd" id="goodsDesc">
-          
-		  {$goods.goods_desc}
-		  
-        </div>
+      <div class="box-hd">
+        <ul class="items clearfix J_pro_related_btns">
+          <li class="current"> <a href="#goodsParam">基本信息</a> </li>
+          <li> <a href="#goodsDesc">猫咪介绍</a> </li>
+          <li> <a href="#goodsComment">围观点评</a> </li>
+          <li> <a href="#serQue">领养Q&amp;A</a> </li>
+        </ul>
       </div>
-      <!-- 商品描述 END-->
+      
       <!--S 规格-->
       <div class="xm-box goods-detail-standard" id="goodsParam">
         <div class="box-hd">
-          <div class="title"> 规格参数 </div>
+          <div class="title">基本信息 </div>
         </div>
         <div class="box-bd">
           <table>
             <thead>
             </thead>
             <tbody>
+              <tr>
+              <th></th>
+              <td>{$goods.goods_style_name}</td>
+              </tr>
+              
+            
 			<!-- {foreach from=$properties item=property_group key=key} -->
 			<!-- {foreach from=$property_group item=property} -->
               <tr>
@@ -175,38 +173,60 @@
           </table>
         </div>
       </div>
-      <!--E 规格-->
+      
+      <!--E 规格-->      
+      <!-- 商品描述 -->
+      <div class="xm-box  goods-detail-box " id="goodsDetail">
+        <div class="box-bd" id="goodsDesc">
+          
+		  {$goods.goods_desc}
+		  
+        </div>
+      </div>
+      <!-- 商品描述 END-->
+
 	  <script language="javascript">
 			var comment_rank = "{insert name='comments_rank' id=$id}";
-		</script>
+	  </script>
       <!--S 商品评论 -->
-      <?php echo $this->fetch('library/comments.lbi'); ?>
+      <div id="goodsComment">
+        <?php echo $this->fetch('library/comments.lbi'); ?>
+      </div>
 
       <!--E 商品评论 -->
     
       <!-- 常见问题 -->
-      <div class="common-question" style="margin-top:10px">
+      <div class="common-question" id="serQue" style="margin-top:10px">
         <div class="question-hd clearfix">
-          <div class="title_a"><a id="serQue">售后服务</a></div>
+          <div class="title_a"><a id="serQue">领养Q&amp;A</a></div>
           <div class="title_b"></div>
         </div>
         <div class="question-bd">
           <ul class="content">
             <li>
-              <h3>如何挑选商品？</h3>
-              <p>点击页面上方“加入购物车”按钮或页面下拉时顶部导航上的“加入购物车”按钮将商品加入购物车，再点击页面右上角的“购物车”前往购物车页面进行结算。</p>
+              <h3>领养猫咪需要付费吗？</h3>
+              <p>在幸运土猫领养猫咪是免费的。</p>
+              <p>为保证领养后猫咪的健康及安全，我们制定了《幸运土猫领养人条件及准则》，您可以参照该文件内容，按照指定渠道联系，就可以正式申请领养了。</p>
             </li>
             <li>
-              <h3>收藏商品功能</h3>
-              <p>点击“收藏按钮”后，按钮中的白心亮起,背景由黑色变为黄色代表收藏成功，再次点击取消收藏。您可在“个人中心”中的我的收藏查看所有收藏商品。</p>
+              <h3>怎样才能选择一个合适的猫咪伙伴？</h3>
+              <p>所有在幸运土猫领养中心等待领养的猫咪都有各自完备的领养资料：照片及领养介绍文章。您可以在详细浏览过这些资料后按照您的实际情况选择适合您家庭的猫咪。</p>
+              <p>您也可以将您的情况及要求写在领养申请表的最后，我们会帮助您选择一只合适的领养猫咪。  </p>
             </li>
             <li>
-              <h3>维修网点销售配件吗？</h3>
-              <p>所有授权维修网点具备维修手机标配里配件的功能，部分指定授权维修网点可销售标配及部分官网配件，具体销售的产品及价格请以修网点信息为准。</p>
+              <h3>为什么不能通过电话直接申请领养？</h3>
+              <p>幸运土猫是一个致力于流浪猫救助、领养的纯志愿者团体。所有的参与土猫各项管理工作的工作人员也都是完全义务服务的志愿者，都是利用自己在工作之余的时间来为幸运土猫服务的。</p>
+              <p>自2001年成立至今，由于种种原因，幸运土猫一直无法成为正式的公益性动物福利组织。也没有自己的办公室和专用的办公电话，因此，所有的救助工作都是通过网络来联系的。尤其是领养工作，对于领养细节的确认需要通过邮件用文字的形式传达出去，以确保信息的客观和准确。因此，希望大家能对幸运土猫多一分理解，而我们也会在今后的工作中努力完善各个方面，希望能在大家的支持下，帮助更多的猫咪重新拥有幸福的生活！ </p>
             </li>
             <li>
-              <h3>退换货办理流程</h3>
-              <p>您可拨打小米客服中心400-100-5678与客服人员沟通，或登录小米网“我的订单” ->“订单详情”下方点击“申请售后服务”并填写相应信息，小米看到您的申请，会安排工作人员与您进行退换货质量确认并办理相关事宜.</p>
+              <h3>为什么不能先去寄养人家里看猫？</h3>
+              <p>幸运土猫是一个致力于流浪猫救助、领养的纯志愿者团体。所有等待领养的猫咪都生活在一个个寄养志愿者的家里。因为寄养志愿者的辛苦付出，寄养猫咪的健康和性格有了很好的保障，同时，寄养制度本身也将猫咪的生活也与寄养志愿者的生活完全的融为一体了。</p>
+              <p>为了确保寄养志愿者们的正常个人生活和工作不会过多的因为参与志愿寄养工作而被打搅，幸运土猫目前无法还提供在申请人确定领养前先去看猫的服务。我们会在您通过领养考察后根据您的要求为您安排上门看猫的环节，同时也希望您能够理解我们目前的这种做法的目的：将对寄养志愿者的不必要的打搅减少到最低。使更多的志愿者在保证正常生活和工作的前提下，能够持续为需要帮助的流浪猫咪提供可能的帮助。</p>
+            </li>
+            <li>
+              <h3>申请领养后，我何时可以收到土猫的回复？</h3>
+              <p>为了不打乱幸运土猫领养考察的顺序，幸运土猫负责猫咪领养考察的志愿工作人员会在每周一到周五的工作时间内回复前一天（周末）收到的全部领养申请。即您周一发的领养申请，幸运土猫的工作人员会在周二回复。</p>
+              <p>但是由于周六和周日幸运土猫的工作人员会休息，因此您在周末提交的申请幸运土猫可以收到，但这些申请会在周一被回复。</p>
             </li>
           </ul>
         </div>
@@ -231,10 +251,10 @@
         <div class="fr" id="goodsSubBarBtnBox"> <a href="javascript:addToCart({$goods.goods_id})" class="btn btn-primary goods-add-cart-btn" id="goodsSubBarAddCartBtn"> <i class="iconfont">&#xe624;</i>加入购物车</a> </div>
         <div class="goods-desc-menu" id="goodsSubMenu">
           <ul class="items clearfix J_pro_related_btns">
-            <li class="current"> <a href="#goodsDesc">详细信息</a> </li>
-            <li> <a href="#goodsParam">规格参数</a> </li>
-            <li> <a href="#goodsComment">评价晒单</a> </li>
-            <li> <a href="#serQue">售后服务</a> </li>
+            <li class="current"> <a href="#goodsParam">基本信息</a> </li>
+            <li> <a href="#goodsDesc">猫咪介绍</a> </li>
+            <li> <a href="#goodsComment">围观点评</a> </li>
+            <li> <a href="#serQue">领养Q&amp;A</a> </li>
           </ul>
         </div>
       </div>

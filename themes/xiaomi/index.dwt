@@ -65,7 +65,7 @@ if (window.screen.width < 1280)
       <div class="box-bd">
         <div class="xm-star-goods-list-wrap J_carouselWrap">
           <div class="xm-star-goods-list clearfix J_carouselList">
-		  <!--{foreach from=get_cat_best_goods_4(11) item=goods name=new_goods}-->
+		  <!--{foreach from=get_cat_best_goods_4(1) item=goods name=new_goods}-->
             <div class="xm-star-goods-item">
               <div class="item-content"> <span class="item-thumb"> <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.short_name|escape:html}" /></a> </span> <span class="item-title"><a href="{$goods.url}">{$goods.short_name|escape:html}</a></span> <span class="item-desc">{$goods.brief|escape:html}</span> </div>
             </div>
