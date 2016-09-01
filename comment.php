@@ -28,6 +28,8 @@ $_REQUEST['cmt'] = isset($_REQUEST['cmt']) ? json_str_iconv($_REQUEST['cmt']) : 
 $json   = new JSON;
 $result = array('error' => 0, 'message' => '', 'content' => '');
 
+$isCatComment = false;
+
 if (empty($_REQUEST['act']))
 {
     /*
@@ -51,7 +53,6 @@ if (empty($_REQUEST['act']))
     }
     else
     {
-        $isCatComment = false;
         $sql = "SELECT goods_id FROM " . $ecs->table('goods') . "WHERE goods_type = 1 AND goods_id = " . $cmt->id;
         $tmp = $db->getOne($sql);
         if (!empty($tmp))
@@ -269,7 +270,14 @@ if ($result['error'] == 0)
     }
 
     $result['message'] = $_CFG['comment_check'] ? $_LANG['cmt_submit_wait'] : $_LANG['cmt_submit_done'];
-    $result['content'] = $smarty->fetch("library/comments_list.lbi");
+    if ($isCatComment)
+    {
+        $result['content'] = $smarty->fetch("library/comments_list.lbi");
+    }
+    else 
+    {
+        $result['content'] = $smarty->fetch("library/comments_list.lbi");
+    }
 }
 
 echo $json->encode($result);
@@ -303,6 +311,7 @@ function add_comment($cmt)
 
     $result = $GLOBALS['db']->query($sql);
     clear_cache_files('comments_list.lbi');
+    clear_cache_files('comments_list_cat.lbi');
     /*if ($status > 0)
     {
         add_feed($GLOBALS['db']->insert_id(), COMMENT_GOODS);
