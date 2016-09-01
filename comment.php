@@ -272,7 +272,7 @@ if ($result['error'] == 0)
     $result['message'] = $_CFG['comment_check'] ? $_LANG['cmt_submit_wait'] : $_LANG['cmt_submit_done'];
     if ($isCatComment)
     {
-        $result['content'] = $smarty->fetch("library/comments_list.lbi");
+        $result['content'] = $smarty->fetch("library/comments_list_cat.lbi");
     }
     else 
     {
