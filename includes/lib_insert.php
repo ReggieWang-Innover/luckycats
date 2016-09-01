@@ -284,7 +284,7 @@ function insert_comments_cat($arr)
     $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
 
 
-    $val = $GLOBALS['smarty']->fetch('library/comments_list.lbi');
+    $val = $GLOBALS['smarty']->fetch('library/comments_list_cat.lbi');
 
     $GLOBALS['smarty']->caching = $need_cache;
     $GLOBALS['smarty']->force_compile = $need_compile;
