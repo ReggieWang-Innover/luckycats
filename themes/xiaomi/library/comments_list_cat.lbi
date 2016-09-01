@@ -175,6 +175,7 @@ function set_comment_rank()
 	
 }
 
+set_comment_rank();
 	  
 function submitComment(frm)
 {
