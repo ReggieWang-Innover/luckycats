@@ -189,7 +189,7 @@
 	  </script>
       <!--S 商品评论 -->
       <div id="goodsComment">
-        <?php echo $this->fetch('library/comments.lbi'); ?>
+        <div id="ECS_COMMENT">{insert name='comments_cat' type=$type id=$id}</div>
       </div>
 
       <!--E 商品评论 -->
