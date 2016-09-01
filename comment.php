@@ -51,6 +51,14 @@ if (empty($_REQUEST['act']))
     }
     else
     {
+        $isCatComment = false;
+        $sql = "SELECT goods_id FROM " . $ecs->table('goods') . "WHERE goods_type = 1 AND goods_id = " . $cmt->id;
+        $tmp = $db->getOne($sql);
+        if (!empty($tmp))
+        {
+            $isCatComment = true;
+        }
+        
         if ((intval($_CFG['captcha']) & CAPTCHA_COMMENT) && gd_version() > 0)
         {
             /* 检查验证码 */
@@ -63,9 +71,9 @@ if (empty($_REQUEST['act']))
                 $result['message'] = $_LANG['invalid_captcha'];
             }
             else
-            {
+            {   
                 $factor = intval($_CFG['comment_factor']);
-                if ($cmt->type == 0 && $factor > 0)
+                if ($cmt->type == 0 && $factor > 0 && !$isCatComment)
                 {
                     /* 只有商品才检查评论条件 */
                     switch ($factor)
@@ -154,7 +162,7 @@ if (empty($_REQUEST['act']))
             else
             {
                 $factor = intval($_CFG['comment_factor']);
-                if ($cmt->type == 0 && $factor > 0)
+                if ($cmt->type == 0 && $factor > 0 && !$isCatComment)
                 {
                     /* 只有商品才检查评论条件 */
                     switch ($factor)

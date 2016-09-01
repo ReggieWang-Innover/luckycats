@@ -151,8 +151,6 @@ var cmt = new Object;
 	  
 function submitComment(frm)
 {
-  
-
   //cmt.username        = frm.elements['username'].value;
   cmt.email           = 'catcomments@null.com';
   cmt.content         = frm.elements['content'].value;
