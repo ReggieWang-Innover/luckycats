@@ -98,6 +98,8 @@
 			changePrice();
 			}
 		  </script>
+		  
+		  <dd class="goods-info-head-cart" id="goodsDetailBtnBox"> <a onclick="getmousepos(event)" href="javascript:addToCart({$goods.goods_id})" id="goodsDetailAddCartBtn" class="btn btn-primary goods-add-cart-btn"> <i class="iconfont ">&#xe624;</i>加入购物车</a> <a id="goodsDetailCollectBtn" href="javascript:collect({$goods.goods_id})" class="btn btn-dake  goods-collect-btn"> <i class="iconfont">&#xe60a;</i> </a> </dd>
           </dl>
         </dt>
 	  </form>	
