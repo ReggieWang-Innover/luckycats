@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="xm-box goods-detail-comment " id="goodsComment">
   <div class="box-hd">
-    <div class="title"> 围观评论 </div>
+    <div class="title"> 用户评价 </div>
     <div class="more J_comment_order"> </div>
   </div>
   <div class="box-bd" id="J_goods_detail_comment">
@@ -36,7 +36,7 @@
 
             <div class="art_content"> {$comment.content} </div>
 			<!-- {if $comment.re_content} -->
-            <div class="art_reply"> <i>官方回复：</i>{$comment.re_content}</div>
+            <div class="art_reply"> <i>土猫义卖项目组回复：</i>{$comment.re_content}</div>
 			<!-- {/if} -->
           </div>
           <div class="head_photo"> <a ><img src="images/photo.jpg" alt=""></a> <a>
