@@ -77,7 +77,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
     $goods = $json->decode($_POST['goods']);
 
     /* 检查：如果商品有规格，而post的数据没有规格，把商品的规格属性通过JSON传到前台 */
-    /*if (empty($goods->spec) AND empty($goods->quick))
+    if (empty($goods->spec) AND empty($goods->quick))
     {
         $sql = "SELECT a.attr_id, a.attr_name, a.attr_type, ".
             "g.goods_attr_id, g.attr_value, g.attr_price " .
@@ -115,7 +115,7 @@ if ($_REQUEST['step'] == 'add_to_cart')
 
             die($json->encode($result));
         }
-    }*/
+    }
 
     /* 更新：如果是一步购物，先清空购物车 */
     if ($_CFG['one_step_buy'] == '1')
@@ -132,6 +132,13 @@ if ($_REQUEST['step'] == 'add_to_cart')
     /* 更新：购物车 */
     else
     {
+        if(!empty($goods->spec))
+        {
+            foreach ($goods->spec as  $key=>$val )
+            {
+                $goods->spec[$key]=intval($val);
+            }
+        }
         // 更新：添加到购物车
         if (addto_cart($goods->goods_id, $goods->number, $goods->spec, $goods->parent))
         {
@@ -777,9 +784,8 @@ elseif ($_REQUEST['step'] == 'checkout')
     if (empty($_SESSION['direct_shopping']) && $_SESSION['user_id'] == 0)
     {
         /* 用户没有登录且没有选定匿名购物，转向到登录页面 */
-		//注释掉 By zhangyh
-        //ecs_header("Location: flow.php?step=login\n");
-        //exit;
+        ecs_header("Location: flow.php?step=login\n");
+        exit;
     }
 
 	/* 取得省份列表 By zhangyh */
@@ -800,12 +806,11 @@ elseif ($_REQUEST['step'] == 'checkout')
     if (!check_consignee_info($consignee, $flow_type))
     {
         /* 如果不完整则转向到收货人信息填写界面 */
-		//注释掉 By zhangyh
-        //ecs_header("Location: flow.php?step=consignee\n");
-        //exit;
+        ecs_header("Location: flow.php?step=consignee\n");
+        exit;
     }
 
-    //$_SESSION['flow_consignee'] = $consignee;
+    $_SESSION['flow_consignee'] = $consignee;
     $smarty->assign('consignee', $consignee);
 
     /* 对商品信息赋值 */
