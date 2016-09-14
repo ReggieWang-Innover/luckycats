@@ -48,11 +48,11 @@
           </div>
         </div>
       </div>
-      <div class="span16">
-        <div class="m_reserver">
+      <div class="span15">
+        <div class="m_reserver" style="padding-left: 10px; color: #333;">
 			<h1 align="center"><span style="font-family:Microsoft YaHei;">领养之前，请听我娓娓道来</span></h1>
 			<hr>
-			<h3 align="left"><span style="font-size:16px;"><strong>首先，感谢您对幸运土猫的关注和信任！</strong></span></h3>
+			<h3 align="left"><span style="font-size:16px;color:#E53333;"><strong>首先，感谢您对幸运土猫的关注和信任！</strong></span></h3>
 			<p><br></p>
 			<p></p>
 			<hr>
