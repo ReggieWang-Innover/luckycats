@@ -37,6 +37,12 @@ $catadopt_id = isset($_REQUEST['catid'])  ? intval($_REQUEST['catid']) : 0;
 $action = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'adopt';
 $step = 0;
 
+assign_template();
+$position = assign_ur_here('adopt');
+$smarty->assign('page_title',       $position['title']);    // 页面标题
+$smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
+
+
 if (empty($_SESSION['user_id']))
 {
     //没有登陆，首先要求登陆
@@ -67,10 +73,6 @@ if ($action == 'adopt')
     {
         $info = $adoptor;
     }
-    
-    $position = assign_ur_here('adopt');
-    $smarty->assign('page_title',       $position['title']);    // 页面标题
-    $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
     
     $smarty->assign('adopt_info', $info);
     
