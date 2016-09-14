@@ -14,11 +14,9 @@
 {insert_scripts files='common.js,user.js,utils.js'} 
 </head>
 <body>
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!--当前位置 start-->
-<div class="block box">
- <div id="ur_here">
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
- </div>
+<div class="container breadcrumbs">
+<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+<!-- #EndLibraryItem -->
 </div>
+<!-- .breadcrumbs END -->
 </body>

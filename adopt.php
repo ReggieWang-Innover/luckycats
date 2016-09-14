@@ -77,7 +77,7 @@ if ($action == 'adopt')
     if ($info['adopt_step'] == 0)
     {
         //无状态，先进行认证
-        $sql = 'UPDATE'
+        $sql = 'UPDATE';
         $smarty->display('adopt_preadopt.dwt');
     }
 }

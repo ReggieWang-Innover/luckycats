@@ -250,9 +250,9 @@ function assign_ur_here($cat = 0, $str = '')
             }
             elseif ('adopt' == $filename)
             {
-                $pate_title = '申请领养_' . $page_title;
+                $page_title = '申请领养_' . $page_title;
                 $args = array('wsid' => '0');
-                $ur_here .= ' <code>%gt;</code> 申请领养';
+                $ur_here .= ' <code>&gt;</code> 申请领养';
             }
             /* 其他的在这里补充 */
         }
