@@ -15,12 +15,29 @@
 </head>
 
 <body>
+
+
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
 <div class="container breadcrumbs">
 <!-- #BeginLibraryItem "/library/ur_here.lbi" -->
 <!-- #EndLibraryItem -->
 </div>
-
 <!-- .breadcrumbs END -->
+
+<div class="container">
+  <div class="uc-full-box">
+    <div class="row">
+      <div class="span4">
+        <div class="uc-nav-box">
+          <div class="box-hd">
+            <h3 class="title">领养流程</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
