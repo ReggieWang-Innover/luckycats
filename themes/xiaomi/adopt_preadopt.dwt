@@ -32,17 +32,18 @@
         <div class="uc-nav-box">
           <div class="box-hd">
             <h3 class="title">领养流程</h3>
+            <h3 class="title"></h3>
           </div>
           <div class="box-bd">
             <ul class="uc-nav-list">
-              <li>领养之前</li>
-              <li>问卷调查</li>
-              <li>选择猫咪</li>
-              <li>在线沟通</li>
-              <li>面谈沟通</li>
-              <li>猫咪进家</li>
-              <li>领养回访</li>
-              <li>幸福一生</li>
+              <li class="title">领养之前</li>
+              <li class="title">问卷调查</li>
+              <li class="title">选择猫咪</li>
+              <li class="title">在线沟通</li>
+              <li class="title">面谈沟通</li>
+              <li class="title">猫咪进家</li>
+              <li class="title">领养回访</li>
+              <li class="title">幸福一生</li>
             </ul>
           </div>
         </div>
