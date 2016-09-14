@@ -29,13 +29,13 @@
   <div class="uc-full-box">
     <div class="row">
       <div class="span4">
-        <div class="uc-nav-box">
+        <div class="uc-adoptnav-box">
           <div class="box-hd">
             <h3 class="title">领养流程</h3>
             <h3 class="title"></h3>
           </div>
           <div class="box-bd">
-            <ul class="uc-nav-list">
+            <ul class="uc-adoptnav-list">
               <li class="title">领养之前</li>
               <li class="title">问卷调查</li>
               <li class="title">选择猫咪</li>
