@@ -50,13 +50,41 @@
       </div>
       <div class="span16">
         <div class="m_reserver">
-          <h1 align="center">
-	      <span style="font-family:Microsoft YaHei;">领养之前，请听我娓娓道来</span>
-          </h1>
-          <h3>
-	      <hr>
-	         <span style="font-size:18px;color:#E53333;">首先，感谢您对幸运土猫的关注和信任！</span><br>
-          </h3>			  
+			<h1 align="center"><span style="font-family:Microsoft YaHei;">领养之前，请听我娓娓道来</span></h1>
+			<hr>
+			<h3 align="left"><span style="font-size:16px;"><strong>首先，感谢您对幸运土猫的关注和信任！</strong></span></h3>
+			<p><br></p>
+			<p></p>
+			<hr>
+			<h3 align="left"><span style="font-size:16px;color:#003399;"><strong>接下来，为了确保领养沟通顺利进行，我们需要确认您的联系方式。</strong></span></h3>
+			<p><span style="font-size:14px;">您希望我们用何种方式将领养进展通知给您？</span></p>
+			<p><span style="font-size:14px;"></span><br></span></p>
+			<blockquote>
+				<p><span style="font-size:12px;"><strong>电子邮件 - </strong><em>我们将向您的注册邮箱（n****er@live.com)以发送领养进展信息</em></span></p>
+				<p><em><span style="font-size:12px;">您尚未注册电子邮件（立即注册）</span></em></p>
+				<p><span style="font-size:14px;"><br></span></p>
+				<p><span style="font-size:14px;"><strong>微信消息 - </strong><em><span style="font-size:12px;">我们将向您绑定的微信账号推送消息以发送领养进展信息</span></em><br></span></p>
+				<p><em><span style="font-size:12px;">您尚未绑定微信账户（如何绑定）</span></em></p>
+				<p><em><span style="font-size:12px;"><br></span></em></p>
+				<p><span style="font-size:12px;">
+					<strong><span style="font-size:14px;">验证码：</span></strong></span>
+						发送验证码
+				</p>
+				<p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
+				<p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span>	</p>
+				<p><span style="font-size:12px;"><em>验证码推送到您的微信账号中，请检查幸运土猫公众号推送的消息，并输入验证码。</em></span></p>
+				<p><span style="font-size:12px;"><br></span></p>
+			</blockquote>
+			<p></p><hr>
+			<p></p>
+			<h3><strong><span style="font-size:16px;color:#003399;">一切就绪，让我们开始吧！</span></strong></h3>
+			<p><span style="font-size:12px;"></span></p>
+			<blockquote>
+				<p><strong></strong></p>
+			</blockquote>
+			<blockquote>
+				<p><em><span style="font-size:12px;"></span></em><span style="font-size:14px;"><strong>开始领养</strong></span></p>
+			</blockquote>	  
 		</div>  
       </div>
     </div>
