@@ -36,17 +36,28 @@
           </div>
           <div class="box-bd">
             <ul class="uc-adoptnav-list">
-              <li class="title">领养之前</li>
-              <li class="title">问卷调查</li>
-              <li class="title">选择猫咪</li>
-              <li class="title">在线沟通</li>
-              <li class="title">面谈沟通</li>
-              <li class="title">猫咪进家</li>
-              <li class="title">领养回访</li>
-              <li class="title">幸福一生</li>
+              <li class="current">领养之前</li>
+              <li>问卷调查</li>
+              <li>选择猫咪</li>
+              <li>在线沟通</li>
+              <li>面谈沟通</li>
+              <li>猫咪进家</li>
+              <li>领养回访</li>
+              <li>幸福一生</li>
             </ul>
           </div>
         </div>
+      </div>
+      <div class="span16">
+        <div class="m_reserver">
+          <h1 align="center">
+	      <span style="font-family:Microsoft YaHei;">领养之前，请听我娓娓道来</span>
+          </h1>
+          <h3>
+	      <hr>
+	         <span style="font-size:18px;color:#E53333;">首先，感谢您对幸运土猫的关注和信任！</span><br>
+          </h3>			  
+		</div>  
       </div>
     </div>
   </div>
