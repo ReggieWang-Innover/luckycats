@@ -15,6 +15,14 @@
 
 define('IN_ECS', true);
 
+define('ADOPT_STEP_CONNECTINFO',      0); //填写联系信息
+define('ADOPT_STEP_USERSUVERY',       1); //填写调查问卷
+define('ADOPT_STEP_CATSELECT',        2); //选择待领养猫咪
+define('ADOPT_STEP_ADOPTAUDIT',       3); //沟通审核
+define('ADOPT_STEP_INTERVIEW',        4); //面谈
+define('ADOPT_STEP_ADOPTPREPARE',     5); //领养准备
+define('ADOPT_STEP_REPAYVISIT',       6); //回访
+
 require(dirname(__FILE__) . '/includes/init.php');
 
 if ((DEBUG_MODE & 2) != 2)
@@ -25,7 +33,9 @@ if ((DEBUG_MODE & 2) != 2)
 /*------------------------------------------------------ */
 //-- INPUT
 /*------------------------------------------------------ */
-$catadopt_id = isset($_REQUEST['id'])  ? intval($_REQUEST['id']) : 0;
+$catadopt_id = isset($_REQUEST['catid'])  ? intval($_REQUEST['catid']) : 0;
+$action = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'adopt';
+$step = 0;
 
 if (empty($_SESSION['user_id']))
 {
@@ -34,6 +44,43 @@ if (empty($_SESSION['user_id']))
     exit;
 }
 
-die("success");
+$userid = $_SESSION['user_id'];
+
+$info = array(
+    'user_id' => $userid,
+    'trusted_state' => 0,
+    'adopt_step' => ADOPT_STEP_CONNECTINFO,
+    'person_realname' => '',
+    'person_idnumber' => '',
+    'person_idcard_img' => '',
+    'person_detail_addr' => '',
+    'person_survey' => ''
+);
+
+if ($action == 'adopt')
+{
+    //领养申请
+    $sql = 'SELECT * FROM ' .$ecs->table('adoptor') . ' WHERE user_id = ' . $userid;
+    $adoptor = $db->GetRow($sql);
+    
+    if ($adoptor)
+    {
+        $info = $adoptor;
+    }
+    
+    $position = assign_ur_here('adopt');
+    $smarty->assign('page_title',       $position['title']);    // 页面标题
+    $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
+    
+    $smarty->assign('adopt_info', $info);
+    
+    if ($info['adopt_step'] == 0)
+    {
+        //无状态，先进行认证
+        $sql = 'UPDATE'
+        $smarty->display('adopt_preadopt.dwt');
+    }
+}
+
 
 ?>
