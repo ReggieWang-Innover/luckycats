@@ -65,10 +65,10 @@
 				<p>
 				  <!--{if $adopt_info.hasEmail}-->
 				  <input type="radio" name="connecttype" value="email"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
-				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息</em></span>
+				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息</em>
 				  <!--{else}-->
 				  <input type="radio" name="connecttype" value="email" disabled="disabled"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
-				  <em><span style="font-size:12px;">您尚未注册电子邮件（立即注册）</span></em>
+				  <em>您尚未注册电子邮件（立即注册）</em>
 				  <!--{/if}-->
 				</p>
 				<p><span style="font-size:14px;"><br></span></p>
@@ -78,7 +78,7 @@
 				  <em>我们将向您绑定的微信账号推送消息以发送领养进展信息</em></span>
 				  <!--{else}-->
 				  <input type="radio" name="connecttype" value="weixin" disabled="disabled"> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
-				  <em><span style="font-size:12px;">您尚未绑定微信账户（如何绑定）</span></em>
+				  <em>您尚未绑定微信账户（如何绑定）</em>
 				  <!--{/if}-->
 				</p>
 				<p><em><span style="font-size:12px;"><br></span></em></p>
