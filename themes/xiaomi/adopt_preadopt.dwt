@@ -62,7 +62,7 @@
 			<p><span style="font-size:14px;">您希望我们用何种方式将领养进展通知给您？</span></p>
 			<p><span style="font-size:14px;"></span><br></span></p>
 			<blockquote>
-				<p><span style="font-size:12px;"><strong>电子邮件 - </strong><em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息</em></span></p>
+				<p><input type="radio" name="connecttype" value="email"></input><span style="font-size:12px;"><strong>电子邮件 - </strong><em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息</em></span></p>
 				<p><em><span style="font-size:12px;">您尚未注册电子邮件（立即注册）</span></em></p>
 				<p><span style="font-size:14px;"><br></span></p>
 				<p><span style="font-size:14px;"><strong>微信消息 - </strong><em><span style="font-size:12px;">我们将向您绑定的微信账号推送消息以发送领养进展信息</span></em><br></span></p>
