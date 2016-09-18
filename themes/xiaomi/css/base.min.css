@@ -703,6 +703,11 @@ a:hover,a:focus {
 	color:#333;	background-color:#fafafa
 	}
 
+.uc-adoptnav-list li.finished {
+	padding-left:27px;border-left:3px solid #fe0083;	
+	color:#008000;	background-color:#fafafa
+	}
+
 .span3 {
 	width:186px;
 	float:left;

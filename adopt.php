@@ -46,11 +46,18 @@ $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 if (empty($_SESSION['user_id']))
 {
     //没有登陆，首先要求登陆
-    ecs_header("Location: user.php\n");
+    $smarty->display('adopt_loginuser.dwt');
     exit;
 }
 
 $userid = $_SESSION['user_id'];
+$userEmail = $_SESSION['email'];
+$hasEmail = !empty($userEmail) && substr($userEmail, -8) != '@wx.null';
+
+$sql = "SELECT wxid FROM " .$GLOBALS['ecs']->table('users'). " WHERE user_id = $userid";
+$wxid = $GLOBALS['db']->getOne($sql);
+$hasWxid = !empty($wxid);
+
 
 $info = array(
     'user_id' => $userid,
@@ -60,29 +67,46 @@ $info = array(
     'person_idnumber' => '',
     'person_idcard_img' => '',
     'person_detail_addr' => '',
-    'person_survey' => ''
+    'person_survey' => '',
+    'new_adoptor' => true
 );
+
+
+$sql = 'SELECT * FROM ' .$ecs->table('adoptor') . ' WHERE user_id = ' . $userid;
+$adoptor = $db->GetRow($sql);
+
+if ($adoptor)
+{
+    $info = $adoptor;
+}
+
+$info['hasEmail'] = $hasEmail;
+$info['hasWxid'] = $hasWxid;
+$info['userEmail'] = $userEmail;
 
 if ($action == 'adopt')
 {
     //领养申请
-    $sql = 'SELECT * FROM ' .$ecs->table('adoptor') . ' WHERE user_id = ' . $userid;
-    $adoptor = $db->GetRow($sql);
-    
-    if ($adoptor)
-    {
-        $info = $adoptor;
-    }
-    
     $smarty->assign('adopt_info', $info);
     
     if ($info['adopt_step'] == 0)
     {
         //无状态，先进行认证
-        $sql = 'UPDATE';
+        if ($info['new_adoptor'])
+        {
+            $sql = 'INSERT INTO ' . $ecs->table('adoptor') 
+                 . ' (user_id, trusted_state, adopt_step, person_realname, person_idnumber, person_idcard_img, person_detail_addr, person_survey)'
+                 . " VALUES ($userid, 0, 0, NULL, NULL, NULL, NULL, NULL)";
+            $db->query($sql);
+        }
+        
         $smarty->display('adopt_preadopt.dwt');
     }
 }
 
+if ($action == 'identifycode')
+{
+    
+}
 
 ?>
