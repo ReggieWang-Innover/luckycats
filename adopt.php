@@ -90,7 +90,8 @@ if ($adoptor)
 $info['hasEmail'] = $hasEmail;
 $info['hasWxid'] = $hasWxid;
 $info['userEmail'] = $userEmail;
-$info['identify_timeout'] = 0;
+$timeout = time() - $info['identify_time'];
+$info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
 
 if ($action == 'adopt')
 {
