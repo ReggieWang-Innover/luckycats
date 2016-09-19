@@ -103,7 +103,7 @@
 				<p><strong></strong></p>
 			</blockquote>
 			<blockquote>
-				<p><em><span style="font-size:12px;"></span></em><span style="font-size:14px;"><strong>开始领养</strong></span></p>
+				<p><a class="btn btn-primary" href="adopt.php?favcat={$adopt_info.favcat}">开始领养</a></p>
 			</blockquote>	  
 		</div>  
         </form>

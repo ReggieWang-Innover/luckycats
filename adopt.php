@@ -37,7 +37,7 @@ if ((DEBUG_MODE & 2) != 2)
 /*------------------------------------------------------ */
 //-- INPUT
 /*------------------------------------------------------ */
-$catadopt_id = isset($_REQUEST['catid'])  ? intval($_REQUEST['catid']) : 0;
+$favcat_id = isset($_REQUEST['favcat'])  ? intval($_REQUEST['favcat']) : 0;
 $action = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'adopt';
 $step = 0;
 
@@ -92,6 +92,7 @@ $info['hasWxid'] = $hasWxid;
 $info['userEmail'] = $userEmail;
 $timeout = time() - $info['identify_time'];
 $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
+$info['favcat'] = $favcat_id;
 
 if ($action == 'adopt')
 {
