@@ -147,14 +147,18 @@ if ($action == 'identify')
 
 function generateIdentifyCode($userid, $connecttype)
 {
-    $pattern = '0123456789abcdefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ';
     $code = '';
-    for ($i = 0; i < 6; $i++){
-        $code .= $pattern{mt_rand(0, 61)};
+    $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789abcdefghjkmnpqrstuvwxyz';
+    $max = strlen($chars) - 1;
+    
+    for ($i = 0; $i < 6; $i++) {
+        $code .= $chars[mt_rand(0, $max)];
     }
     
-    $timeout = time() + 86400;
-    $sql = "UPDATE " . $ecs->table('adoptor') . "SET person_connecttype = $connecttype, identify_code='$code', identify_time=$timeout WHERE user_id = $userid";
+    $now = time();
+    $sql = "UPDATE " . $ecs->table('adoptor') . "SET person_connecttype = $connecttype, identify_code='$code', identify_time=$now WHERE user_id = $userid";
+    $db->query($sql);
+    
     return $code;
 }
 
