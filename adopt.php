@@ -27,6 +27,7 @@ define('ADOPT_CONNECTTYPE_EMAIL',     0); //email 联系
 define('ADOPT_CONNECTTYPE_WEIXIN',    1); //weixin 联系
 
 require(dirname(__FILE__) . '/includes/init.php');
+require(ROOT_PATH . 'includes/cls_json.php');
 
 if ((DEBUG_MODE & 2) != 2)
 {
@@ -110,6 +111,7 @@ if ($action == 'adopt')
 
 if ($action == 'identify')
 {
+    $json   = new JSON;
     $result = array('success' => true);
     echo $json->encode($result);
 }
