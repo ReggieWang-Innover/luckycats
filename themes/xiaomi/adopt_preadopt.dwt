@@ -81,8 +81,8 @@
 				<p><em><span style="font-size:12px;"><br></span></em></p>
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
-					<input id="J_InputIdentifyCode" type="text" maxlength="6" style="width: 80px;"></input>
-					<input id="J_SendIdentifyCode" type="button" value="发送验证码" onClick="sendIdentifyCode();"></input>
+					<input id="J_InputIdentifyCode" type="text" maxlength="6" style="width: 80px;" oninput="$('#J_IdentifyCodeError').hide();" onpropertychange="$('#J_IdentifyCodeError').hide();"></input>
+					<input id="J_SendIdentifyCode" type="button" value="发送验证码" onclick="sendIdentifyCode();"></input>
 					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;" hidden="hidden">验证码错误，请重新输入或再次发送验证码</span>
 				</p>
 				<div id="J_IdentifyCodeSentByEmail" name="J_IdentifyCodeSentByEmail" hidden="hidden">
