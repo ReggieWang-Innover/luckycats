@@ -84,7 +84,8 @@
 				<p><em><span style="font-size:12px;"><br></span></em></p>
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
-						发送验证码
+					<input type="text"></input>
+					<input type="button">发送验证码</input>
 				</p>
 				<p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
 				<p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span>	</p>
