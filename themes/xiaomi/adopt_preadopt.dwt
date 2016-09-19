@@ -86,11 +86,11 @@
 					<input id="J_SendIdentifyCode" type="button" value="发送验证码"></input>
 					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;">验证码错误，请重新输入或再次发送验证码</span>
 				</p>
-				<div id="J_IdentifyCodeSentByEmail" name="J_IdentifyCodeSentByEmail">
+				<div id="J_IdentifyCodeSentByEmail" name="J_IdentifyCodeSentByEmail" hidden="hidden">
 				  <p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
 				  <p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span></p>
 				</div>
-				<div id="J_IdentifyCodeSentByWeixin">
+				<div id="J_IdentifyCodeSentByWeixin" hidden="hidden">
 				  <p><span style="font-size:12px;"><em>验证码推送到您的微信账号中，请检查幸运土猫公众号推送的消息，并输入验证码。</em></span></p>
 				</div>
 				<p><span style="font-size:12px;"><br></span></p>
