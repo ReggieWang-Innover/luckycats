@@ -24,6 +24,7 @@ $_LANG['mail_html'] = 'HTML 邮件';
 $_LANG['order_confirm'] = '订单确认模板';
 $_LANG['deliver_notice'] = '发货通知模板';
 $_LANG['send_password'] = '发送密码模板';
+$_LANG['adopt_connect_identify'] = '领养认证模板';
 $_LANG['order_cancel'] = '订单取消模板';
 $_LANG['order_invalid'] = '订单无效模板';
 $_LANG['send_bonus'] = '发送红包模板';

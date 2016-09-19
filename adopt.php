@@ -73,7 +73,9 @@ $info = array(
     'person_idcard_img' => '',
     'person_detail_addr' => '',
     'person_survey' => '',
-    'new_adoptor' => true
+    'identify_code' => '',
+    'identify_time' => 0,
+    'new_adoptor' => true,
 );
 
 
@@ -112,8 +114,48 @@ if ($action == 'adopt')
 if ($action == 'identify')
 {
     $json   = new JSON;
-    $result = array('success' => true);
+    
+    $smt = $GLOBALS['smarty'];
+    $identify_code = '';
+    $type = trim($_REQUEST['type']);
+    
+    $result = array('errorcode' => 'success', 'type' => $type);
+    
+    if ($type == 'email') {
+        if ($info['hasEmail']) {
+            $identify_code = generateIdentifyCode($userid, ADOPT_CONNECTTYPE_EMAIL);
+            $tpl = get_mail_template('adopt_connect_identify');
+            $smt->assign('identify_code', $identify_code);
+            $content = $smt->fetch('str:' . $tpl['template_content']);
+            
+            if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html']))
+            {
+                $result['errorcode'] = '邮件发送失败，请稍后再试';
+            }
+        } else {
+            $result['errorcode'] = '您尚未注册电子邮件';
+        }
+    }
+    elseif ($type == 'weixin') {
+    }
+    else {
+        
+    }
+    
     echo $json->encode($result);
+}
+
+function generateIdentifyCode($userid, $connecttype)
+{
+    $pattern = '0123456789abcdefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ';
+    $code = '';
+    for ($i = 0; i < 6; $i++){
+        $code .= $pattern{mt_rand(0, 61)};
+    }
+    
+    $timeout = time() + 86400;
+    $sql = "UPDATE " . $ecs->table('adoptor') . "SET person_connecttype = $connecttype, identify_code='$code', identify_time=$timeout WHERE user_id = $userid";
+    return $code;
 }
 
 ?>
