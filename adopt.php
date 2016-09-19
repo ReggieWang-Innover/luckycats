@@ -108,9 +108,10 @@ if ($action == 'adopt')
     }
 }
 
-if ($action == 'identifycode')
+if ($action == 'identify')
 {
-    
+    $result = array('success' => true);
+    echo $json->encode($result);
 }
 
 ?>

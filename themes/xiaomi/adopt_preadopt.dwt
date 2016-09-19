@@ -125,6 +125,11 @@ function submitAdoptConnect(frm)
 	return true;
 }
 
+function sendIdentifyResponse(result)
+{
+	$('#J_SendIdentifyCode').hide();
+}
+
 function sendIdentifyCode()
 {
 	var val=$('input:radio[name="connecttype"]:checked').val();
@@ -133,7 +138,15 @@ function sendIdentifyCode()
 		return;
 	}
 	
-	alert(val);
+	$.ajax({
+			type:"POST",
+			url:"adopt.php",
+			cache:false,
+			dataType:'json',     //接受数据格式
+			data:'act=identify&type=' + val,
+			success:sendIdentifyResponse
+			});
+
 }
 
 //]]>
