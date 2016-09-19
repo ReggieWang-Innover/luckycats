@@ -83,8 +83,8 @@
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
 					<input type="text" maxlength="6" style="width: 80px;"></input>
-					<input id="J_SendIdentifyCode" type="button" value="发送验证码"></input>
-					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;">验证码错误，请重新输入或再次发送验证码</span>
+					<input id="J_SendIdentifyCode" type="button" value="发送验证码" onClick="sendIdentifyCode();"></input>
+					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;" hidden="hidden">验证码错误，请重新输入或再次发送验证码</span>
 				</p>
 				<div id="J_IdentifyCodeSentByEmail" name="J_IdentifyCodeSentByEmail" hidden="hidden">
 				  <p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
@@ -124,6 +124,18 @@ function submitAdoptConnect(frm)
 {
 	return true;
 }
+
+function sendIdentifyCode()
+{
+	var val=$('input:radio[name="connecttype"]:checked').val();
+	if (val==null) {
+		alert("请选择您的联系方式");
+		return;
+	}
+	
+	alert(val);
+}
+
 //]]>
 </script>
 
