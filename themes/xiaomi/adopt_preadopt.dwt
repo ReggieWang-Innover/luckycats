@@ -50,7 +50,6 @@
         </div>
       </div>
       <div class="span15">
-        <form action="javascript:;" onsubmit="submitAdoptConnect(this)" method="post" name="connectForm" id="connectForm">
         <div class="m_reserver" style="padding-left: 10px; color: #333;">
 			<h1 align="center"><span style="font-family:Microsoft YaHei;">领养之前，请听我娓娓道来</span></h1>
 			<hr>
@@ -82,7 +81,7 @@
 				<p><em><span style="font-size:12px;"><br></span></em></p>
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
-					<input type="text" maxlength="6" style="width: 80px;"></input>
+					<input id="J_InputIdentifyCode" type="text" maxlength="6" style="width: 80px;"></input>
 					<input id="J_SendIdentifyCode" type="button" value="发送验证码" onClick="sendIdentifyCode();"></input>
 					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;" hidden="hidden">验证码错误，请重新输入或再次发送验证码</span>
 				</p>
@@ -103,10 +102,9 @@
 				<p><strong></strong></p>
 			</blockquote>
 			<blockquote>
-				<p><a class="btn btn-primary" href="adopt.php?favcat={$adopt_info.favcat}" onclick="return submitAdoptConnect();">开始领养</a></p>
+				<p><input type="button" id="J_IdentifySubmit" class="btn btn-primary" onclick="submitAdoptConnect();" value="开始领养"></input></p>
 			</blockquote>	  
 		</div>  
-        </form>
       </div>
     </div>
   </div>
@@ -155,6 +153,19 @@ setIdentifyTime({$adopt_info.person_connecttype});
 
 function submitAdoptConnect()
 {
+	var val=$('input:radio[name="connecttype"]:checked').val();
+	if (val==null) {
+		alert("请选择您的联系方式");
+		return false;
+	}
+	
+	var code=$('#J_InputIdentifyCode').val();
+	if (code.length != 6) {
+		$('#J_IdentifyCodeError').show();
+		return false;
+	}
+	
+	$('#J_IdentifySubmit').disable();
 	return false;
 }
 
@@ -165,6 +176,7 @@ function sendIdentifyResponse(result)
 		setIdentifyTime(result.type);		
 	} else {
 		alert(result.errorcode);
+		$('#J_SendIdentifyCode').removeAttr('disabled');
 	}
 }
 
@@ -175,6 +187,8 @@ function sendIdentifyCode()
 		alert("请选择您的联系方式");
 		return;
 	}
+	
+	$('#J_SendIdentifyCode').attr('disabled', true);
 	
 	$.ajax({
 			type:"POST",

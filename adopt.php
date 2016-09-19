@@ -90,7 +90,7 @@ if ($adoptor)
 $info['hasEmail'] = $hasEmail;
 $info['hasWxid'] = $hasWxid;
 $info['userEmail'] = $userEmail;
-$timeout = time() - $info['identify_time'];
+$timeout = 60 - (time() - $info['identify_time']);
 $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
 $info['favcat'] = $favcat_id;
 
