@@ -23,6 +23,9 @@ define('ADOPT_STEP_INTERVIEW',        4); //面谈
 define('ADOPT_STEP_ADOPTPREPARE',     5); //领养准备
 define('ADOPT_STEP_REPAYVISIT',       6); //回访
 
+define('ADOPT_CONNECTTYPE_EMAIL',     0); //email 联系
+define('ADOPT_CONNECTTYPE_WEIXIN',    1); //weixin 联系
+
 require(dirname(__FILE__) . '/includes/init.php');
 
 if ((DEBUG_MODE & 2) != 2)
@@ -63,6 +66,7 @@ $info = array(
     'user_id' => $userid,
     'trusted_state' => 0,
     'adopt_step' => ADOPT_STEP_CONNECTINFO,
+    'person_connecttype' => ADOPT_CONNECTTYPE_EMAIL,
     'person_realname' => '',
     'person_idnumber' => '',
     'person_idcard_img' => '',

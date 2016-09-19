@@ -63,7 +63,7 @@
 			<p><span style="font-size:14px;"></span><br></span></p>
 			<blockquote>
 				<p>
-				  <input id="J_ConnectByEmail" type="radio" name="connecttype" value="email" {if !$adopt_info.hasEmail}disabled="disabled"{/if}> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
+				  <input id="J_ConnectByEmail" type="radio" name="connecttype" value="email" {if !$adopt_info.hasEmail}disabled="disabled" {elseif $adopt_info.person_connecttype eq 0}checked {/if}> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <!--{if $adopt_info.hasEmail}-->
 				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
 				  <!--{else}-->
@@ -72,7 +72,7 @@
 				</p>
 				<p><span style="font-size:14px;"><br></span></p>
 				<p>
-				  <input id="J_ConnectByWeixin" type="radio" name="connecttype" value="weixin" {if !$adopt_info.hasWxid}disabled="disabled"{/if}> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
+				  <input id="J_ConnectByWeixin" type="radio" name="connecttype" value="weixin" {if !$adopt_info.hasWxid}disabled="disabled" {elseif $adopt_info.person_connecttype eq 1}checked {/if}> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
 				  <!--{if $adopt_info.hasWxid}-->
 				  <em>我们将向您绑定的微信账号推送消息以发送领养进展信息</em></span>
 				  <!--{else}-->
