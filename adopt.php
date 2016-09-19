@@ -147,6 +147,9 @@ if ($action == 'identify')
 
 function generateIdentifyCode($userid, $connecttype)
 {
+    global $ecs;
+    global $db;
+    
     $code = '';
     $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789abcdefghjkmnpqrstuvwxyz';
     $max = strlen($chars) - 1;
