@@ -65,7 +65,7 @@
 				<p>
 				  <!--{if $adopt_info.hasEmail}-->
 				  <input type="radio" name="connecttype" value="email"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
-				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息</em>
+				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
 				  <!--{else}-->
 				  <input type="radio" name="connecttype" value="email" disabled="disabled"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <em>您尚未注册电子邮件（立即注册）</em>
