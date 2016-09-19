@@ -114,11 +114,44 @@
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <script type="Text/Javascript" language="JavaScript">
 //<![CDATA[
-adoptConnectInit()
-           
-function adoptConnectInit()
-{
+var identifyTimeCount = {if $adopt_info.identify_timeout lt 60} {$adopt_info.identify_timeout} {else} 0 {/if};
+var identifyTimer;
+
+function onIdentifyTimer() {
+	if (identifyTimeCount > 0) {
+		identifyTimeCount--;
+	}
+	
+	if (identifyTimeCount > 0) {
+		$('#J_SendIdentifyCode').attr('disabled', true);
+		$('#J_SendIdentifyCode').val('发送验证码(' + identifyTimeCount + ')');
+	} else {
+		$('#J_SendIdentifyCode').val('发送验证码');
+		$('#J_SendIdentifyCode').removeAttr('disabled');
+		clearInterval(identifyTimer);
+	}
 }
+
+function setIdentifyTime(type)
+{
+	if (identifyTimeCount == 0) {
+		$('#J_IdentifyCodeSentByEmail').hide();
+		$('#J_IdentifyCodeSentByWeixin').hide();
+		return;
+	}
+	
+	if (type == 'email' || type == 0) {
+		$('#J_IdentifyCodeSentByEmail').show();
+		$('#J_IdentifyCodeSentByWeixin').hide();
+	} else if (type == 'weixin' || type == 1) {
+		$('#J_IdentifyCodeSentByEmail').hide();
+		$('#J_IdentifyCodeSentByWeixin').show();			
+	}
+	
+	identifyTimer = setInterval(onIdentifyTimer, 1000);
+}
+
+setIdentifyTime({$adopt_info.person_connecttype});
 
 function submitAdoptConnect(frm)
 {
@@ -127,7 +160,12 @@ function submitAdoptConnect(frm)
 
 function sendIdentifyResponse(result)
 {
-	alert(result.errorcode);
+	if (result.errorcode == 'success') {
+		identifyTimeCount = 60;
+		setIdentifyTime(result.type);		
+	} else {
+		alert(result.errorcode);
+	}
 }
 
 function sendIdentifyCode()
