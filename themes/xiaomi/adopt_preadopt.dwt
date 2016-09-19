@@ -103,7 +103,7 @@
 				<p><strong></strong></p>
 			</blockquote>
 			<blockquote>
-				<p><a class="btn btn-primary" href="adopt.php?favcat={$adopt_info.favcat}">开始领养</a></p>
+				<p><a class="btn btn-primary" href="adopt.php?favcat={$adopt_info.favcat}" onclick="return submitAdoptConnect();">开始领养</a></p>
 			</blockquote>	  
 		</div>  
         </form>
@@ -153,9 +153,9 @@ function setIdentifyTime(type)
 
 setIdentifyTime({$adopt_info.person_connecttype});
 
-function submitAdoptConnect(frm)
+function submitAdoptConnect()
 {
-	return true;
+	return false;
 }
 
 function sendIdentifyResponse(result)
