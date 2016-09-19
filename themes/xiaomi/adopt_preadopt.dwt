@@ -63,21 +63,19 @@
 			<p><span style="font-size:14px;"></span><br></span></p>
 			<blockquote>
 				<p>
+				  <input id="J_ConnectByEmail" type="radio" name="connecttype" value="email" {if !$adopt_info.hasEmail}disabled="disabled"{/if}> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <!--{if $adopt_info.hasEmail}-->
-				  <input type="radio" name="connecttype" value="email"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
 				  <!--{else}-->
-				  <input type="radio" name="connecttype" value="email" disabled="disabled"> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <em>您尚未注册电子邮件 （<a href="user.php?act=profile">立即注册</>）</em>
 				  <!--{/if}-->
 				</p>
 				<p><span style="font-size:14px;"><br></span></p>
 				<p>
+				  <input id="J_ConnectByWeixin" type="radio" name="connecttype" value="weixin" {if !$adopt_info.hasWxid}disabled="disabled"{/if}> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
 				  <!--{if $adopt_info.hasWxid}-->
-				  <input type="radio" name="connecttype" value="weixin"> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
 				  <em>我们将向您绑定的微信账号推送消息以发送领养进展信息</em></span>
 				  <!--{else}-->
-				  <input type="radio" name="connecttype" value="weixin" disabled="disabled"> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
 				  <em>您尚未绑定微信账户（如何绑定）</em>
 				  <!--{/if}-->
 				</p>
@@ -85,11 +83,16 @@
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
 					<input type="text" maxlength="6" style="width: 80px;"></input>
-					<input type="button" value="发送验证码"></input>
+					<input id="J_SendIdentifyCode" type="button" value="发送验证码"></input>
+					<span id="J_IdentifyCodeError" style="font-size:12px;color:#E53333;">验证码错误，请重新输入或再次发送验证码</span>
 				</p>
-				<p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
-				<p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span>	</p>
-				<p><span style="font-size:12px;"><em>验证码推送到您的微信账号中，请检查幸运土猫公众号推送的消息，并输入验证码。</em></span></p>
+				<div id="J_IdentifyCodeSentByEmail" name="J_IdentifyCodeSentByEmail">
+				  <p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
+				  <p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span></p>
+				</div>
+				<div id="J_IdentifyCodeSentByWeixin">
+				  <p><span style="font-size:12px;"><em>验证码推送到您的微信账号中，请检查幸运土猫公众号推送的消息，并输入验证码。</em></span></p>
+				</div>
 				<p><span style="font-size:12px;"><br></span></p>
 			</blockquote>
 			<p></p><hr>
@@ -110,10 +113,18 @@
 </div>
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <script type="Text/Javascript" language="JavaScript">
+//<![CDATA[
+adoptConnectInit()
+           
+function adoptConnectInit()
+{
+}
+
 function submitAdoptConnect(frm)
 {
 	return true;
 }
+//]]>
 </script>
 
 </body>
