@@ -100,7 +100,7 @@ if ($action == 'adopt')
     //领养申请
     $smarty->assign('adopt_info', $info);
     
-    if ($info['adopt_step'] == 0)
+    if ($info['adopt_step'] == ADOPT_STEP_CONNECTINFO)
     {
         //无状态，先进行认证
         if ($info['new_adoptor'])
@@ -112,6 +112,10 @@ if ($action == 'adopt')
         }
         
         $smarty->display('adopt_preadopt.dwt');
+    }
+    else if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
+    {
+        $smarty->display('adopt_usersuvery.dwt');
     }
 }
 else if ($action == 'identify')
