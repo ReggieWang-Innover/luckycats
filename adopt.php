@@ -92,6 +92,7 @@ $info['hasWxid'] = $hasWxid;
 $info['userEmail'] = $userEmail;
 $timeout = 60 - (time() - $info['identify_time']);
 $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
+
 $info['favcat'] = $favcat_id;
 
 if ($action == 'adopt')
@@ -152,8 +153,45 @@ else if ($action == 'verify')
     
     $type = trim($_REQUEST['type']);
     $code = trim($_REQUEST['code']);
-    
     $result = array('errorcode' => 'success');
+    $passtime = time() - $info['identify_time'];
+    
+    if (empty($info['identify_code']) || $passtime < 0 || $passtime > 86400)
+    {
+        $result['errorcode'] = '请首先选择联系方式并获取验证码';
+    }
+    else if ($type == 'email')
+    {
+        if ($info['person_connecttype'] != ADOPT_CONNECTTYPE_EMAIL)
+        {
+            $result['errorcode'] = '联系方式与认证码不符，请在修改联系方式后重新获取验证码';
+        }
+    }
+    else if ($type == 'weixin')
+    {
+        if ($info['person_connecttype'] != ADOPT_CONNECTTYPE_WEIXIN)
+        {
+            $result['errorcode'] = '联系方式与认证码不符，请在修改联系方式后重新获取验证码';
+        }
+    }
+    else
+    {
+        $result['errorcode'] = '请选择联系方式并获取验证码';
+    }
+    
+    if ($result['errorcode'] == 'success')
+    {
+        if ($info['identify_code'] != $code)
+        {
+            $result['errorcode'] = '验证码不匹配，请检查并重新输入验证码，或重新获取验证码';
+        }
+        else 
+        {
+            $nextStep = ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY) ? $info['adopt_step'] : ADOPT_STEP_USERSUVERY;
+            $sql = "UPDATE " . $ecs->table('adoptor') . "SET adopt_step = $nextStep WHERE user_id = $userid";
+            $db->query($sql);
+        }
+    }
     
     echo $json->encode($result);
 }
