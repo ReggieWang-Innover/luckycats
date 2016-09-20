@@ -113,8 +113,7 @@ if ($action == 'adopt')
         $smarty->display('adopt_preadopt.dwt');
     }
 }
-
-if ($action == 'identify')
+else if ($action == 'identify')
 {
     $json   = new JSON;
     
@@ -144,6 +143,17 @@ if ($action == 'identify')
     else {
         
     }
+    
+    echo $json->encode($result);
+}
+else if ($action == 'verify')
+{
+    $json   = new JSON;
+    
+    $type = trim($_REQUEST['type']);
+    $code = trim($_REQUEST['code']);
+    
+    $result = array('errorcode' => 'success');
     
     echo $json->encode($result);
 }

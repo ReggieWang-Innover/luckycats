@@ -151,10 +151,22 @@ function setIdentifyTime(type)
 
 setIdentifyTime({$adopt_info.person_connecttype});
 
+function submitAdoptConnectResponse(result)
+{
+	if (result.errorcode == 'success') {
+		location.reload(true);
+	}
+	else {
+		$('#J_IdentifyCodeError').show();
+		$('#J_IdentifySubmit').removeAttr('disabled');
+		return;
+	}
+}
+
 function submitAdoptConnect()
 {
-	var val=$('input:radio[name="connecttype"]:checked').val();
-	if (val==null) {
+	var type=$('input:radio[name="connecttype"]:checked').val();
+	if (type==null) {
 		alert("请选择您的联系方式");
 		return false;
 	}
@@ -165,7 +177,17 @@ function submitAdoptConnect()
 		return false;
 	}
 	
-	$('#J_IdentifySubmit').disable();
+	$('#J_IdentifySubmit').attr('disabled', true);
+	
+	$.ajax({
+		type:"POST",
+		url:"adopt.php",
+		cache:false,
+		dataType:'json',     //接受数据格式
+		data:'act=verify&type=' + type + '&code=' + code,
+		success:submitAdoptConnectResponse
+		});
+	
 	return false;
 }
 
