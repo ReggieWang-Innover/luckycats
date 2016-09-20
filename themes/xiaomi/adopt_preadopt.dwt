@@ -174,7 +174,6 @@ function submitAdoptConnect()
 	
 	var code=$('#J_InputIdentifyCode').val();
 	if (code.length != 6) {
-		alert($('#J_IdentifyCodeError').innerHTML);
 		$('#J_IdentifyCodeError').html("请输入收到的6位验证码");
 		$('#J_IdentifyCodeError').show();
 		return false;
