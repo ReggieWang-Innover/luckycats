@@ -129,8 +129,9 @@
 			<blockquote>
 				<p><input id="J_q6_sharerant" type="radio" name="q6" value="sharerant"></input>　合租，
 				   <span id="J_q6_sharerant_adds">共有&nbsp;
-				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;户合租在一套 居室的房子内，我租住的房间面积约&nbsp;
-				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="3" style="width: 40px;" numberonly="true"></input>&nbsp;平米
+				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;户合租在一套&nbsp; 
+				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;居室的房子内，我租住的房间面积约&nbsp;
+				     <input id="J_q6_sharerant_add3" type="text" name="q6_sharerant_add3" maxlength="3" style="width: 40px;" numberonly="true"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_singlerant" type="radio" name="q6" value="singlerant"></input>　独立整租， 平米
