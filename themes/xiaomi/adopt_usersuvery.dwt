@@ -63,8 +63,12 @@
 			<hr><p><br></p>
 			<p><span style="font-size:14px;color:#003399;">您的基本信息：</span></p>
 			<blockquote>
-				<p>真实姓名：</p>
-				<p>性别：年龄：</p>
+				<p>真实姓名：<input id="J_realName" name="realname" type="text" maxlength="15"></input></p>
+				<p>性别：
+				  <select id="J_gender">
+					<option value="male">男</option>
+					<option value="female">女</option>
+				  </select>年龄：</p>
 				<p>从事职业：月收入：</p>
 			    <p>现居住地址：</p>
 				<p>家中常驻人口：</p>
@@ -81,7 +85,7 @@
 				<p>亲朋好友</p>
 				<p>幸运土猫官网</p>
 				<p>电视/广播</p>
-				<p>纸媒（如报刊、杂志</p>
+				<p>纸媒（如报刊、杂志等）</p>
 				<p>其他，请注明：</p>
 				<p><br></p>
 			</blockquote>
