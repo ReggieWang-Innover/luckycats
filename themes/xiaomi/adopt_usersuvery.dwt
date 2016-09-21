@@ -109,26 +109,42 @@
 			<blockquote>
 				<p><input id="J_q4_single" type="radio" name="q4" value="single"></input>　单身</p>
 				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>　已婚，无孩</p>
-				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>　已婚，有孩，孩子的年龄是： 岁</p>
+				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>　已婚，有孩，孩子的年龄是：&nbsp;
+				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="text" name="q4_haskid_add1" maxlength="2" style="width: 30px;" numberonly="true"></input></span>&nbsp;岁</p>
 				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>　其他，请注明：
 				   <span id="J_q4_other_adds"><input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="30" style="width: 150px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您目前的居住状况是怎样的？</span></p>
+			<p><span id="J_q5" style="font-size:14px;color:#003399;">请问您目前的居住状况是怎样的？</span></p>
 			<blockquote>
-				<p>普通住宅楼</p>
-				<p>商住两用楼</p>
-				<p>平房</p>
-				<p>别墅</p>
-				<p>其他，请注明：</p>
+				<p><input id="J_q5_apartment" type="radio" name="q5" value="apartment"></input>　普通住宅楼</p>
+				<p><input id="J_q5_business" type="radio" name="q5" value="business"></input>　商住两用楼</p>
+				<p><input id="J_q5_bungalow" type="radio" name="q5" value="bungalow"></input>　平房</p>
+				<p><input id="J_q5_house" type="radio" name="q5" value="house"></input>　别墅</p>
+				<p><input id="J_q5_other" type="radio" name="q5" value="other"></input>　其他，请注明：
+				   <span id="J_q5_other_adds"><input id="J_q5_other_add1" type="text" name="q5_other_add1" maxlength="30" style="width: 150px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您对住所的所有情况是怎样的？</span></p>
+			<p><span id="J_q6" style="font-size:14px;color:#003399;">请问您对住所的所有情况是怎样的？</span></p>
 			<blockquote>
-				<p>合租，共有 户合租在一套 居室的房子内，我租住的房间面积约 平米
-				<p>独立整租，居室面积约 平米</p>
-				<p>居住于自有房产中，居室面积约 平米</p>
-				<p>其他，请注明：</p>
+				<p><input id="J_q6_sharerant" type="radio" name="q6" value="sharerant"></input>　合租，
+				   <span id="J_q6_sharerant_adds">共有&nbsp;
+				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;户合租在一套 居室的房子内，我租住的房间面积约&nbsp;
+				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="3" style="width: 40px;" numberonly="true"></input>&nbsp;平米
+				   </span>
+				</p>
+				<p><input id="J_q6_singlerant" type="radio" name="q6" value="singlerant"></input>　独立整租， 平米
+				   <span id="J_q6_singlerant_adds">居室面积约&nbsp;
+				     <input id="J_q6_singlerant_add1" type="text" name="q6_singlerant_add1" maxlength="4" style="width: 50px;" numberonly="true"></input>&nbsp;平米
+				   </span>
+				</p>
+				<p><input id="J_q6_ownedhome" type="radio" name="q6" value="ownedhome"></input>　居住于自有房产中，
+				  <span id="J_q6_ownedhome_adds">居室面积约&nbsp;
+				     <input id="J_q6_ownedhome_add1" type="text" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" numberonly="true"></input>&nbsp;平米
+				   </span>
+				</p>
+				<p><input id="J_q6_other" type="radio" name="q6" value="other"></input>　其他，请注明：
+				  <span id="J_q6_other_adds"><input id="J_q6_other_add1" type="text" name="q6_other_add1" maxlength="30" style="width: 150px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span style="font-size:14px;color:#003399;">请问您是否与 父母 / 配偶的父母 生活在一起？</span></p>
