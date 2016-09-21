@@ -63,16 +63,15 @@
 			<hr><p><br></p>
 			<p><span style="font-size:14px;color:#003399;">您的基本信息：</span></p>
 			<blockquote>
-				<p>真实姓名：<input id="J_RealName" name="realname" type="text" maxlength="15"></input></p>
-				<p>性别：<select id="J_Gender" name="gender">
+				<p>　　真实姓名：<input id="J_RealName" name="realname" type="text" maxlength="15"></input></p>
+				<p>　　　　性别：<select id="J_Gender" name="gender" style="width:60px">
 					<option value="male">男</option>
 					<option value="female">女</option>
-				  </select> 年龄：<input id="J_Age" name="age" type="text" maxlength="3"></input></p>
-				<p>从事职业：<input id="J_Job" name="job" type="text" maxlength="20"></input> 月收入：<input id="J_Income" name="income" type="text" maxlength="20"></input></p>
-			    <p>现居住地址：<input id="J_Address" name="address" type="text" maxlength="60"></input></p>
-				<p>家中常驻人口：<input id="J_HomeMumber" name="homemember" type="text" maxlength="2"></input></p>
-				<p>分别是：<input id="J_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
-				<p>联系电话：<input id="J_PhoneNumber" name="phonenumber" type="text" maxlength="13"></input></p> 
+				  </select>　年龄：<input id="J_Age" name="age" type="text" maxlength="3" style="width: 40px;"></input></p>
+				<p>　　从事职业：<input id="J_Job" name="job" type="text" maxlength="20"></input>　月收入：<input id="J_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
+			    <p>　现居住地址：<input id="J_Address" name="address" type="text" maxlength="60"  style="width: 240px;"></input></p>
+				<p>家中常驻人口：<input id="J_HomeMumber" name="homemember" type="text" maxlength="2" style="width: 30px;"></input>　分别是：<input id="J_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
+				<p>　　联系电话：<input id="J_PhoneNumber" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
 				<p><br></p>
 			</blockquote>
 			<p><span style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
