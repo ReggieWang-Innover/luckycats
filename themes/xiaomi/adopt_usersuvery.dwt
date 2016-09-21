@@ -50,6 +50,185 @@
         </div>
       </div>
       <div class="span15">
+      	<div class="m_reserver" style="padding-left: 10px; color: #333;">
+      	<h1 align="center">领养问卷</h1>
+			<h3><hr></h3>
+			<ul>
+				<li><span style="font-size:12px;"><em>这份问卷的完整填写和成功提交，是您提出领养申请<strong><span style="color:#E53333;">必备的先决条件</span></strong>。从幸运土猫领养猫咪完全是公益行为，<span style="color:#E53333;"><strong>您无需支付任何领养费用</strong></span>。</em></span></li>
+				<li><span style="font-size:12px;"><em>申请问卷主要涵盖了与猫咪领养相关的一些基本问题，仅用于幸运土猫对申请者真实情况的了解和记录，以便更顺利地进行进入下一步的领养沟通环节。<strong><span style="color:#E53333;">请放心，无论领养是否成功，幸运土猫都会妥善保管您的个人信息</span></strong>。</em></span></li>
+				<li><span style="font-size:12px;"><em>请您慎重思考并按照<strong><span style="color:#E53333;">自己的实际意愿</span></strong>完成问卷。所有答案并无对错之分，只代表作为申请者自身的看法以及与幸运土猫领养人这个角色的匹配程度。</em></span></li>
+				<li><span style="font-size:12px;color:#006600;"><em>相信朋友们都能够以最热忱认真的态度填好这份申请问卷。</em></span><br></li>
+			</ul>
+			<p><br></p>
+			<hr><p><br></p>
+			<p><span style="font-size:14px;color:#003399;">您的基本信息：</span></p>
+			<blockquote>
+				<p>真实姓名：</p>
+				<p>性别：年龄：</p>
+				<p>从事职业：月收入：</p>
+			    <p>现居住地址：</p>
+				<p>家中常驻人口：</p>
+				<p>分别是：</p>
+				<p>联系电话：</p> 
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
+			<blockquote>
+				<p>搜索平台</p>
+				<p>微博、博客</p>
+				<p>微信、朋友圈</p>
+				<p>淘宝、义卖</p>
+				<p>亲朋好友</p>
+				<p>幸运土猫官网</p>
+				<p>电视/广播</p>
+				<p>纸媒（如报刊、杂志</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您在北京生活了多长时间？</span></p>
+			<blockquote>
+				<p>已经在北京生活 年左右</p>
+				<p>从小一直在北京生活，老土著了喵~</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您是否有在北京长期定居的打算？</span></p>
+			<blockquote>
+				<p>是，我会一直在北京安家</p>
+				<p>否，我未来几年会离开北京，将来会在 生活（城市名</p>
+				<p>否，我目前不在北京，我在 生活（城市名）</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您目前的婚姻状况是怎样的？</span></p>
+			<blockquote>
+				<p>单身</p>
+				<p>已婚，无孩</p>
+				<p>已婚，有孩，孩子的年龄是： 岁</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您目前的居住状况是怎样的？</span></p>
+			<blockquote>
+				<p>普通住宅楼</p>
+				<p>商住两用楼</p>
+				<p>平房</p>
+				<p>别墅</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您对住所的所有情况是怎样的？</span></p>
+			<blockquote>
+				<p>合租，共有 户合租在一套 居室的房子内，我租住的房间面积约 平米
+				<p>独立整租，居室面积约 平米</p>
+				<p>居住于自有房产中，居室面积约 平米</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您是否与 父母 / 配偶的父母 生活在一起？</span></p>
+			<blockquote>
+				<p>是</p>
+				<p>否，我的父母生活在 （城市名）</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您的 房东 / 合租伙伴 对您计划领养猫咪持怎样的态度？</span></p>
+			<blockquote>
+				<p>同意</p>
+				<p>无所谓</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您的家人（父母/伴侣/配偶/子女）对您计划领养猫咪持怎样的态度？</span></p>
+			<blockquote>
+				<p>同意</p>
+				<p>无所谓</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您或家人是否有与猫咪一起生活的经历？</span></p>
+			<blockquote>
+				<p>有</p>
+				<p>没有</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问目前您目前常住的家中是否有猫？</span></p>
+			<blockquote>
+				<p>家中有猫： 只 ，已经和我一起生活的时间是： 年（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）</p>
+				<p>家中无猫，曾经养过猫。最近一次养猫的经历是 年前</p>
+				<blockquote>
+					<p>最近一次养猫的经历是 年前</p>
+					<p>离开时的年纪是： 岁</p>
+					<p>离开的原因是：</p>
+				</blockquote>
+				<p>家中无猫，未曾养过猫</p>
+				<p>其他，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问目前您自己常住的家中是否还有其他动物？</span></p>
+			<blockquote>
+				<p>没有</p>
+				<p>有，请注明：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问每年您全家超过3天的出行（探亲/旅游/出差，无人在家）的次数及猫咪安置计划是怎样的？</span></p>
+			<blockquote>
+				<p>出行次数约： 次</p>
+				<p>计划如何安置猫咪：</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您是否会让猫咪自行出门活动？</span></p>
+			<blockquote>
+				<p>会</p>
+			    <p>不会</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您计划为猫咪提供怎样的猫粮？</span></p>
+			<blockquote>
+				<p>输入</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您对猫咪免疫怎么看？</span></p>
+			<blockquote>
+				<p>猫咪每年都需要定期免疫 / 家中猫咪会定期免疫</p>
+				<p>不了解，但愿意领养后每年按时为猫咪免疫</p>
+				<p>猫咪没有必要定期免疫</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问您对猫咪绝育怎么看？</span></p>
+			<blockquote>
+				<p>理解并赞同猫咪绝育的必要性 / 家中猫咪已经绝育</p>
+				<p>不了解，但愿意为领养的猫咪及时完成绝育</p>
+				<p>猫咪没有必要绝育</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">您对怀孕期间养猫以及弓形虫问题有怎样的了解？</span></p>
+			<blockquote>
+				<p>输入</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">请问在未来的与猫咪一起的生活中，您觉得最困难的事情的什么？</span></p>
+			<blockquote>
+				<p>输入</p>
+				<p><br></p>
+			</blockquote>
+			<p><span style="font-size:14px;color:#003399;">最后，有关领养猫咪，您还想对幸运土猫说些什么呢？</span></p>
+			<blockquote>
+				<p>输入</p>
+				<p><br></p>
+			</blockquote>
+			<p></p><hr>
+			<p>
+				<br>
+			</p>
+			<h3>
+				一切就绪，让我们开始吧！
+			</h3>
+			<p><br></p>
+			<blockquote>
+				<p>
+					开始领养
+				</p>
+			</blockquote>
+      	</div>
       </div>
     </div>
   </div>

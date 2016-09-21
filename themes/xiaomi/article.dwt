@@ -44,7 +44,7 @@
           <div class="box-hd">
             <h3 class="title">{$article.title|escape:html}</h3>
           </div>
-          <div class="bd" style="height:775px;">
+          <div class="bd">
             <div class="m_reserver">
                   {$article.content}
 			  
