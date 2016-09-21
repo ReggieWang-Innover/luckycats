@@ -61,51 +61,57 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
-			<p><span style="font-size:14px;color:#003399;">您的基本信息：</span></p>
+			<p><span id="J_PersonInfo" style="font-size:14px;color:#003399;">您的基本信息：</span></p>
 			<blockquote>
 				<p>　　真实姓名：<input id="J_RealName" name="realname" type="text" maxlength="15"></input></p>
 				<p>　　　　性别：<select id="J_Gender" name="gender" style="width:60px">
 					<option value="male">男</option>
 					<option value="female">女</option>
-				  </select>　年龄：<input id="J_Age" name="age" type="text" maxlength="3" style="width: 40px;"></input></p>
+				  </select>　年龄：<input id="J_Age" name="age" type="text" maxlength="3" style="width: 40px;" numberonly="true"></input></p>
 				<p>　　从事职业：<input id="J_Job" name="job" type="text" maxlength="20"></input>　月收入：<input id="J_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
 			    <p>　现居住地址：<input id="J_Address" name="address" type="text" maxlength="60"  style="width: 240px;"></input></p>
-				<p>家中常驻人口：<input id="J_HomeMumber" name="homemember" type="text" maxlength="2" style="width: 30px;"></input>　分别是：<input id="J_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
-				<p>　　联系电话：<input id="J_PhoneNumber" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
+				<p>家中常驻人口：<input id="J_HomeMumber" name="homemember" type="text" maxlength="2" style="width: 30px;" numberonly="true"></input>　分别是：<input id="J_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
+				<p>　　联系电话：<input id="J_PhoneNumber" name="phonenumber" type="text" maxlength="13" style="width: 150px;" numberonly="true"></input></p> 
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
+			<p><span id="J_q1" style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
 			<blockquote>
-				<p>搜索平台</p>
-				<p>微博、博客</p>
-				<p>微信、朋友圈</p>
-				<p>淘宝、义卖</p>
-				<p>亲朋好友</p>
-				<p>幸运土猫官网</p>
-				<p>电视/广播</p>
-				<p>纸媒（如报刊、杂志等）</p>
-				<p>其他，请注明：</p>
+				<p><input id="J_q1_search" type="radio" name="q1" value="search"></input>搜索平台</p>
+				<p><input id="J_q1_weibo" type="radio" name="q1" value="weibo"></input>微博、博客</p>
+				<p><input id="J_q1_weixin" type="radio" name="q1" value="weixin"></input>微信、朋友圈</p>
+				<p><input id="J_q1_sell" type="radio" name="q1" value="sell"></input>淘宝、义卖</p>
+				<p><input id="J_q1_friend" type="radio" name="q1" value="friend"></input>亲朋好友</p>
+				<p><input id="J_q1_website" type="radio" name="q1" value="website"></input>幸运土猫官网</p>
+				<p><input id="J_q1_tvradio" type="radio" name="q1" value="tvradio"></input>电视/广播</p>
+				<p><input id="J_q1_paper" type="radio" name="q1" value="paper"></input>纸媒（如报刊、杂志等）</p>
+				<p><input id="J_q1_other" type="radio" name="q1" value="other"></input>其他，请注明：
+				   <span id="J_q1_other_adds"><input id="J_q1_other_add1" type="text" name="q1_other_add1" maxlength="30" style="width: 150px;"></input></span>
+				</p>
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您在北京生活了多长时间？</span></p>
+			<p><span id="J_q2" style="font-size:14px;color:#003399;">请问您在北京生活了多长时间？</span></p>
 			<blockquote>
-				<p>已经在北京生活 年左右</p>
-				<p>从小一直在北京生活，老土著了喵~</p>
+				<p><input id="J_q2_outsider" type="radio" name="q2" value="outsider"></input>已经在北京生活&nbsp;
+				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="text" name="q2_outsider_add1" maxlength="2" style="width: 30px;" numberonly="true"></input></span>&nbsp;年</p>
+				<p><input id="J_q2_beijinger" type="radio" name="q2" value="beijinger"></input>从小一直在北京生活，老土著了喵~</p>
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您是否有在北京长期定居的打算？</span></p>
+			<p><span id="J_q3" style="font-size:14px;color:#003399;">请问您是否有在北京长期定居的打算？</span></p>
 			<blockquote>
-				<p>是，我会一直在北京安家</p>
-				<p>否，我未来几年会离开北京，将来会在 生活（城市名</p>
-				<p>否，我目前不在北京，我在 生活（城市名）</p>
+				<p><input id="J_q3_alwayslocal" type="radio" name="q3" value="alwayslocal"></input>是，我会一直在北京安家</p>
+				<p><input id="J_q3_pannedleave" type="radio" name="q3" value="plannedleave"></input>否，我未来几年会离开北京，将来会在&nbsp;
+				   <span id = "J_q3_plannedleave_adds"><input id="J_q3_plannedleave_add1" type="text" name="q3_plannedleave_add1" maxlength="10" style="width: 100px;"></input></span>&nbsp;生活（城市名）</p>
+				<p><input id="J_q3_notlocalyet" type="radio" name="q3" value="notlocalyet"></input>否，我目前不在北京，我在&nbsp;
+				   <span id = "J_q3_notlocalyet_adds"><input id="J_q3_outsider_add1" type="text" name="q3_outsider_add1" maxlength="10" style="width: 100px;"></input></span>&nbsp;生活（城市名）</p>
 				<p><br></p>
 			</blockquote>
-			<p><span style="font-size:14px;color:#003399;">请问您目前的婚姻状况是怎样的？</span></p>
+			<p><span id="J_q4" style="font-size:14px;color:#003399;">请问您目前的婚姻状况是怎样的？</span></p>
 			<blockquote>
-				<p>单身</p>
-				<p>已婚，无孩</p>
-				<p>已婚，有孩，孩子的年龄是： 岁</p>
-				<p>其他，请注明：</p>
+				<p><input id="J_q4_single" type="radio" name="q4" value="single"></input>单身</p>
+				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>已婚，无孩</p>
+				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>已婚，有孩，孩子的年龄是： 岁</p>
+				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>其他，请注明：
+				   <span id="J_q4_other_adds"><input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="30" style="width: 150px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span style="font-size:14px;color:#003399;">请问您目前的居住状况是怎样的？</span></p>
