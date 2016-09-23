@@ -304,7 +304,7 @@ $.fn.onlyNum = function () {
     $(this).keypress(function (event) {
         var eventObj = event || e;
         var keyCode = eventObj.keyCode || eventObj.which;
-        if ((keyCode >= 48 && keyCode <= 57))
+        if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46 || keyCode == 8)
             return true;
         else
             return false;
