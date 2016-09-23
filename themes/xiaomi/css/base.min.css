@@ -299,6 +299,11 @@ a:hover,a:focus {
 	border-color:#f3f3f3;
 	background-color:#fff
 }
+
+.numberinput {
+	ime-mode:Disabled
+}
+
 .icon-tag {
 	display:inline-block;
 	*display:inline;

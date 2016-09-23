@@ -63,15 +63,15 @@
 			<hr><p><br></p>
 			<p><span id="J_PersonInfo" style="font-size:14px;color:#003399;">您的基本信息：</span></p>
 			<blockquote>
-				<p>　　真实姓名：<input id="J_RealName" name="realname" type="text" maxlength="15"></input></p>
-				<p>　　　　性别：<select id="J_Gender" name="gender" style="width:60px">
+				<p>　　真实姓名：<input id="J_PersonInfo_RealName" name="realname" type="text" maxlength="15"></input></p>
+				<p>　　　　性别：<select id="J_PersonInfo_Gender" name="gender" style="width:60px">
 					<option value="male">男</option>
 					<option value="female">女</option>
-				  </select>　年龄：<input id="J_Age" name="age" type="text" maxlength="3" style="width: 40px;" numberonly="true"></input></p>
-				<p>　　从事职业：<input id="J_Job" name="job" type="text" maxlength="20"></input>　月收入：<input id="J_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
-			    <p>　现居住地址：<input id="J_Address" name="address" type="text" maxlength="60"  style="width: 240px;"></input></p>
-				<p>家中常驻人口：<input id="J_HomeMumber" name="homemember" type="text" maxlength="2" style="width: 30px;" numberonly="true"></input>　分别是：<input id="J_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
-				<p>　　联系电话：<input id="J_PhoneNumber" name="phonenumber" type="text" maxlength="13" style="width: 150px;" numberonly="true"></input></p> 
+				  </select>　年龄：<input id="J_PersonInfo_Age" class="numberinput" name="age" type="text" maxlength="3" style="width: 40px;"></input></p>
+				<p>　　从事职业：<input id="J_PersonInfo_Job" name="job" type="text" maxlength="20"></input>　月收入：<input id="J_PersonInfo_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
+			    <p>　现居住地址：<input id="J_PersonInfo_Address" name="address" type="text" maxlength="60"  style="width: 240px;"></input></p>
+				<p>家中常驻人口：<input id="J_PersonInfo_HomeMumber" class="numberinput" name="homemember" type="text" maxlength="2" style="width: 30px;"></input>　分别是：<input id="J_PersonInfo_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
+				<p>个人联系电话：<input id="J_PersonInfo_PhoneNumber" class="numberinput" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q1" style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
@@ -92,7 +92,7 @@
 			<p><span id="J_q2" style="font-size:14px;color:#003399;">请问您在北京生活了多长时间？</span></p>
 			<blockquote>
 				<p><input id="J_q2_outsider" type="radio" name="q2" value="outsider"></input>　已经在北京生活&nbsp;
-				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="text" name="q2_outsider_add1" maxlength="2" style="width: 30px;" numberonly="true"></input></span>&nbsp;年</p>
+				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="text" name="q2_outsider_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;年</p>
 				<p><input id="J_q2_beijinger" type="radio" name="q2" value="beijinger"></input>　从小一直在北京生活，老土著了喵~</p>
 				<p><br></p>
 			</blockquote>
@@ -110,7 +110,7 @@
 				<p><input id="J_q4_single" type="radio" name="q4" value="single"></input>　单身</p>
 				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>　已婚，无孩</p>
 				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>　已婚，有孩，孩子的年龄是：&nbsp;
-				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="text" name="q4_haskid_add1" maxlength="2" style="width: 30px;" numberonly="true"></input></span>&nbsp;岁</p>
+				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="text" name="q4_haskid_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;岁</p>
 				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>　其他，请注明：
 				   <span id="J_q4_other_adds"><input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
@@ -129,19 +129,19 @@
 			<blockquote>
 				<p><input id="J_q6_sharerant" type="radio" name="q6" value="sharerant"></input>　合租，
 				   <span id="J_q6_sharerant_adds">共有&nbsp;
-				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;户合租在一套&nbsp; 
-				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;居室的房子内，我租住的房间面积约&nbsp;
-				     <input id="J_q6_sharerant_add3" type="text" name="q6_sharerant_add3" maxlength="3" style="width: 40px;" numberonly="true"></input>&nbsp;平米
+				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;户合租在一套&nbsp; 
+				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;居室的房子内，我租住的房间面积约&nbsp;
+				     <input id="J_q6_sharerant_add3" type="text" name="q6_sharerant_add3" maxlength="3" style="width: 40px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
-				<p><input id="J_q6_singlerant" type="radio" name="q6" value="singlerant"></input>　独立整租， 平米
+				<p><input id="J_q6_singlerant" type="radio" name="q6" value="singlerant"></input>　独立整租， 
 				   <span id="J_q6_singlerant_adds">居室面积约&nbsp;
-				     <input id="J_q6_singlerant_add1" type="text" name="q6_singlerant_add1" maxlength="4" style="width: 50px;" numberonly="true"></input>&nbsp;平米
+				     <input id="J_q6_singlerant_add1" type="text" name="q6_singlerant_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_ownedhome" type="radio" name="q6" value="ownedhome"></input>　居住于自有房产中，
 				  <span id="J_q6_ownedhome_adds">居室面积约&nbsp;
-				     <input id="J_q6_ownedhome_add1" type="text" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" numberonly="true"></input>&nbsp;平米
+				     <input id="J_q6_ownedhome_add1" type="text" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_other" type="radio" name="q6" value="other"></input>　其他，请注明：
@@ -187,17 +187,17 @@
 			<blockquote>
 				<p><input id="J_q11_hascat" type="radio" name="q11" value="hascat"></input>　家中有猫：
 				  <span id="J_q11_hascat_adds">
-				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;只 ，已经和我一起生活的时间是：
-				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;年（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
+				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，已经和我一起生活的时间是：
+				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
 				  </span>
 				<p><input id="J_q11_notnow" type="radio" name="q11" value="notnow"></input>　家中无猫：</p>
 				<blockquote>
 				  <span id="J_q11_notnow_adds">
 					<p>最近一次养猫的经历是：
-					  <input id="J_q11_notnow_add1" type="text" name="J_q11_notnow_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;年前
+					  <input id="J_q11_notnow_add1" type="text" name="J_q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
 					</p>
 					<p>离开时的年纪是：
-					  <input id="J_q11_notnow_add2" type="text" name="J_q11_notnow_add2" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;岁
+					  <input id="J_q11_notnow_add2" type="text" name="J_q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
 					</p>
 					<p>离开的原因是：
 					  <textarea id="J_q11_notnow_add3" name="q11_notnow_add3" rows="4" maxlength="300" style="width: 260px;"></textarea>
@@ -221,7 +221,7 @@
 			<input id="J_q13_default" type="radio" name="q12" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q13_default_adds">
-				<p>　　出行次数约：<input id="J_q13_default_add1" type="text" name="q13_default_add1" maxlength="2" style="width: 30px;" numberonly="true"></input>&nbsp;次</p>
+				<p>　　出行次数约：<input id="J_q13_default_add1" type="text" name="q13_default_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;次</p>
 				<p>　　计划如何安置猫咪：<input id="J_q13_default_add2" type="text" name="q13_default_add2" maxlength="40" style="width: 260px;"></input></p>
 				<p><br></p>
 			  </span>
@@ -299,6 +299,15 @@
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <script type="Text/Javascript" language="JavaScript">
 //<![CDATA[
+initPage();
+           
+function initPage()
+{
+	$('.numberinput').each(function() {
+		$(this).attr('onkeyup', "this.value=this.value.replace(/\D/g,'')");
+		$(this).attr('onafterpaste', "this.value=this.value.replace(/\D/g,'')");
+	})
+}
 
 //]]>
 </script>
