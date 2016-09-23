@@ -299,14 +299,33 @@
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <script type="Text/Javascript" language="JavaScript">
 //<![CDATA[
+
+$.fn.onlyNum = function () {
+    $(this).keypress(function (event) {
+        var eventObj = event || e;
+        var keyCode = eventObj.keyCode || eventObj.which;
+        if ((keyCode >= 48 && keyCode <= 57))
+            return true;
+        else
+            return false;
+    }).focus(function () {
+    //禁用输入法
+        this.style.imeMode = 'disabled';
+    }).bind("paste", function () {
+    //获取剪切板的内容
+        var clipboard = window.clipboardData.getData("Text");
+        if (/^\d+$/.test(clipboard))
+            return true;
+        else
+            return false;
+    });
+};
+
 initPage();
            
 function initPage()
 {
-	$('.numberinput').each(function() {
-		$(this).attr('onkeyup', "this.value=this.value.replace(/\D/g,'')");
-		$(this).attr('onafterpaste', "this.value=this.value.replace(/\D/g,'')");
-	})
+	$('.numberinput').onlyNum();
 }
 
 //]]>
