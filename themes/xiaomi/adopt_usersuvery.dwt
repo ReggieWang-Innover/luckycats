@@ -61,6 +61,7 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
+			<form>
 			<p><span id="J_PersonInfo" style="font-size:14px;color:#003399;">您的基本信息：</span></p>
 			<blockquote>
 				<p>　　真实姓名：<input id="J_PersonInfo_RealName" name="realname" type="text" maxlength="15"></input></p>
@@ -291,6 +292,7 @@
 					开始领养
 				</p>
 			</blockquote>
+			</form>
       	</div>
       </div>
     </div>
@@ -308,9 +310,6 @@ $.fn.onlyNum = function () {
             return true;
         else
             return false;
-    }).focus(function () {
-    //禁用输入法
-        this.style.imeMode = 'disabled';
     }).bind("paste", function () {
     //获取剪切板的内容
         var clipboard = window.clipboardData.getData("Text");
@@ -321,11 +320,33 @@ $.fn.onlyNum = function () {
     });
 };
 
+function initRadio(name)
+{
+	$("input[name='" + name + "']").click(function(){
+		updateRadioAddtions(name, $(this).value);
+	});
+}
+
+function updateRadioAddtions(name, value)
+{
+	$("input[name='" + name + "']").each(function() {
+		radio = $(this);
+		if (radio.value == value) {
+			alert(value);			
+		}
+	})
+}
+
 initPage();
            
 function initPage()
 {
 	$('.numberinput').onlyNum();
+	
+	for (i = 1; i <= 20; i++)
+	{
+		initRadio('q' + i);
+	}
 }
 
 //]]>
