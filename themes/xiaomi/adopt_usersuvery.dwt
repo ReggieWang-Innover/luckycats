@@ -331,10 +331,19 @@ function updateRadioAddtions(name, value)
 {
 	$("input[name='" + name + "']").each(function() {
 		radio = $(this);
-		if (radio.val() == value) {
-			alert(value);			
-		}
+		toggleAddtionState(name, radio.val(), radio.val() == value);
 	})
+}
+
+function toggleAddtionState(name, value, enabled)
+{
+	addsTag = 'J_' + name + '_' + value + '_adds';
+	if (enabled) {
+		$("span[id='" + addsTag + "']").find(':input').attr('disabled', true);		
+	} else {
+		$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');
+	}
+	
 }
 
 initPage();
