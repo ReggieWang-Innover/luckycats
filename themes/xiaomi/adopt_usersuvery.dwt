@@ -334,7 +334,7 @@ function updateRadioAddtions(name)
 	checkedval = $("input[name='" + name + "']:checked").val();
 	$("input[name='" + name + "']").each(function() {
 		radio = $(this);
-		addsTag = 'J_' + name + '_' + value + '_adds';
+		addsTag = 'J_' + name + '_' + radio.val() + '_adds';
 		if (checkedval != null && checkedval == radio.val()) {
 			$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');
 		} else {
