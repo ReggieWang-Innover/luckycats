@@ -322,9 +322,12 @@ $.fn.onlyNum = function () {
 
 function initRadio(name)
 {
+	$("input[name='" + name + "']").each(function(){
+		toggleAddtionState(name, $(this).val(), $(this).attr('checked'));
+	})
+	
 	$("input[name='" + name + "']").click(function(){
 		updateRadioAddtions(name, $(this).val());
-		toggleAddtionState(name, $(this).val(), $(this).attr('checked'));
 	});
 }
 
@@ -332,7 +335,7 @@ function updateRadioAddtions(name, value)
 {
 	$("input[name='" + name + "']").each(function() {
 		radio = $(this);
-		toggleAddtionState(name, radio.val(), radio.val() == value);
+		toggleAddtionState(name, radio.val(), radio.attr('checked'));
 	})
 }
 
