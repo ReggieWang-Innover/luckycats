@@ -191,7 +191,7 @@
 				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，已经和我一起生活的时间是：
 				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
 				  </span>
-				<p><input id="J_q11_notnow" type="radio" name="q11" value="notnow"></input>　家中无猫：</p>
+				<p><input id="J_q11_notnow" type="radio" name="q11" value="notnow"></input>　家中无猫，曾经养过猫：</p>
 				<blockquote>
 				  <span id="J_q11_notnow_adds">
 					<p>最近一次养猫的经历是：
@@ -339,9 +339,9 @@ function toggleAddtionState(name, value, enabled)
 {
 	addsTag = 'J_' + name + '_' + value + '_adds';
 	if (enabled) {
-		$("span[id='" + addsTag + "']").find(':input').attr('disabled', true);		
+		$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');		
 	} else {
-		$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');
+		$("span[id='" + addsTag + "']").find(':input').attr('disabled', true);
 	}
 	
 }
