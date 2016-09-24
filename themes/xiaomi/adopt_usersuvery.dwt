@@ -322,32 +322,25 @@ $.fn.onlyNum = function () {
 
 function initRadio(name)
 {
-	$("input[name='" + name + "']").each(function(){
-		toggleAddtionState(name, $(this).val(), $(this).attr('checked'));
-	})
+	updateRadioAddtions(name);
 	
 	$("input[name='" + name + "']").click(function(){
-		updateRadioAddtions(name, $(this).val());
+		updateRadioAddtions(name);
 	});
 }
 
-function updateRadioAddtions(name, value)
+function updateRadioAddtions(name)
 {
+	checkedval = $("input[name='" + name + "']:checked").val();
 	$("input[name='" + name + "']").each(function() {
 		radio = $(this);
-		toggleAddtionState(name, radio.val(), radio.attr('checked'));
+		addsTag = 'J_' + name + '_' + value + '_adds';
+		if (checkedval != null && checkedval == radio.val()) {
+			$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');
+		} else {
+			$("span[id='" + addsTag + "']").find(':input').attr('disabled', true);
+		}
 	})
-}
-
-function toggleAddtionState(name, value, enabled)
-{
-	addsTag = 'J_' + name + '_' + value + '_adds';
-	if (enabled) {
-		$("span[id='" + addsTag + "']").find(':input').removeAttr('disabled');		
-	} else {
-		$("span[id='" + addsTag + "']").find(':input').attr('disabled', true);
-	}
-	
 }
 
 initPage();
