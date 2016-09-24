@@ -324,6 +324,7 @@ function initRadio(name)
 {
 	$("input[name='" + name + "']").click(function(){
 		updateRadioAddtions(name, $(this).val());
+		toggleAddtionState(name, $(this).val(), $(this).attr('checked'));
 	});
 }
 
