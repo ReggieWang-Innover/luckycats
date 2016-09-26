@@ -310,6 +310,8 @@ $.fn.onlyNum = function () {
             return true;
         else
             return false;
+    }).keyup(function() {
+    	value=value.replace(/[^\d]/g,'');
     }).bind("paste", function () {
     //获取剪切板的内容
         var clipboard = window.clipboardData.getData("Text");
