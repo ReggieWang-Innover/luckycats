@@ -219,7 +219,7 @@
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q13" style="font-size:14px;color:#003399;">请问每年您全家超过3天的出行（探亲/旅游/出差，无人在家）的次数及猫咪安置计划是怎样的？</span>
-			<input id="J_q13_default" type="radio" name="q12" value="default" hidden="true" checked="true"></input></p>
+			<input id="J_q13_default" type="radio" name="q13" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q13_default_adds">
 				<p>　　出行次数约：<input id="J_q13_default_add1" type="text" name="q13_default_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;次</p>
@@ -345,11 +345,23 @@ function updateRadioAddtions(name)
 
 function checkSubmitItem(name)
 {
+	$('#J_' + name).css('color', '#003399');
+	$("[id^='" + name + "']").find(':input').css('border-color', null);	
+
 	selectedVal = $("input[name='" + name + "']:checked").val();
 	if (selectedVal == null){
 		$('#J_' + name).css('color', 'red');
 		return false;
 	}
+	
+	missingAdds = false;
+	addsTag = 'J_' + name + '_' + selectedVal + '_adds';
+	$("span[id='" + addsTag +"']").find(':input').each(function() {
+		val = $.trim($(this).val());
+		if (val == null || val == '') {
+			$(this).css('border-color', 'red');
+		}
+	})
 	
 	return true;
 }
