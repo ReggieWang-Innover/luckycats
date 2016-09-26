@@ -360,10 +360,30 @@ function checkSubmitItem(name)
 		val = $.trim($(this).val());
 		if (val == null || val == '') {
 			$(this).css('border-color', 'red');
+			if (selectedVal == 'default') {
+				$('#J_' + name).css('color', 'red');
+			}
+			missingAdds = true;
 		}
 	})
 	
-	return true;
+	return !missingAdds;
+}
+
+function checkPersonInfo()
+{
+	$("#J_PersonInfo").find(":input").css('border-color', null);
+	
+	missingInfo = false;
+	$("#J_PersonInfo").find(":input").each(function() {
+		val = $.trim($(this).val());
+		if (val == null || val == '') {
+			$(this).css('border-color', 'red');
+			missingInfo = true;
+		}
+	});
+	
+	return !missingInfo;
 }
 
 initPage();
@@ -380,9 +400,24 @@ function initPage()
 
 function submitUserSuvery()
 {
+	firstInvalid = null;
+	if (!checkPersonInfo())
+	{
+		firstInvalid = '#J_PersonInfo';
+	}
+	
 	for (i =1; i <= 20; i++)
 	{
-		checkSubmitItem('q' + i);
+		if (!checkSubmitItem('q' + i)){
+			if (firstInvalid < 0){
+				firstInvalid = '#J_q' + i;
+			}
+		}
+	}
+	
+	if (firstInvalid != null)
+	{
+		location.hash = firstInvalid;
 	}
 }
 
