@@ -320,10 +320,6 @@ $.fn.onlyNum = function () {
     });
 };
 
-function submitUserSuvery()
-{
-}
-
 function initRadio(name)
 {
 	updateRadioAddtions(name);
@@ -347,6 +343,17 @@ function updateRadioAddtions(name)
 	})
 }
 
+function checkSubmitItem(name)
+{
+	selectedVal = $("input[name='" + name + "']:checked").val();
+	if (selectedVal == null){
+		$('#J_' + name).css('color', 'red');
+		return false;
+	}
+	
+	return true;
+}
+
 initPage();
            
 function initPage()
@@ -356,6 +363,14 @@ function initPage()
 	for (i = 1; i <= 20; i++)
 	{
 		initRadio('q' + i);
+	}
+}
+
+function submitUserSuvery()
+{
+	for (i =1; i <= 20; i++)
+	{
+		checkSubmitItem('q' + i);
 	}
 }
 
