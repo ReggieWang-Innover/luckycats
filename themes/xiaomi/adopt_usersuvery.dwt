@@ -409,7 +409,7 @@ function submitUserSuvery()
 	for (i =1; i <= 20; i++)
 	{
 		if (!checkSubmitItem('q' + i)){
-			if (firstInvalid < 0){
+			if (firstInvalid == null){
 				firstInvalid = '#J_q' + i;
 			}
 		}
