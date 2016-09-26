@@ -348,7 +348,7 @@ function updateRadioAddtions(name)
 function checkSubmitItem(name)
 {
 	$('#J_' + name).css('color', '#003399');
-	$("[id^='" + name + "']").find(':input').css('border-color', null);	
+	$("[id^='" + name + "']").find(':input').css('border-color', '');	
 
 	selectedVal = $("input[name='" + name + "']:checked").val();
 	if (selectedVal == null){
@@ -374,7 +374,7 @@ function checkSubmitItem(name)
 
 function checkPersonInfo()
 {
-	$("#J_PersonInfo").find(":input").css('border-color', null);
+	$("#J_PersonInfo").find(":input").css('border-color', '');
 	
 	missingInfo = false;
 	$("#J_PersonInfo").find(":input").each(function() {
