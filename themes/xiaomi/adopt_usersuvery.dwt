@@ -62,7 +62,8 @@
 			<p><br></p>
 			<hr><p><br></p>
 			<form>
-			<p><span id="J_PersonInfo" style="font-size:14px;color:#003399;">您的基本信息：</span></p>
+			<div id = "J_PersonInfo">
+			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
 				<p>　　真实姓名：<input id="J_PersonInfo_RealName" name="realname" type="text" maxlength="15"></input></p>
 				<p>　　　　性别：<select id="J_PersonInfo_Gender" name="gender" style="width:60px">
@@ -75,7 +76,8 @@
 				<p>个人联系电话：<input id="J_PersonInfo_PhoneNumber" class="numberinput" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q1" style="font-size:14px;color:#003399;">请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
+			</div>
+			<p><span id="J_q1" style="font-size:14px;color:#003399;">&gt; 请问您是从哪些渠道了解到幸运土猫发布的猫咪领养信息的？</span></p>
 			<blockquote>
 				<p><input id="J_q1_search" type="radio" name="q1" value="search"></input>　搜索平台</p>
 				<p><input id="J_q1_weibo" type="radio" name="q1" value="weibo"></input>　微博、博客</p>
@@ -90,14 +92,14 @@
 				</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q2" style="font-size:14px;color:#003399;">请问您在北京生活了多长时间？</span></p>
+			<p><span id="J_q2" style="font-size:14px;color:#003399;">&gt; 请问您在北京生活了多长时间？</span></p>
 			<blockquote>
 				<p><input id="J_q2_outsider" type="radio" name="q2" value="outsider"></input>　已经在北京生活&nbsp;
 				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="text" name="q2_outsider_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;年</p>
 				<p><input id="J_q2_beijinger" type="radio" name="q2" value="beijinger"></input>　从小一直在北京生活，老土著了喵~</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q3" style="font-size:14px;color:#003399;">请问您是否有在北京长期定居的打算？</span></p>
+			<p><span id="J_q3" style="font-size:14px;color:#003399;">&gt; 请问您是否有在北京长期定居的打算？</span></p>
 			<blockquote>
 				<p><input id="J_q3_alwayslocal" type="radio" name="q3" value="alwayslocal"></input>　是，我会一直在北京安家</p>
 				<p><input id="J_q3_pannedleave" type="radio" name="q3" value="plannedleave"></input>　否，我未来几年会离开北京，将来会在&nbsp;
@@ -106,7 +108,7 @@
 				   <span id = "J_q3_notlocalyet_adds"><input id="J_q3_outsider_add1" type="text" name="q3_outsider_add1" maxlength="10" style="width: 100px;"></input></span>&nbsp;生活（城市名）</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q4" style="font-size:14px;color:#003399;">请问您目前的婚姻状况是怎样的？</span></p>
+			<p><span id="J_q4" style="font-size:14px;color:#003399;">&gt; 请问您目前的婚姻状况是怎样的？</span></p>
 			<blockquote>
 				<p><input id="J_q4_single" type="radio" name="q4" value="single"></input>　单身</p>
 				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>　已婚，无孩</p>
@@ -116,7 +118,7 @@
 				   <span id="J_q4_other_adds"><input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q5" style="font-size:14px;color:#003399;">请问您目前的居住状况是怎样的？</span></p>
+			<p><span id="J_q5" style="font-size:14px;color:#003399;">&gt; 请问您目前的居住状况是怎样的？</span></p>
 			<blockquote>
 				<p><input id="J_q5_apartment" type="radio" name="q5" value="apartment"></input>　普通住宅楼</p>
 				<p><input id="J_q5_business" type="radio" name="q5" value="business"></input>　商住两用楼</p>
@@ -126,7 +128,7 @@
 				   <span id="J_q5_other_adds"><input id="J_q5_other_add1" type="text" name="q5_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q6" style="font-size:14px;color:#003399;">请问您对住所的所有情况是怎样的？</span></p>
+			<p><span id="J_q6" style="font-size:14px;color:#003399;">&gt; 请问您对住所的所有情况是怎样的？</span></p>
 			<blockquote>
 				<p><input id="J_q6_sharerant" type="radio" name="q6" value="sharerant"></input>　合租，
 				   <span id="J_q6_sharerant_adds">共有&nbsp;
@@ -149,7 +151,7 @@
 				  <span id="J_q6_other_adds"><input id="J_q6_other_add1" type="text" name="q6_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q7" style="font-size:14px;color:#003399;">请问您的 房东 / 合租伙伴 对您计划领养猫咪持怎样的态度？</span></p>
+			<p><span id="J_q7" style="font-size:14px;color:#003399;">&gt; 请问您的 房东 / 合租伙伴 对您计划领养猫咪持怎样的态度？</span></p>
 			<blockquote>
 			    <p><input id="J_q7_notinvolve" type="radio" name="q7" value="notinvolve"></input>　不涉及（自有住房请选择这一项）</p>
 				<p><input id="J_q7_agree" type="radio" name="q7" value="agree"></input>　同意</p>
@@ -158,7 +160,7 @@
 				<p><span id="J_q7_other_adds"><textarea id="J_q7_other_add1" name="q7_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q8" style="font-size:14px;color:#003399;">请问您是否与 父母 / 配偶的父母 生活在一起？</span></p>
+			<p><span id="J_q8" style="font-size:14px;color:#003399;">&gt; 请问您是否与 父母 / 配偶的父母 生活在一起？</span></p>
 			<blockquote>
 				<p><input id="J_q8_parentin" type="radio" name="q8" value="parentin"></input>　是</p>
 				<p><input id="J_q8_parentout" type="radio" name="q8" value="parentout"></input>　否，我的父母生活在&nbsp;
@@ -170,7 +172,7 @@
 				  <span id="J_q8_other_adds"><input id="J_q8_other_add1" type="text" name="q8_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q9" style="font-size:14px;color:#003399;">请问您的家人（父母/伴侣/配偶/子女）对您计划领养猫咪持怎样的态度？</span></p>
+			<p><span id="J_q9" style="font-size:14px;color:#003399;">&gt; 请问您的家人（父母/伴侣/配偶/子女）对您计划领养猫咪持怎样的态度？</span></p>
 			<blockquote>
 				<p><input id="J_q9_agree" type="radio" name="q9" value="agree"></input>　同意</p>
 				<p><input id="J_q9_notcare" type="radio" name="q9" value="notcare"></input>　无所谓</p>
@@ -178,13 +180,13 @@
 				  <p><span id="J_q9_other_adds"><textarea id="J_q9_other_add1" name="q9_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q10" style="font-size:14px;color:#003399;">请问您或家人是否有与猫咪一起生活的经历？</span></p>
+			<p><span id="J_q10" style="font-size:14px;color:#003399;">&gt; 请问您或家人是否有与猫咪一起生活的经历？</span></p>
 			<blockquote>
 				<p><input id="J_q10_yes" type="radio" name="q10" value="yes"></input>　有</p>
 				<p><input id="J_q10_no" type="radio" name="q10" value="no"></input>　没有</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q11" style="font-size:14px;color:#003399;">请问目前您目前常住的家中是否有猫？</span></p>
+			<p><span id="J_q11" style="font-size:14px;color:#003399;">&gt; 请问目前您目前常住的家中是否有猫？</span></p>
 			<blockquote>
 				<p><input id="J_q11_hascat" type="radio" name="q11" value="hascat"></input>　家中有猫：
 				  <span id="J_q11_hascat_adds">
@@ -210,7 +212,7 @@
 				  <p><span id="J_q11_other_adds"><textarea id="J_q11_other_add1" name="q11_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q12" style="font-size:14px;color:#003399;">请问目前您自己常住的家中是否还有其他动物？</span></p>
+			<p><span id="J_q12" style="font-size:14px;color:#003399;">&gt; 请问目前您自己常住的家中是否还有其他动物？</span></p>
 			<blockquote>
 				<p><input id="J_q12_yes" type="radio" name="q12" value="yes"></input>　没有</p>
 				<p><input id="J_q12_no" type="radio" name="q12" value="no"></input>　有，请注明：
@@ -218,7 +220,7 @@
 				</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q13" style="font-size:14px;color:#003399;">请问每年您全家超过3天的出行（探亲/旅游/出差，无人在家）的次数及猫咪安置计划是怎样的？</span>
+			<p><span id="J_q13" style="font-size:14px;color:#003399;">&gt; 请问每年您全家超过3天的出行（探亲/旅游/出差，无人在家）的次数及猫咪安置计划是怎样的？</span>
 			<input id="J_q13_default" type="radio" name="q13" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q13_default_adds">
@@ -227,13 +229,13 @@
 				<p><br></p>
 			  </span>
 			</blockquote>
-			<p><span id="J_q14" style="font-size:14px;color:#003399;">请问您是否会让猫咪自行出门活动？</span></p>
+			<p><span id="J_q14" style="font-size:14px;color:#003399;">&gt; 请问您是否会让猫咪自行出门活动？</span></p>
 			<blockquote>
 				<p><input id="J_q14_yes" type="radio" name="q14" value="yes"></input>　会</p>
 			    <p><input id="J_q14_no" type="radio" name="q14" value="no"></input>　不会</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q15" style="font-size:14px;color:#003399;">请问您计划为猫咪提供怎样的猫粮？</span>
+			<p><span id="J_q15" style="font-size:14px;color:#003399;">&gt; 请问您计划为猫咪提供怎样的猫粮？</span>
 			<input id="J_q15_default" type="radio" name="q15" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q13_default_adds">
@@ -241,21 +243,21 @@
 				<p><br></p>
 			  </span>
 			</blockquote>
-			<p><span id="J_q16" style="font-size:14px;color:#003399;">请问您对猫咪免疫怎么看？</span></p>
+			<p><span id="J_q16" style="font-size:14px;color:#003399;">&gt; 请问您对猫咪免疫怎么看？</span></p>
 			<blockquote>
 				<p><input id="J_q16_must" type="radio" name="q16" value="must"></input>　猫咪每年都需要定期免疫 / 家中猫咪会定期免疫</p>
 				<p><input id="J_q16_will" type="radio" name="q16" value="will"></input>　不了解，但愿意领养后每年按时为猫咪免疫</p>
 				<p><input id="J_q16_wont" type="radio" name="q16" value="wont"></input>　猫咪没有必要定期免疫</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id="J_q17" style="font-size:14px;color:#003399;">请问您对猫咪绝育怎么看？</span></p>
+			<p><span id="J_q17" style="font-size:14px;color:#003399;">&gt; 请问您对猫咪绝育怎么看？</span></p>
 			<blockquote>
 				<p><input id="J_q17_must" type="radio" name="q17" value="must"></input>　理解并赞同猫咪绝育的必要性 / 家中猫咪已经绝育</p>
 				<p><input id="J_q17_will" type="radio" name="q17" value="will"></input>　不了解，但愿意为领养的猫咪及时完成绝育</p>
 				<p><input id="J_q17_wont" type="radio" name="q17" value="wont"></input>　猫咪没有必要绝育</p>
 				<p><br></p>
 			</blockquote>
-			<p><span id = "J_q18" style="font-size:14px;color:#003399;">您对怀孕期间养猫以及弓形虫问题有怎样的了解？</span>
+			<p><span id = "J_q18" style="font-size:14px;color:#003399;">&gt; 您对怀孕期间养猫以及弓形虫问题有怎样的了解？</span>
 			<input id="J_q18_default" type="radio" name="q18" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q18_default_adds">
@@ -263,7 +265,7 @@
 				<p><br></p>
 			  </span>
 			</blockquote>
-			<p><span id="J_q19" style="font-size:14px;color:#003399;">请问在未来的与猫咪一起的生活中，您觉得最困难的事情的什么？</span>
+			<p><span id="J_q19" style="font-size:14px;color:#003399;">&gt; 请问在未来的与猫咪一起的生活中，您觉得最困难的事情的什么？</span>
 			<input id="J_q19_default" type="radio" name="q19" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q19_default_adds">
@@ -271,7 +273,7 @@
 				<p><br></p>
 			  </span>
 			</blockquote>
-			<p><span id="J_q20" style="font-size:14px;color:#003399;">最后，有关领养猫咪，您还想对幸运土猫说些什么呢？</span>
+			<p><span id="J_q20" style="font-size:14px;color:#003399;">&gt; 最后，有关领养猫咪，您还想对幸运土猫说些什么呢？</span>
 			<input id="J_q20_default" type="radio" name="q20" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q20_default_adds">
