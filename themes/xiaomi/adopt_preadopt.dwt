@@ -102,7 +102,7 @@
 				<p><strong></strong></p>
 			</blockquote>
 			<blockquote>
-				<p><input type="button" id="J_IdentifySubmit" class="btn btn-primary" onclick="submitAdoptConnect();" value="开始领养"></input></p>
+				<p><input type="button" id="J_IdentifySubmit" class="btn btn-primary" onclick="submitAdoptConnect();" value="完成问卷 >"></input></p>
 			</blockquote>	  
 		</div>  
       </div>

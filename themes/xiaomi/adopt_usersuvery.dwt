@@ -284,13 +284,11 @@
 				<br>
 			</p>
 			<h3>
-				一切就绪，让我们开始吧！
+				接下来，寻找一个毛茸茸的家人~
 			</h3>
 			<p><br></p>
 			<blockquote>
-				<p>
-					开始领养
-				</p>
+				<p><input type="button" id="J_SuverySubmit" class="btn btn-primary" onclick="submitUserSuvery();" value="选择猫咪 >"></input></p>
 			</blockquote>
 			</form>
       	</div>
@@ -311,7 +309,7 @@ $.fn.onlyNum = function () {
         else
             return false;
     }).blur(function() {
-    	value=value.replace(/[^\d]/g,'');
+    	this.value=this.value.replace(/[^\d]/g,'');
     }).bind("paste", function () {
     //获取剪切板的内容
         var clipboard = window.clipboardData.getData("Text");
@@ -321,6 +319,10 @@ $.fn.onlyNum = function () {
             return false;
     });
 };
+
+function submitUserSuvery()
+{
+}
 
 function initRadio(name)
 {
