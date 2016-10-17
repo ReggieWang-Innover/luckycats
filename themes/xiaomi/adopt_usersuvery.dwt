@@ -61,7 +61,7 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
-			<form>
+			<form id = "J_SuveryForm" onsubmit="return submitUserSuvery();" method="post" action="adopt.php">
 			<div id = "J_PersonInfo">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
@@ -286,11 +286,11 @@
 				<br>
 			</p>
 			<h3>
-				接下来，寻找一个毛茸茸的家人~
+				接下来，选择你喜欢的猫咪~
 			</h3>
 			<p><br></p>
 			<blockquote>
-				<p><input type="button" id="J_SuverySubmit" class="btn btn-primary" onclick="submitUserSuvery();" value="选择猫咪 >"></input></p>
+				<p><input type="submit" id="J_SuverySubmit" class="btn btn-primary"value="选择猫咪 >"></input></p>
 			</blockquote>
 			</form>
       	</div>
@@ -420,7 +420,10 @@ function submitUserSuvery()
 	if (firstInvalid != null)
 	{
 		location.hash = firstInvalid;
+		return false;
 	}
+	
+	return true;
 }
 
 //]]>
