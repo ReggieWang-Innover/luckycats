@@ -85,6 +85,7 @@ $adoptor = $db->GetRow($sql);
 if ($adoptor)
 {
     $info = $adoptor;
+    $info['person_survey'] = base64_decode($info['person_survey']);
 }
 
 $info['hasEmail'] = $hasEmail;
@@ -95,13 +96,14 @@ $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
 
 $info['favcat'] = $favcat_id;
 
-if ($action == 'submitsuvery')
+if ($action == 'submitsurvey')
 {
     if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
     {
         $json   = new JSON;
-        $suvery = $json->encode($_POST);
-        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_survery = '$suvery'";
+        $survey = $json->encode($_POST);
+        $surveyb64 = base64_encode($survey);
+        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_survey = '$surveyb64'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
             $nextStep = ADOPT_STEP_CATSELECT;
@@ -112,7 +114,7 @@ if ($action == 'submitsuvery')
         $sql .= " WHERE user_id = $userid";
         
         $db->query($sql);
-        $info['person_survey'] = $suvery;
+        $info['person_survey'] = $survey;
     }
     
     $action = 'adopt';
