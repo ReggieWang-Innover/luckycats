@@ -101,13 +101,16 @@ if ($action == 'submitsuvery')
     {
         $json   = new JSON;
         $suvery = $json->encode($_POST);
-        $sql =  "UPDATE " . $ecs->table('adoptor') . "SET person_suvery = '$suveryjson'";
+        $sql =  "UPDATE " . $ecs->table('adoptor') . "SET person_survery = '$suveryjson'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
             $nextStep = ADOPT_STEP_CATSELECT;
             $sql .= ", adopt_step = $nextStep";
             $info['adopt_step'] = $nextStep;
         }
+        
+        $sql .= " WHERE user_id = $user_id";
+        
         $db->query($sql);
         $info['person_survey'] = $suvery;
     }
