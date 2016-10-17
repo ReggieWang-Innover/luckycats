@@ -97,8 +97,22 @@ $info['favcat'] = $favcat_id;
 
 if ($action == 'submitsuvery')
 {
-    $json   = new JSON;
-    die($json->encode($_POST));
+    if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
+    {
+        $json   = new JSON;
+        $suvery = $json->encode($_POST);
+        $sql =  "UPDATE " . $ecs->table('adoptor') . "SET person_suvery = '$suveryjson'";
+        if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
+        {
+            $nextStep = ADOPT_STEP_CATSELECT;
+            $sql .= ", adopt_step = $nextStep";
+            $info['adopt_step'] = $nextStep;
+        }
+        $db->query($sql);
+        $info['person_survey'] = $suvery;
+    }
+    
+    $action = 'adopt';
 }
 
 if ($action == 'adopt')
