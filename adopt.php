@@ -97,7 +97,8 @@ $info['favcat'] = $favcat_id;
 
 if ($action == 'submitsuvery')
 {
-    die('okay');
+    $json   = new JSON;
+    die($json->encode($_POST));
 }
 
 if ($action == 'adopt')
