@@ -143,6 +143,10 @@ if ($action == 'adopt')
     {
         $smarty->display('adopt_usersuvery.dwt');
     }
+    else if ($info['adopt_step'] == ADOPT_STEP_CATSELECT)
+    {
+        $smarty->display('adopt_catselect.dwt');
+    }
 }
 else if ($action == 'identify')
 {
