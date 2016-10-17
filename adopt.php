@@ -101,7 +101,7 @@ if ($action == 'submitsuvery')
     {
         $json   = new JSON;
         $suvery = $json->encode($_POST);
-        $sql =  "UPDATE " . $ecs->table('adoptor') . "SET person_survery = '$suveryjson'";
+        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_survery = '$suvery'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
             $nextStep = ADOPT_STEP_CATSELECT;
