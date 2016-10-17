@@ -109,7 +109,7 @@ if ($action == 'submitsuvery')
             $info['adopt_step'] = $nextStep;
         }
         
-        $sql .= " WHERE user_id = $user_id";
+        $sql .= " WHERE user_id = $userid";
         
         $db->query($sql);
         $info['person_survey'] = $suvery;
