@@ -95,6 +95,11 @@ $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
 
 $info['favcat'] = $favcat_id;
 
+if ($action == 'submitsuvery')
+{
+    die('okay');
+}
+
 if ($action == 'adopt')
 {
     //领养申请

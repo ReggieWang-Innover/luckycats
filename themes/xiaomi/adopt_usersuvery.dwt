@@ -290,6 +290,7 @@
 			</h3>
 			<p><br></p>
 			<blockquote>
+				<input type="hidden" name="act" value="submitsuvery"></input>
 				<p><input type="submit" id="J_SuverySubmit" class="btn btn-primary"value="选择猫咪 >"></input></p>
 			</blockquote>
 			</form>
