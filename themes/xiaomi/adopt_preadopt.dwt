@@ -57,12 +57,10 @@
 			<p><br></p>
 			<p></p>
 			<hr>
-			<h3 align="left"><span style="font-size:16px;color:#003399;"><strong>接下来，为了确保领养沟通顺利进行，我们需要确认您的联系方式。</strong></span></h3>
-			<p><span style="font-size:14px;">您希望我们用何种方式将领养进展通知给您？</span></p>
+			<h3 align="left"><span style="font-size:16px;color:#003399;"><strong>为了确保领养沟通顺利进行，我们需要确认您的Email地址。</strong></span></h3>
 			<p><span style="font-size:14px;"></span><br></span></p>
 			<blockquote>
 				<p>
-				  <input id="J_ConnectByEmail" type="radio" name="connecttype" value="email" {if !$adopt_info.hasEmail}disabled="disabled" {elseif $adopt_info.person_connecttype eq 0}checked {/if}> </input><span style="font-size:14px;"><strong>电子邮件 - </strong>
 				  <!--{if $adopt_info.hasEmail}-->
 				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
 				  <!--{else}-->
@@ -70,14 +68,6 @@
 				  <!--{/if}-->
 				</p>
 				<p><span style="font-size:14px;"><br></span></p>
-				<p>
-				  <input id="J_ConnectByWeixin" type="radio" name="connecttype" value="weixin" {if !$adopt_info.hasWxid}disabled="disabled" {elseif $adopt_info.person_connecttype eq 1}checked {/if}> </input><span style="font-size:14px;"><strong>微信消息 - </strong>
-				  <!--{if $adopt_info.hasWxid}-->
-				  <em>我们将向您绑定的微信账号推送消息以发送领养进展信息</em></span>
-				  <!--{else}-->
-				  <em>您尚未绑定微信账户（如何绑定）</em>
-				  <!--{/if}-->
-				</p>
 				<p><em><span style="font-size:12px;"><br></span></em></p>
 				<p><span style="font-size:12px;">
 					<strong><span style="font-size:14px;">验证码：</span></strong></span>
@@ -89,9 +79,6 @@
 				  <p><span style="font-size:12px;"><em>验证码已发送到您的邮箱中，标题为“【幸运土猫领养】通信验证”，请查看邮箱并输入验证码。</em></span></p>
 				  <p><span style="font-size:12px;"><em>tips：部分邮件服务器可能将我们发出的邮件作为垃圾邮件过滤掉，若未收到邮件，请检查垃圾邮件列表并将发信地址添加为信任地址，或稍后重新点击发送验证码。</em></span></p>
 				</div>
-				<div id="J_IdentifyCodeSentByWeixin" hidden="hidden">
-				  <p><span style="font-size:12px;"><em>验证码推送到您的微信账号中，请检查幸运土猫公众号推送的消息，并输入验证码。</em></span></p>
-				</div>
 				<p><span style="font-size:12px;"><br></span></p>
 			</blockquote>
 			<p></p><hr>
@@ -102,7 +89,7 @@
 				<p><strong></strong></p>
 			</blockquote>
 			<blockquote>
-				<p><input type="button" id="J_IdentifySubmit" class="btn btn-primary" onclick="submitAdoptConnect();" value="完成问卷 >"></input></p>
+				<p><input type="button" id="J_IdentifySubmit" class="btn btn-primary" onclick="submitAdoptConnect();" value="完成问卷 &gt;"></input></p>
 			</blockquote>	  
 		</div>  
       </div>
@@ -134,17 +121,10 @@ function setIdentifyTime(type)
 {
 	if (identifyTimeCount == 0) {
 		$('#J_IdentifyCodeSentByEmail').hide();
-		$('#J_IdentifyCodeSentByWeixin').hide();
 		return;
 	}
 	
-	if (type == 'email' || type == 0) {
-		$('#J_IdentifyCodeSentByEmail').show();
-		$('#J_IdentifyCodeSentByWeixin').hide();
-	} else if (type == 'weixin' || type == 1) {
-		$('#J_IdentifyCodeSentByEmail').hide();
-		$('#J_IdentifyCodeSentByWeixin').show();			
-	}
+	$('#J_IdentifyCodeSentByEmail').show();
 	
 	identifyTimer = setInterval(onIdentifyTimer, 1000);
 }
@@ -166,12 +146,6 @@ function submitAdoptConnectResponse(result)
 
 function submitAdoptConnect()
 {
-	var type=$('input:radio[name="connecttype"]:checked').val();
-	if (type==null) {
-		alert("请选择您的联系方式");
-		return false;
-	}
-	
 	var code=$('#J_InputIdentifyCode').val();
 	if (code.length != 6) {
 		$('#J_IdentifyCodeError').html("请输入收到的6位验证码");
@@ -206,12 +180,6 @@ function sendIdentifyResponse(result)
 
 function sendIdentifyCode()
 {
-	var val=$('input:radio[name="connecttype"]:checked').val();
-	if (val==null) {
-		alert("请选择您的联系方式");
-		return;
-	}
-	
 	$('#J_SendIdentifyCode').attr('disabled', true);
 	
 	$.ajax({
@@ -219,7 +187,7 @@ function sendIdentifyCode()
 			url:"adopt.php",
 			cache:false,
 			dataType:'json',     //接受数据格式
-			data:'act=identify&type=' + val,
+			data:'act=identify&type=email',
 			success:sendIdentifyResponse
 			});
 
