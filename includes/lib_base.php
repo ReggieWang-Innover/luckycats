@@ -197,7 +197,7 @@ function get_crlf()
  *
  * @return boolean
  */
-function send_mail($name, $email, $subject, $content, $type = 0, $notification=false)
+function send_mail($name, $email, $subject, $content, $type = 0, $notification=false, $senderid = null)
 {
     /* 如果邮件编码不是EC_CHARSET，创建字符集转换对象，转换编码 */
     if ($GLOBALS['_CFG']['mail_charset'] != EC_CHARSET)
@@ -262,8 +262,14 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         /* 获得邮件服务器的参数设置 */
         $params['host'] = $GLOBALS['_CFG']['smtp_host'];
         $params['port'] = $GLOBALS['_CFG']['smtp_port'];
-        $params['user'] = $GLOBALS['_CFG']['smtp_user'];
-        $params['pass'] = $GLOBALS['_CFG']['smtp_pass'];
+        if ($senderid == null) {
+            $params['user'] = $GLOBALS['_CFG']['smtp_user'];
+            $params['pass'] = $GLOBALS['_CFG']['smtp_pass'];
+        }
+        else {
+            $params['user'] = $GLOBALS['_CFG']['smtp_user_' . senderid];
+            $params['pass'] = $GLOBALS['_CFG']['smtp_pass_' . senderid];
+        }
 
         if (empty($params['host']) || empty($params['port']))
         {
@@ -288,7 +294,15 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
 
             $send_params['recipients'] = $email;
             $send_params['headers']    = $headers;
-            $send_params['from']       = $GLOBALS['_CFG']['smtp_mail'];
+            if ($senderid == null)
+            {
+                $send_params['from']       = $GLOBALS['_CFG']['smtp_mail'];
+            }
+            else 
+            {
+                $send_params['from']       = $GLOBALS['_CFG']['smtp_mail_' . $senderid];
+            }
+            
             $send_params['body']       = $content;
 
             if (!isset($smtp))

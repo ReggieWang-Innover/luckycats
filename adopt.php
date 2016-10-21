@@ -165,7 +165,7 @@ else if ($action == 'identify')
             $smt->assign('identify_code', $identify_code);
             $content = $smt->fetch('str:' . $tpl['template_content']);
             
-            if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html']))
+            if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt'))
             {
                 $result['errorcode'] = '邮件发送失败，请稍后再试';
             }
