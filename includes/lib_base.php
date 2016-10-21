@@ -267,8 +267,8 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
             $params['pass'] = $GLOBALS['_CFG']['smtp_pass'];
         }
         else {
-            $params['user'] = $GLOBALS['_CFG']['smtp_user_' . senderid];
-            $params['pass'] = $GLOBALS['_CFG']['smtp_pass_' . senderid];
+            $params['user'] = $GLOBALS['_CFG']['smtp_user_' . $senderid];
+            $params['pass'] = $GLOBALS['_CFG']['smtp_pass_' . $senderid];
         }
 
         if (empty($params['host']) || empty($params['port']))
