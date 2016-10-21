@@ -208,6 +208,9 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         $shop_name = ecs_iconv(EC_CHARSET, $GLOBALS['_CFG']['mail_charset'], $GLOBALS['_CFG']['shop_name']);
     }
     $charset   = $GLOBALS['_CFG']['mail_charset'];
+    
+    $mailfrom = $senderid == null ? $GLOBALS['_CFG']['smtp_mail'] : $GLOBALS['_CFG']['smtp_mail_' . $senderid];
+    
     /**
      * 使用mail函数发送邮件
      */
@@ -216,11 +219,11 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         /* 邮件的头部信息 */
         $content_type = ($type == 0) ? 'Content-Type: text/plain; charset=' . $charset : 'Content-Type: text/html; charset=' . $charset;
         $headers = array();
-        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         $headers[] = $content_type . '; format=flowed';
         if ($notification)
         {
-            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         }
 
         $res = @mail($email, '=?' . $charset . '?B?' . base64_encode($subject) . '?=', $content, implode("\r\n", $headers));
@@ -249,14 +252,14 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         $headers = array();
         $headers[] = 'Date: ' . gmdate('D, j M Y H:i:s') . ' +0000';
         $headers[] = 'To: "' . '=?' . $charset . '?B?' . base64_encode($name) . '?=' . '" <' . $email. '>';
-        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         $headers[] = 'Subject: ' . '=?' . $charset . '?B?' . base64_encode($subject) . '?=';
         $headers[] = $content_type . '; format=flowed';
         $headers[] = 'Content-Transfer-Encoding: base64';
         $headers[] = 'Content-Disposition: inline';
         if ($notification)
         {
-            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         }
 
         /* 获得邮件服务器的参数设置 */
@@ -294,15 +297,7 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
 
             $send_params['recipients'] = $email;
             $send_params['headers']    = $headers;
-            if ($senderid == null)
-            {
-                $send_params['from']       = $GLOBALS['_CFG']['smtp_mail'];
-            }
-            else 
-            {
-                $send_params['from']       = $GLOBALS['_CFG']['smtp_mail_' . $senderid];
-            }
-            
+            $send_params['from']       = $mailfrom;            
             $send_params['body']       = $content;
 
             if (!isset($smtp))
