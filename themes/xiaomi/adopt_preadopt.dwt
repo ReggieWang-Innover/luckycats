@@ -160,7 +160,7 @@ function submitAdoptConnect()
 		url:"adopt.php",
 		cache:false,
 		dataType:'json',     //接受数据格式
-		data:'act=verify&type=' + type + '&code=' + code,
+		data:'act=verify&type=email' + '&code=' + code,
 		success:submitAdoptConnectResponse
 		});
 	
