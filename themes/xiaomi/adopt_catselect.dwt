@@ -108,7 +108,7 @@ if (favcat != 0){
 	$('#J_catselect_specified_addition').hide();
 }
 
-$('#J_SurveyForm').submit(function() {
+$('#J_CatSelectForm').submit(function() {
 	try{
 		if ($("input[name='catselect']:checked").val() == 'specified') {
 			if (favcat == 0) {

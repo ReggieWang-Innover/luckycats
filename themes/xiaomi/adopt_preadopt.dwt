@@ -58,7 +58,7 @@
 			<blockquote>
 				<p>
 				  <!--{if $adopt_info.hasEmail}-->
-				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})以发送领养进展信息 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
+				  <em>我们将向您的注册邮箱（{$adopt_info.userEmail})发送一封含有验证码的邮件，以确保后继沟通邮件能够顺利送达 [<a href="user.php?act=profile">修改注册邮箱</a>]</em>
 				  <!--{else}-->
 				  <em>您尚未注册电子邮件 （<a href="user.php?act=profile">立即注册</>）</em>
 				  <!--{/if}-->
