@@ -62,7 +62,7 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
-			<form id = "J_SurveyForm" onsubmit="return false;" method="post" action="adopt.php">
+			<form id = "J_SurveyForm" method="post" action="adopt.php">
 			<div id = "J_PersonInfo">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
@@ -292,7 +292,7 @@
 			<p><br></p>
 			<blockquote>
 				<input type="hidden" name="act" value="submitsurvey"></input>
-				<p><input type="button" id="J_SurveySubmit" class="btn btn-primary" value="选择猫咪 &gt;" onclick="submitUserSurvey();"></input></p>
+				<p><input type="submit" id="J_SurveySubmit" class="btn btn-primary" value="选择猫咪 &gt;"></input></p>
 			</blockquote>
 			</form>
       	</div>
@@ -400,6 +400,8 @@ function initPage()
 	{
 		initRadio('q' + i);
 	}
+	
+	$('#J_SurveyForm').submit(submitUserSurvey);
 }
 
 function submitUserSurveyResponse(result)
