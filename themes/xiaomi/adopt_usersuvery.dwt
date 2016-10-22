@@ -413,37 +413,42 @@ function submitUserSurveyResponse(result)
 
 
 $('#J_SurveyForm').submit(function() {
-	firstInvalid = null;
-	if (!checkPersonInfo())
-	{
-		firstInvalid = '#J_PersonInfo';
-	}
-	
-	for (i =1; i <= 20; i++)
-	{
-		if (!checkSubmitItem('q' + i)){
-			if (firstInvalid == null){
-				firstInvalid = '#J_q' + i;
+	try {
+		firstInvalid = null;
+		if (!checkPersonInfo())
+		{
+			firstInvalid = '#J_PersonInfo';
+		}
+		
+		for (i =1; i <= 20; i++)
+		{
+			if (!checkSubmitItem('q' + i)){
+				if (firstInvalid == null){
+					firstInvalid = '#J_q' + i;
+				}
 			}
 		}
-	}
+			
+		if (firstInvalid != null)
+		{
+			location.hash = firstInvalid;
+			return false;
+		}
+			
+		$('#J_SurveySubmit').attr('disabled');
 		
-	if (firstInvalid != null)
+		$(this).ajaxSubmit({
+			type:"POST",
+			url:"adopt.php",
+			cache:false,
+			dataType:'json',
+			data:'act=submitsurvey',
+			success:submitUserSurveyResponse
+		});
+	} catch (err)
 	{
-		location.hash = firstInvalid;
-		return false;
+		console.log(err);
 	}
-		
-	$('#J_SurveySubmit').attr('disabled');
-	
-	$(this).ajaxSubmit({
-		type:"POST",
-		url:"adopt.php",
-		cache:false,
-		dataType:'json',
-		data:'act=submitsurvey',
-		success:submitUserSurveyResponse
-	});
 		
 	return false;
 });

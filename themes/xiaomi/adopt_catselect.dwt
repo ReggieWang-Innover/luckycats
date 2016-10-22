@@ -71,6 +71,12 @@
 				<!--{/if}-->
 				<p>　</p>
 			</blockquote>
+			<h3>充满期待，发送领养申请给幸运土猫</h3>
+			<p><br></p>
+			<blockquote>
+				<input type="hidden" name="act" value="catselect"></input>
+				<p><input type="submit" id="J_SelectSubmit" class="btn btn-primary" value="提交申请 &gt;"></input></p>
+			</blockquote>
 			</form>
 		<hr><p><br></p>
 		</div>
@@ -101,6 +107,30 @@ if (favcat != 0){
 	$('#J_catselect_notspecified').attr('checked', 'checked');
 	$('#J_catselect_specified_addition').hide();
 }
+
+$('#J_SurveyForm').submit(function() {
+	try{
+		if ($("input[name='catselect']:checked").val() == 'specified') {
+			if (favcat == 0) {
+				alert('请选择您喜欢的猫咪');
+				return false;
+			}
+			
+			if ($.trim($('#J_catselect_reason').val()) == '') {
+				alert('请告诉我们您选择的原因');
+				return false;
+			}
+			
+			if ($("input[name='otheragree']:checked") == null) {
+				alert('请选择是否愿意领养其他猫咪');
+				return false;
+			}
+		}
+	} catch (err) {
+		console.log(err);
+	}
+	return false;
+});
 
 });
 </script>
