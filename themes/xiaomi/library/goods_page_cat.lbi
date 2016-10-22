@@ -99,7 +99,7 @@
 			}
 		  </script>
 		  
-		  <dd class="goods-info-head-cart" id="goodsDetailBtnBox"> <a onclick="getmousepos(event)" href="javascript:addToCart({$goods.goods_id})" id="goodsDetailAddCartBtn" class="btn btn-primary goods-add-cart-btn"> <i class="iconfont ">&hearts; </i>申请领养</a></dd>
+		  <dd class="goods-info-head-cart" id="goodsDetailBtnBox"> <a onclick="getmousepos(event)" href="adopt.php?favcat={$goods.goods_id}" id="goodsDetailAddCartBtn" class="btn btn-primary goods-add-cart-btn"> <i class="iconfont ">&hearts; </i>我要领养</a></dd>
           </dl>
         </dt>
 	  </form>	
@@ -249,7 +249,7 @@
         </dl>
       </div>
       <div class="span15">
-        <div class="fr" id="goodsSubBarBtnBox"> <a href="javascript:addToCart({$goods.goods_id})" class="btn btn-primary goods-add-cart-btn" id="goodsSubBarAddCartBtn"> <i class="iconfont">&hearts; </i>申请领养</a> </div>
+        <div class="fr" id="goodsSubBarBtnBox"> <a href="adopt.php?favcat={$goods.goods_id}" class="btn btn-primary goods-add-cart-btn" id="goodsSubBarAddCartBtn"> <i class="iconfont">&hearts; </i>我要领养</a> </div>
         <div class="goods-desc-menu" id="goodsSubMenu">
           <ul class="items clearfix J_pro_related_btns">
             <li class="current"> <a href="#goodsParam">基本信息</a> </li>
