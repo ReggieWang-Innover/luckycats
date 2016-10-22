@@ -18,6 +18,7 @@
                   <div class="item-actions"> <a onclick="getmousepos(event)" class="btn btn-small btn-primary J_addCart" href="javascript:addToCart({$goods.goods_id})"><i class="iconfont">&#xe624;</i>购物车</a> <a class="btn btn-dake btn-small J_addFav" href="javascript:collect({$goods.goods_id});"><i class="iconfont">&#xe60a;</i>收藏</a> </div>
                   <div class="item-flag"> {insert name='goods_save_rate' id=$goods.goods_id} </div>
                   <!-- {else} -->
+                  <div class="item-actions"> <a onclick="getmousepos(event)" class="btn btn-small btn-primary J_addCart" href="adopt.php?favcat={$goods.goods_id}"><i class="iconfont ">&hearts; </i>我要领养</a></div>
                   <div class="item-price">{$goods.goods_brief}</div>
                   <!-- {/if} -->
                 </div>

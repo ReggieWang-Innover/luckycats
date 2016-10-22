@@ -53,7 +53,24 @@
         <div class="m_reserver" style="padding-left: 10px; color: #333;">
         	<h1 align="center">选择猫咪</h1>
 			<h3><hr></h3>
-		</div>  
+			<ul>
+				<li><span style="font-size:12px;"><em>非常感谢您如此认真的回答申请表中所提出的问题，感谢您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪。</em></span></li>
+				<li><span style="font-size:12px;"><em><span style="color:#E53333;">让我们来选择一只猫咪吧！</span></em></span></li>
+			</ul>
+			<p><br></p>
+			<form id = "J_CatSelectForm" method="post" action="adopt.php">
+			<p><span style="font-size:14px;color:#003399;">&gt; 您喜欢的猫咪是：</span></p>
+			<blockquote>
+				<!--{if $adopt_info.favcat eq 0}-->
+				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a herf="category.php?id=1">选择我喜欢的猫咪</a></p>
+				<!--{else}-->
+				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　{$adopt_info.favcatName} [<a herf="category.php?id=1">重新选择</a>]</p>
+				<!--{/if}-->
+				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input>　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</p>
+			</blockquote>
+			</form>
+		<hr><p><br></p>
+		</div>
       </div>
     </div>
   </div>
