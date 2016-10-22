@@ -133,7 +133,7 @@ if ($action == 'adopt')
         if ($favcat_id != 0)
         {
             $sql = "SELECT goods_name FROM " . $ecs->table('goods') . " WHERE goods_id = $favcat_id and cat_id = 1";
-            $favcat_name = $db->getCol($sql);
+            $favcat_name = $db->getOne($sql, true);
             if ($favcat_name)
             {
                 $smarty->assign('favcatName', $favcat_name);
