@@ -113,6 +113,9 @@ if ($action == 'submitsurvey')
         $survey = $json->encode($_POST);
         $surveyb64 = base64_encode($survey);
         $realname = $_POST['realname'];
+        
+        error_log(survey);
+        
         $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
@@ -125,11 +128,6 @@ if ($action == 'submitsurvey')
         
         $db->query($sql);
         $info['person_survey'] = $survey;
-        
-        if (!send_mail('', 'adopt@luckycats.org.cn', $tpl['template_subject'], $surveyb64, $tpl['is_html'], false, 'adopt', $userEmail))
-        {
-            die('邮件发送失败，请稍后再试');
-        }
         
     }
     
