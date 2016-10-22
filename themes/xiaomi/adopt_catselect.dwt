@@ -108,6 +108,17 @@ if (favcat != 0){
 	$('#J_catselect_specified_addition').hide();
 }
 
+function submitCatSelectResponse()
+{
+	if (result.errorcode == 'success') {
+	} else {
+		alert(result.errorcode);
+	}
+	
+	$('J_SelectSubmit').removeAttr('disabled');
+	location.reload(true);
+}
+
 $('#J_CatSelectForm').submit(function() {
 	try{
 		if ($("input[name='catselect']:checked").val() == 'specified') {
@@ -117,7 +128,7 @@ $('#J_CatSelectForm').submit(function() {
 			}
 			
 			if ($.trim($('#J_catselect_reason').val()) == '') {
-				alert('请告诉我们您选择的原因');
+				alert('请告诉我们您选择 ' + {$favcatName} +' 的原因');
 				return false;
 			}
 			
@@ -126,6 +137,17 @@ $('#J_CatSelectForm').submit(function() {
 				return false;
 			}
 		}
+		
+		$('#J_SelectSubmit').attr('disabled');
+		
+		$(this).ajaxSubmit({
+			type:"POST",
+			url:"adopt.php",
+			cache:false,
+			dataType:'json',
+			data:'act=selectcat',
+			success:submitCatSelectResponse
+		});
 	} catch (err) {
 		alert(err);
 	}
