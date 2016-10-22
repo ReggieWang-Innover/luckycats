@@ -62,7 +62,7 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
-			<form id = "J_SuveryForm" onsubmit="return false;" method="post" action="adopt.php">
+			<form id = "J_SurveyForm" onsubmit="return false;" method="post" action="adopt.php">
 			<div id = "J_PersonInfo">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
@@ -292,7 +292,7 @@
 			<p><br></p>
 			<blockquote>
 				<input type="hidden" name="act" value="submitsurvey"></input>
-				<p><input type="button" id="J_SuverySubmit" class="btn btn-primary" value="选择猫咪 &gt;" onclick="submitUserSuvery();"></input></p>
+				<p><input type="button" id="J_SurveySubmit" class="btn btn-primary" value="选择猫咪 &gt;" onclick="submitUserSurvey();"></input></p>
 			</blockquote>
 			</form>
       	</div>
@@ -402,19 +402,19 @@ function initPage()
 	}
 }
 
-function submitUserSuveryResponse(result)
+function submitUserSurveyResponse(result)
 {
 	if (result.errorcode == 'success') {
 	} else {
 		alert(result.errorcode);
 	}
 	
-	$('J_SuverySubmit').removeAttr('disabled');
+	$('J_SurveySubmit').removeAttr('disabled');
 	
 	location.reload(true);
 }
 
-function submitUserSuvery()
+function submitUserSurvey()
 {
 	firstInvalid = null;
 	if (!checkPersonInfo())
@@ -437,15 +437,15 @@ function submitUserSuvery()
 		return false;
 	}
 	
-	$('J_SuverySubmit').attr('disabled');
+	$('#J_SurveySubmit').attr('disabled');
 	
-	$('#J_SuveryForm').ajaxSubmit({
+	$('#J_SurveyForm').ajaxSubmit({
 		type:"POST",
 		url:"adopt.php",
 		cache:false,
 		dataType:'json',
 		data:'act=submitsurvey',
-		success:submitUserSuveryResponse
+		success:submitUserSurveyResponse
 	});
 	
 	return false;
