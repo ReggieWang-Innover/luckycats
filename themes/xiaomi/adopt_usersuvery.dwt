@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link rel="stylesheet" href="themes/xiaomi/css/user-center.min.css" />
-<script src="themes/xiaomi/js/jquery.js"></script>
+<script type="text/javascript" src="themes/xiaomi/js/jquery.js"></script>
 <script type="text/javascript" src="themes/xiaomi/js/jquery.json.min.js"></script>
 <script type="text/javascript" src="themes/xiaomi/js/jquery.form.js"></script>
 </head>
@@ -414,6 +414,8 @@ function submitUserSurveyResponse(result)
 	location.reload(true);
 }
 
+
+$(document).ready(function() {
 $('#J_SurveyForm').submit(function() {
 	firstInvalid = null;
 	if (!checkPersonInfo())
@@ -448,6 +450,8 @@ $('#J_SurveyForm').submit(function() {
 	});
 	
 	return false;
+});
+
 });
 
 //]]>
