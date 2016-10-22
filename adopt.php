@@ -114,7 +114,7 @@ if ($action == 'submitsurvey')
         $surveyb64 = base64_encode($survey);
         $realname = $_POST['realname'];
         
-        error_log(survey);
+        error_log($survey);
         
         $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
