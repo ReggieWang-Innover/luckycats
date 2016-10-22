@@ -105,38 +105,10 @@ $info['identify_timeout'] = $timeout > 0 ? $timeout : 0;
 
 $info['favcat'] = $favcat_id;
 
-if ($action == 'submitsurvey')
-{
-    if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
-    {
-        $json   = new JSON;
-        $survey = $json->encode($_POST);
-        $surveyb64 = base64_encode($survey);
-        $realname = $_POST['realname'];
-        
-        error_log($survey);
-        
-        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
-        if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
-        {
-            $nextStep = ADOPT_STEP_CATSELECT;
-            $sql .= ", adopt_step = $nextStep";
-            $info['adopt_step'] = $nextStep;
-        }
-        
-        $sql .= " WHERE user_id = $userid";
-        
-        $db->query($sql);
-        $info['person_survey'] = $survey;
-        
-    }
-    
-    $action = 'adopt';
-}
-
 if ($action == 'adopt')
 {
     //领养申请
+    $smarty->assign('favcat', $favcat_id);
     $smarty->assign('adopt_info', $info);
     
     if ($info['adopt_step'] == ADOPT_STEP_CONNECTINFO)
@@ -240,6 +212,38 @@ else if ($action == 'verify')
         }
     }
     
+    echo $json->encode($result);
+}
+else if ($action == 'submitsurvey')
+{
+    $json   = new JSON;
+    $result = array('errorcode' => 'success');
+    
+    if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
+    {
+        $survey = $json->encode($_POST);
+        $surveyb64 = base64_encode($survey);
+        $realname = $_POST['realname'];
+
+        error_log($survey);
+
+        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
+        if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
+        {
+            $nextStep = ADOPT_STEP_CATSELECT;
+            $sql .= ", adopt_step = $nextStep";
+            $info['adopt_step'] = $nextStep;
+        }
+
+        $sql .= " WHERE user_id = $userid";
+
+        $db->query($sql);
+        $info['person_survey'] = $survey;
+    }
+    else {
+        $result['errorcode'] = '您的邮件验证已过期，请重新验证';
+    }
+
     echo $json->encode($result);
 }
 

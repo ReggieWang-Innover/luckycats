@@ -401,6 +401,18 @@ function initPage()
 	}
 }
 
+function submitUserSuveryResponse(result)
+{
+	if (result.errorcode == 'success') {
+	} else {
+		alert(result.errorcode);
+	}
+	
+	$('J_SuverySubmit').removeAttr('disabled');
+	
+	location.reload(true);
+}
+
 function submitUserSuvery()
 {
 	firstInvalid = null;
@@ -424,7 +436,18 @@ function submitUserSuvery()
 		return false;
 	}
 	
-	return true;
+	$('J_SuverySubmit').attr('disabled');
+	
+	$('#J_SuveryForm').ajaxSubmit({
+		type:"POST",
+		url:"adopt.php",
+		cache:false,
+		dataType:'json',
+		data:'act=submitsurvey'
+		success:submitUserSuveryResponse
+	})
+	
+	return false;
 }
 
 //]]>
