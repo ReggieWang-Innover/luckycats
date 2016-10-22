@@ -57,14 +57,15 @@
 			<p><span style="font-size:16px;color:#003399;">&gt; 您喜欢的猫咪是：</span></p>
 			<blockquote>
 				<!--{if $favcat eq 0}-->
-				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a href="category.php?id=1">选择我喜欢的猫咪</a></p>
+				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　[<a href="category.php?id=1">选择我喜欢的猫咪</a>]</p>
 				<!--{else}-->
 				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input><em><span style="font-size:16px;color:#003399;">　{$favcatName}</span></em> [<a href="category.php?id=1">重新选择</a>]</p>
-				<blockquote>
+				<blockquote><div id="J_catselect_specified_addition">
 					<p>选择它的原因是：<input id="J_catselect_reason" type="text" name="catselect_reason" maxlength="100" style="width: 300px;"></input></p>
 					<p>由于存在多个申请者同时希望领养同一只猫咪的情况，幸运土猫将与大家逐个顺序沟通。<br/>如果您申请的猫咪已被领养，您是否愿意考虑领养其他的猫咪？</p>
 					<p><input id="J_otheragree_yes" type="radio" name="otheragree" value="yes">　愿意，请为我推荐其他猫咪</input></p>
 					<p><input id="J_otheragree_no" type="radio" name="otheragree" value="no">　不愿意，只爱它一个</input></p>
+					</div>
 				</blockquote>
 				<!--{/if}-->
 				<p>　</p>
@@ -87,20 +88,20 @@ $(function(){
 
 $("input[name='catselect']").click(function(){
 	if ($("input[name='catselect']:checked").val() == 'specified') {
-		$('#J_catselect_reason').removeAttr('disabled');
-		$("input[name='otheragree']").removeAttr('disabled');
+		$('J_catselect_specified_addition').show();
 	}	
 	else {
-		$('#J_catselect_reason').attr('disabled');
-		$("input[name='otheragree']").attr('disabled');
+		$('J_catselect_specified_addition').hide();
 	}
 })
 	
 favcat = {$favcat};
 if (favcat != 0){
 	$('#J_catselect_specified').attr('checked', 'checked');
+	$('J_catselect_specified_addition').show();
 } else {
 	$('#J_catselect_notspecified').attr('checked', 'checked');
+	$('J_catselect_specified_addition').hide();
 }
 
 });
