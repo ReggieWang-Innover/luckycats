@@ -61,7 +61,7 @@
 			</ul>
 			<p><br></p>
 			<hr><p><br></p>
-			<form id = "J_SuveryForm" onsubmit="return submitUserSuvery();" method="post" action="adopt.php">
+			<form id = "J_SuveryForm" onsubmit="return false;" method="post" action="adopt.php">
 			<div id = "J_PersonInfo">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
@@ -291,7 +291,7 @@
 			<p><br></p>
 			<blockquote>
 				<input type="hidden" name="act" value="submitsurvey"></input>
-				<p><input type="button" id="J_SuverySubmit" class="btn btn-primary" value="选择猫咪 &gt;"></input></p>
+				<p><input type="button" id="J_SuverySubmit" class="btn btn-primary" value="选择猫咪 &gt;" onclick="submitUserSuvery();"></input></p>
 			</blockquote>
 			</form>
       	</div>
