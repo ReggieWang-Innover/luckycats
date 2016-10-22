@@ -72,9 +72,9 @@
 					<p><input id="J_otheragree_no" type="radio" name="otheragree" value="no">　不愿意，只爱它一个</input></p>
 				</blockquote>
 				<!--{/if}-->
-				<p></p>
-				<p></p>
-				<p></p>
+				<p>　</p>
+				<p>　</p>
+				<p>　</p>
 				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input>　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</p>
 			</blockquote>
 			</form>
