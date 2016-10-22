@@ -128,7 +128,7 @@ if ($action == 'submitsurvey')
         
         if (!send_mail('', 'adopt@luckycats.org.cn', $tpl['template_subject'], $surveyb64, $tpl['is_html'], false, 'adopt', $userEmail))
         {
-            $result['errorcode'] = '邮件发送失败，请稍后再试';
+            die('邮件发送失败，请稍后再试');
         }
         
     }
