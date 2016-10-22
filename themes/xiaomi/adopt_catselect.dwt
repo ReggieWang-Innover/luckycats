@@ -61,15 +61,20 @@
 			<form id = "J_CatSelectForm" method="post" action="adopt.php">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您喜欢的猫咪是：</span></p>
 			<blockquote>
-				<p>
 				<!--{if $favcat eq 0}-->
-				<input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a href="category.php?id=1">选择我喜欢的猫咪</a>
+				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a href="category.php?id=1">选择我喜欢的猫咪</a></p>
 				<!--{else}-->
-				<input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<em><span style="font-size:16px;color:#003399;">{$favcatName}</span></em> [<a href="category.php?id=1">重新选择</a>]，选择它的原因是：
-				<input id="J_catselect_reason" type="text" name="catselect_reason" maxlength="100" style="width: 300px;"></input>
+				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<em><span style="font-size:16px;color:#003399;">{$favcatName}</span></em> [<a href="category.php?id=1">重新选择</a>]</p>
+				<blockquote>
+					<p>选择它的原因是：<input id="J_catselect_reason" type="text" name="catselect_reason" maxlength="100" style="width: 300px;"></input></p>
+					<p>由于存在多个申请者同时希望领养同一只猫咪的情况，幸运土猫将与大家逐个顺序沟通。如果您申请的猫咪已被领养，您是否愿意考虑领养其他的猫咪？</p>
+					<p><input id="J_otheragree_yes" type="radio" name="otheragree" value="yes">　愿意，请为我推荐其他猫咪</input></p>
+					<p><input id="J_otheragree_no" type="radio" name="otheragree" value="no">　不愿意，只爱它一个</input></p>
+				</blockquote>
 				<!--{/if}-->
-				</p>
-				
+				<p></p>
+				<p></p>
+				<p></p>
 				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input>　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</p>
 			</blockquote>
 			</form>
