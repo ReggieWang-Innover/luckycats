@@ -86,7 +86,16 @@ if ($adoptor)
 {
     $info = $adoptor;
     $info['person_survey'] = base64_decode($info['person_survey']);
+    $passtime = time() - $info['identify_time'];
+    if ($passtime > 86400)
+    {
+        $sql = 'UPDATE ' . $ecs->table('adoptor') . 'SET adopt_step = 0 WHERE user_id = ' . $userid;
+        $db->query($sql);
+        $info['adopt_step'] = ADOPT_STEP_CONNECTINFO;
+    }
 }
+
+
 
 $info['hasEmail'] = $hasEmail;
 $info['hasWxid'] = $hasWxid;
