@@ -56,6 +56,7 @@
 			<form id = "J_CatSelectForm" method="post" action="adopt.php">
 			<p><span style="font-size:16px;color:#003399;">&gt; 您喜欢的猫咪是：</span></p>
 			<blockquote>
+				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input><em><span style="font-size:16px;color:#003399;">　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</span></em></p>
 				<!--{if $favcat eq 0}-->
 				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　[<a href="category.php?id=1">选择我喜欢的猫咪</a>]</p>
 				<!--{else}-->
@@ -69,9 +70,6 @@
 				</blockquote>
 				<!--{/if}-->
 				<p>　</p>
-				<p>　</p>
-				<p>　</p>
-				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input><em><span style="font-size:16px;color:#003399;">　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</span></em></p>
 			</blockquote>
 			</form>
 		<hr><p><br></p>
