@@ -130,6 +130,22 @@ if ($action == 'adopt')
     }
     else if ($info['adopt_step'] == ADOPT_STEP_CATSELECT)
     {
+        if ($favcat_id != 0)
+        {
+            $sql = "SELECT goods_name FROM " . $ecs->table('goods') . " WHERE goods_id = $favcat_id and cat_id = 1";
+            $favcat_name = $db->getCol($sql);
+            if ($favcat_name)
+            {
+                $smarty->assign('favcatName', $favcat_name);
+            }
+            else 
+            {
+                $favcat_id = 0;
+                $info['favcat'] = 0;
+                $smarty->assign('favcat', 0);                
+            }
+        }
+        
         $smarty->display('adopt_catselect.dwt');
     }
 }

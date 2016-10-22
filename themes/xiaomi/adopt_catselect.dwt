@@ -61,11 +61,15 @@
 			<form id = "J_CatSelectForm" method="post" action="adopt.php">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您喜欢的猫咪是：</span></p>
 			<blockquote>
-				<!--{if $adopt_info.favcat eq 0}-->
-				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a herf="category.php?id=1">选择我喜欢的猫咪</a></p>
+				<p>
+				<!--{if $favcat eq 0}-->
+				<input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<a href="category.php?id=1">选择我喜欢的猫咪</a>
 				<!--{else}-->
-				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　{$adopt_info.favcatName} [<a herf="category.php?id=1">重新选择</a>]</p>
+				<input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　<em><span style="font-size:16px;color:#003399;">{$favcatName}</span></em> [<a href="category.php?id=1">重新选择</a>]，选择它的原因是：
+				<input id="J_catselect_reason" type="text" name="catselect_reason" maxlength="100" style="width: 300px;"></input>
 				<!--{/if}-->
+				</p>
+				
 				<p><input id="J_catselect_notspecified" type="radio" name="catselect" value="notspecified"></input>　没有特别的选择，愿意前往幸运土猫场所亲自看看猫咪，选择一个适合的宝贝。</p>
 			</blockquote>
 			</form>
