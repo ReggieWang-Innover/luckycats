@@ -88,20 +88,20 @@ $(function(){
 
 $("input[name='catselect']").click(function(){
 	if ($("input[name='catselect']:checked").val() == 'specified') {
-		$('J_catselect_specified_addition').show();
+		$('#J_catselect_specified_addition').show();
 	}	
 	else {
-		$('J_catselect_specified_addition').hide();
+		$('#J_catselect_specified_addition').hide();
 	}
 })
 	
 favcat = {$favcat};
 if (favcat != 0){
 	$('#J_catselect_specified').attr('checked', 'checked');
-	$('J_catselect_specified_addition').show();
+	$('#J_catselect_specified_addition').show();
 } else {
 	$('#J_catselect_notspecified').attr('checked', 'checked');
-	$('J_catselect_specified_addition').hide();
+	$('#J_catselect_specified_addition').hide();
 }
 
 });
