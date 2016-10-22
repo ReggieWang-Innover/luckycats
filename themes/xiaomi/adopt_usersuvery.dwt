@@ -40,11 +40,6 @@
               <li class="finished">领养之前</li>
               <li class="current">问卷调查</li>
               <li>选择猫咪</li>
-              <li>在线沟通</li>
-              <li>面谈沟通</li>
-              <li>猫咪进家</li>
-              <li>领养回访</li>
-              <li>幸福一生</li>
             </ul>
           </div>
         </div>
@@ -304,6 +299,8 @@
 <script type="Text/Javascript" language="JavaScript">
 //<![CDATA[
 
+$(document).ready(function() {
+           
 $.fn.onlyNum = function () {
     $(this).keypress(function (event) {
         var eventObj = event || e;
@@ -414,42 +411,42 @@ function submitUserSurveyResponse(result)
 	location.reload(true);
 }
 
-$(document).ready(function() {
-	$('#J_SurveyForm').submit(function() {
-		firstInvalid = null;
-		if (!checkPersonInfo())
-		{
-			firstInvalid = '#J_PersonInfo';
-		}
-		
-		for (i =1; i <= 20; i++)
-		{
-			if (!checkSubmitItem('q' + i)){
-				if (firstInvalid == null){
-					firstInvalid = '#J_q' + i;
-				}
+
+$('#J_SurveyForm').submit(function() {
+	firstInvalid = null;
+	if (!checkPersonInfo())
+	{
+		firstInvalid = '#J_PersonInfo';
+	}
+	
+	for (i =1; i <= 20; i++)
+	{
+		if (!checkSubmitItem('q' + i)){
+			if (firstInvalid == null){
+				firstInvalid = '#J_q' + i;
 			}
 		}
+	}
 		
-		if (firstInvalid != null)
-		{
-			location.hash = firstInvalid;
-			return false;
-		}
-		
-		$('#J_SurveySubmit').attr('disabled');
-		
-		$(this).ajaxSubmit({
-			type:"POST",
-			url:"adopt.php",
-			cache:false,
-			dataType:'json',
-			data:'act=submitsurvey',
-			success:submitUserSurveyResponse
-		});
-		
+	if (firstInvalid != null)
+	{
+		location.hash = firstInvalid;
 		return false;
+	}
+		
+	$('#J_SurveySubmit').attr('disabled');
+	
+	$(this).ajaxSubmit({
+		type:"POST",
+		url:"adopt.php",
+		cache:false,
+		dataType:'json',
+		data:'act=submitsurvey',
+		success:submitUserSurveyResponse
 	});
+		
+	return false;
+});
 
 });
 
