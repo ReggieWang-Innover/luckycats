@@ -113,7 +113,7 @@ if ($action == 'submitsurvey')
         $survey = $json->encode($_POST);
         $surveyb64 = base64_encode($survey);
         $realname = $_POST['realname'];
-        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname' person_survey = '$surveyb64'";
+        $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
             $nextStep = ADOPT_STEP_CATSELECT;
