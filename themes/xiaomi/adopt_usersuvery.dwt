@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="themes/xiaomi/css/user-center.min.css" />
 <script src="themes/xiaomi/js/jquery.js"></script>
 <script type="text/javascript" src="themes/xiaomi/js/jquery.json.min.js"></script>
+<script type="text/javascript" src="themes/xiaomi/js/jquery.form.js"></script>
 </head>
 
 <body>
