@@ -447,7 +447,7 @@ $('#J_SurveyForm').submit(function() {
 		});
 	} catch (err)
 	{
-		console.log(err);
+		alert(err);
 	}
 		
 	return false;
