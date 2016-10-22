@@ -13,6 +13,46 @@
 <script type="text/javascript" src="themes/xiaomi/js/jquery.js"></script>
 <script type="text/javascript" src="themes/xiaomi/js/jquery.json.min.js"></script>
 <script type="text/javascript" src="themes/xiaomi/js/jquery.form.js"></script>
+<script>
+$(document).ready(function() {
+	$('#J_SurveyForm').submit(function() {
+		firstInvalid = null;
+		if (!checkPersonInfo())
+		{
+			firstInvalid = '#J_PersonInfo';
+		}
+		
+		for (i =1; i <= 20; i++)
+		{
+			if (!checkSubmitItem('q' + i)){
+				if (firstInvalid == null){
+					firstInvalid = '#J_q' + i;
+				}
+			}
+		}
+		
+		if (firstInvalid != null)
+		{
+			location.hash = firstInvalid;
+			return false;
+		}
+		
+		$('#J_SurveySubmit').attr('disabled');
+		
+		$(this).ajaxSubmit({
+			type:"POST",
+			url:"adopt.php",
+			cache:false,
+			dataType:'json',
+			data:'act=submitsurvey',
+			success:submitUserSurveyResponse
+		});
+		
+		return false;
+	});
+
+});
+</script>
 </head>
 
 <body>
@@ -413,46 +453,6 @@ function submitUserSurveyResponse(result)
 	
 	location.reload(true);
 }
-
-
-$(document).ready(function() {
-$('#J_SurveyForm').submit(function() {
-	firstInvalid = null;
-	if (!checkPersonInfo())
-	{
-		firstInvalid = '#J_PersonInfo';
-	}
-	
-	for (i =1; i <= 20; i++)
-	{
-		if (!checkSubmitItem('q' + i)){
-			if (firstInvalid == null){
-				firstInvalid = '#J_q' + i;
-			}
-		}
-	}
-	
-	if (firstInvalid != null)
-	{
-		location.hash = firstInvalid;
-		return false;
-	}
-	
-	$('#J_SurveySubmit').attr('disabled');
-	
-	$(this).ajaxSubmit({
-		type:"POST",
-		url:"adopt.php",
-		cache:false,
-		dataType:'json',
-		data:'act=submitsurvey',
-		success:submitUserSurveyResponse
-	});
-	
-	return false;
-});
-
-});
 
 //]]>
 </script>
