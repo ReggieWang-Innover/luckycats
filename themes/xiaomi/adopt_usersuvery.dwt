@@ -445,7 +445,7 @@ function submitUserSuvery()
 		dataType:'json',
 		data:'act=submitsurvey'
 		success:submitUserSuveryResponse
-	})
+	});
 	
 	return false;
 }
