@@ -85,7 +85,7 @@
 <script type="Text/Javascript" language="JavaScript">
 $(function(){
 
-$('#J_catselect_specified').change(function(){
+$("input[name='catselect']").click(function(){
 	if ($("input[name='catselect']:checked").val() == 'specified') {
 		$('#J_catselect_reason').removeAttr('disabled');
 		$("input[name='otheragree']").removeAttr('disabled');
