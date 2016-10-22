@@ -125,6 +125,12 @@ if ($action == 'submitsurvey')
         
         $db->query($sql);
         $info['person_survey'] = $survey;
+        
+        if (!send_mail('', 'adopt@luckycats.org.cn', $tpl['template_subject'], $surveyb64, $tpl['is_html'], false, 'adopt', $userEmail))
+        {
+            $result['errorcode'] = '邮件发送失败，请稍后再试';
+        }
+        
     }
     
     $action = 'adopt';

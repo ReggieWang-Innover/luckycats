@@ -197,7 +197,7 @@ function get_crlf()
  *
  * @return boolean
  */
-function send_mail($name, $email, $subject, $content, $type = 0, $notification=false, $senderid = null)
+function send_mail($name, $email, $subject, $content, $type = 0, $notification=false, $senderid = null, $replyemail = null)
 {
     /* 如果邮件编码不是EC_CHARSET，创建字符集转换对象，转换编码 */
     if ($GLOBALS['_CFG']['mail_charset'] != EC_CHARSET)
@@ -209,7 +209,14 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
     }
     $charset   = $GLOBALS['_CFG']['mail_charset'];
     
-    $mailfrom = $senderid == null ? $GLOBALS['_CFG']['smtp_mail'] : $GLOBALS['_CFG']['smtp_mail_' . $senderid];
+    if ($replyemail != null)
+    {
+        $mailfrom = $replyemail;
+    }
+    else 
+    {
+        $mailfrom = $senderid == null ? $GLOBALS['_CFG']['smtp_mail'] : $GLOBALS['_CFG']['smtp_mail_' . $senderid];
+    }
     
     /**
      * 使用mail函数发送邮件
