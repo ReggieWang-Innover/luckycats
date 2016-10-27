@@ -262,7 +262,7 @@ else if ($action == 'submitsurvey')
 
     echo $json->encode($result);
 }
-else if ($action == 'selectcat')
+else if ($action == 'catselect')
 {
     $json   = new JSON;
     $result = array('errorcode' => 'success');
