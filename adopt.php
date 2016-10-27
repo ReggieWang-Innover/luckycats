@@ -262,6 +262,10 @@ else if ($action == 'submitsurvey')
 
     echo $json->encode($result);
 }
+else if ($action == 'selectcat')
+{
+    error_log($_POST);
+}
 
 function generateIdentifyCode($userid, $connecttype)
 {
