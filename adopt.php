@@ -126,6 +126,7 @@ $position = assign_ur_here('adopt');
 $smarty->assign('page_title',       $position['title']);    // 页面标题
 $smarty->assign('ur_here',          $position['ur_here']);  // 当前位置
 
+$json = new JSON();
 
 if (empty($_SESSION['user_id']))
 {
@@ -165,7 +166,7 @@ $adoptor = $db->GetRow($sql);
 if ($adoptor)
 {
     $info = $adoptor;
-    $info['person_survey'] = base64_decode($info['person_survey']);
+    $info['person_survey'] = $json->decode(base64_decode($info['person_survey']));
     $passtime = time() - $info['identify_time'];
     if ($passtime > 86400)
     {
@@ -231,7 +232,7 @@ if ($action == 'adopt')
 }
 else if ($action == 'identify')
 {
-    $json   = new JSON;
+    global $json;
     
     $smt = $GLOBALS['smarty'];
     $identify_code = '';
@@ -264,7 +265,7 @@ else if ($action == 'identify')
 }
 else if ($action == 'verify')
 {
-    $json   = new JSON;
+    global $json;
     
     $type = trim($_REQUEST['type']);
     $code = trim($_REQUEST['code']);
@@ -312,7 +313,7 @@ else if ($action == 'verify')
 }
 else if ($action == 'submitsurvey')
 {
-    $json   = new JSON;
+    global $json;
     $result = array('errorcode' => 'success');
     
     if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
@@ -342,7 +343,7 @@ else if ($action == 'submitsurvey')
 }
 else if ($action == 'selectcat')
 {
-    $json   = new JSON;
+    global $json;
     $result = array('errorcode' => 'success');
     
     $selectinfo = $_POST;
