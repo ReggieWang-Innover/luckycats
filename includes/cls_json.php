@@ -28,6 +28,38 @@ class JSON
     var $at   = 0;
     var $ch   = '';
     var $text = '';
+    
+    function urlencodeary($array)
+    {
+        $encoded = array();
+        foreach($array as $key => $val)
+        {
+            $encoded[urlencode($key)] = is_array($val) ? $this->urlencodeary($val) : urlencode($val);
+        }
+        
+        return $encoded;
+    }
+    
+    function urldecodeary($array)
+    {
+        $decoded = array();
+        foreach ($array as $key => $val)
+        {
+            $decoded[urldecode($key)] = is_array($val) ? $this->urldecodeary($val) : urldecode($val);
+        }
+        
+        return $decoded;
+    }
+    
+    function urljson_encode_arry($ary, $force = true)
+    {
+        return $this->encode($this->urlencodeary($ary), $force);
+    }
+    
+    function urljson_decode_arry($jstr)
+    {
+        return $this->urldecodeary($this->decode($jstr, 1));
+    }
 
     function encode($arg, $force = true)
     {
@@ -39,7 +71,7 @@ class JSON
 
         if ($_force && EC_CHARSET == 'utf-8' && function_exists('json_encode'))
         {
-            return json_encode($arg, JSON_UNESCAPED_UNICODE);
+            return json_encode($arg);
         }
 
         $returnValue = '';

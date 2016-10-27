@@ -166,7 +166,7 @@ $adoptor = $db->GetRow($sql);
 if ($adoptor)
 {
     $info = $adoptor;
-    $info['person_survey'] = $json->decode(base64_decode($info['person_survey']), 1);
+    $info['person_survey'] = $json->urljson_decode_arry(base64_decode($info['person_survey']));
     $passtime = time() - $info['identify_time'];
     if ($passtime > 86400)
     {
@@ -318,7 +318,7 @@ else if ($action == 'submitsurvey')
     
     if ($info['adopt_step'] >= ADOPT_STEP_USERSUVERY)
     {
-        $survey = $json->encode($_POST);
+        $survey = $json->urljson_encode_arry($_POST);
         $surveyb64 = base64_encode($survey);
         $realname = $_POST['realname'];
 
