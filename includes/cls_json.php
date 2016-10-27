@@ -39,7 +39,7 @@ class JSON
 
         if ($_force && EC_CHARSET == 'utf-8' && function_exists('json_encode'))
         {
-            return json_encode($arg);
+            return json_encode($arg, JSON_UNESCAPED_UNICODE);
         }
 
         $returnValue = '';
