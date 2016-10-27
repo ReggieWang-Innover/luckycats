@@ -166,7 +166,7 @@ $adoptor = $db->GetRow($sql);
 if ($adoptor)
 {
     $info = $adoptor;
-    $info['person_survey'] = $json->decode(base64_decode($info['person_survey']));
+    $info['person_survey'] = $json->decode(base64_decode($info['person_survey']), 1);
     $passtime = time() - $info['identify_time'];
     if ($passtime > 86400)
     {
