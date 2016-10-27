@@ -233,8 +233,8 @@
 			<p><span id="J_q15" style="font-size:14px;color:#003399;">&gt; 请问您计划为猫咪提供怎样的猫粮？</span>
 			<input id="J_q15_default" type="radio" name="q15" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
-			  <span id ="J_q13_default_adds">
-				<p><textarea id="J_q13_default_add1" name="q13_other_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+			  <span id ="J_q15_default_adds">
+				<p><textarea id="J_q15_default_add1" name="q15_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -256,7 +256,7 @@
 			<input id="J_q18_default" type="radio" name="q18" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q18_default_adds">
-				<p><textarea id="J_q18_default_add1" name="J_q18_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+				<p><textarea id="J_q18_default_add1" name="q18_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -264,7 +264,7 @@
 			<input id="J_q19_default" type="radio" name="q19" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q19_default_adds">
-				<p><textarea id="J_q19_default_add1" name="J_q19_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+				<p><textarea id="J_q19_default_add1" name="q19_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -272,7 +272,7 @@
 			<input id="J_q20_default" type="radio" name="q20" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q20_default_adds">
-				<p><textarea id="J_q20_default_add1" name="J_q20_default_add1" rows="5" maxlength="500" style="width: 260px;"></textarea></p>
+				<p><textarea id="J_q20_default_add1" name="q20_default_add1" rows="5" maxlength="500" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -442,7 +442,6 @@ $('#J_SurveyForm').submit(function() {
 			url:"adopt.php",
 			cache:false,
 			dataType:'json',
-			data:'act=submitsurvey',
 			success:submitUserSurveyResponse
 		});
 	} catch (err)

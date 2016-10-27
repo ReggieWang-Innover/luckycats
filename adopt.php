@@ -26,6 +26,86 @@ define('ADOPT_STEP_REPAYVISIT',       6); //回访
 define('ADOPT_CONNECTTYPE_EMAIL',     0); //email 联系
 define('ADOPT_CONNECTTYPE_WEIXIN',    1); //weixin 联系
 
+$QuestionDescPool = array(
+    'q1_search' => '搜索平台',
+    'q1_weibo' => '微博/博客',
+    'q1_weixin' => '微信/朋友圈',
+    'q1_sell' => '淘宝/线下义卖',
+    'q1_friend' => '亲朋好友',
+    'q1_website' => '幸运土猫官网',
+    'q1_tvradio' => '电视/广播',
+    'q1_paper' => '纸媒（如报刊、杂志等）',
+    'q1_other' => '其他：{$q1_other_add1}',
+    
+    'q2_outsider' => '已经在北京生活 {$q2_outsider_add1} 年',
+    'q2_beijinger' => '从小一直在北京生活，老土著了喵~',
+    
+    'q3_alwayslocal' => '是，我会一直在北京安家',
+    'q3_pannedleave' => '否，我未来几年会离开北京，将来会在 {$q3_plannedleave_add1} 生活',
+    'q3_notlocalyet' => '否，我目前不在北京，我在 {$q3_outsider_add1} 生活',
+    
+    'q4_single' => '单身',
+    'q4_nokid' => '已婚，无孩',
+    'q4_haskid' => '已婚，有孩，孩子的年龄是：{$q4_haskid_add1} 岁',
+    'q4_other' => '其他：{$q4_other_add1}',
+    
+    'q5_apartment' => '普通住宅楼',
+    'q5_business' => '商住两用楼',
+    'q5_bungalow' => '平房',
+    'q5_house' => '别墅',
+    'q5_other' => '其他：{$q5_other_add1}',
+    
+    'q6_sharerant' => '合租，共有 {$q6_sharerant_add1} 户合租在一套 {$q6_sharerant_add2} 居室的房子内，我租住的房间面积约 {$q6_sharerant_add3} 平米',
+    'q6_singlerant' => '独立整租，居室面积约 {$q6_singlerant_add1} 平米',
+    'q6_ownedhome' => '居住于自有房产中，居室面积约 {$q6_ownedhome_add1} 平米',
+    'q6_other' => '其他：{$q6_other_add1}',
+    
+    'q7_notinvolve' => '不涉及（自有住房请选择这一项）',
+    'q7_agree' => '同意',
+    'q7_notcare' => '无所谓',
+    'q7_other' => '其他：{$q7_other_add1}',
+    
+    'q8_parentin' => '是',
+    'q8_parentout' => '否，我的父母生活在 {$q8_parentout_add1}',
+    'q8_other' => '其他：{$q8_other_add1}',
+    
+    'q9_agree' => '同意',
+    'q9_notcare' => '无所谓',
+    'q9_other' => '其他：{$q9_other_add1}',
+    
+    'q10_yes' => '有',
+    'q10_no' => '没有',
+    
+    'q11_hascat' => '家中有猫： {$q11_hascat_add1} 只 ，已经和我一起生活的时间是 {$q11_hascat_add2} 年',
+    'q11_notnow' => '家中无猫，曾经养过猫。<br>最近一次养猫的经历是 {$q11_notnow_add1} 年前，离开时的年纪是 {$q11_notnow_add2} 岁，离开的原因：<br>{$q11_notnow_add3}',
+    'q11_notyet' => '家中无猫，未曾养过猫',
+    'q11_other' => '其他：{$q11_other_add1}',
+    
+    'q12_yes' => '没有',
+    'q12_no' => '有：{$q12_no_add1}',
+    
+    'q13_default' => '出行次数约： {$q13_default_add1} 次，计划安置猫咪方式： {$q13_default_add2}',
+    
+    'q14_yes' => '会',
+    'q14_no' => '不会',
+    
+    'q15_default' => '{$q15_default_add1}',
+    
+    'q16_must' => '猫咪每年都需要定期免疫 / 家中猫咪会定期免疫',
+    'q16_will' => '不了解，但愿意领养后每年按时为猫咪免疫',
+    'q16_wont' => '猫咪没有必要定期免疫',
+    
+    'q17_must' => '理解并赞同猫咪绝育的必要性 / 家中猫咪已经绝育',
+    'q17_will' => '不了解，但愿意为领养的猫咪及时完成绝育',
+    'q17_wont' => '猫咪没有必要绝育',
+        
+    'q18_default' => '{$q18_default_add1}',
+    
+    'q19_default' => '{$q19_default_add1}',
+    
+    'q20_default' => '{$q20_default_add1}'
+);
+
 require(dirname(__FILE__) . '/includes/init.php');
 require(ROOT_PATH . 'includes/cls_json.php');
 
@@ -265,10 +345,58 @@ else if ($action == 'selectcat')
     $json   = new JSON;
     $result = array('errorcode' => 'success');
     
-    $selectinfo = $json->encode($_POST);
-    error_log($selectinfo);
+    $selectinfo = $_POST;
+    $surveyinfo = $info['person_survey'];
+    
+    $smt = $GLOBALS['smarty'];
+    $tpl = get_mail_template('adopt_survey');
+    
+    $smt->assign($surveyinfo);
+    
+    $smtparams = array();    
+    $smtparams['username'] = $_SESSION['user_name'];
+    $smtparams['gender'] = $surveyinfo['gender'] == 'male' ? '男' : '女';
+    $smtparams['useremail'] = $userEmail;
+    
+    $target = '<p>希望领养：';
+    if ($selectinfo['catselect'] == 'specified')
+    {
+        $target .= $selectinfo['favcatname'] . '</p>';
+        $target .= '<p>选择原因：' . $selectinfo['catselect_reason'] . '</p>';
+        $target .= '<p>接受其他：' . ($selectinfo['otheragree'] == 'yes' ? '是' : '否') . '</p>';
+    }
+    else
+    {
+        $target .= '没有特定选择</p>';
+    }
+    
+    $smtparams['target'] = $target;
+    
+    for ($qid=1; $qid <= 20; $qid++)
+    {
+        fillSurveyInfo($smt, $smtparams, $qid);
+    }
+    
+    $smt->assign($smtparams);
+    
+    $content = $smt->fetch('str:' . $tpl['template_content']);
+    
+    if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt'))
+    {
+        $result['errorcode'] = '邮件发送失败，请稍后再试';
+    }
     
     echo $json->encode($result);
+}
+
+function fillSurveyInfo(&$smt, &$smtparams, $qid)
+{
+    global $QuestionDescPool;
+    $qk = 'q' . $qid;
+    $qkv = $qk . '_' . $smtparams[$qk];
+    $qas = $QuestionDescPool[$qkv];
+    $fas = $smt->fetch('str:' . $qas);
+    $smtparams[$qk] = $fas;
 }
 
 function generateIdentifyCode($userid, $connecttype)

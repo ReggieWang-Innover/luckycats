@@ -60,6 +60,7 @@
 				<!--{if $favcat eq 0}-->
 				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input>　[<a href="category.php?id=1">选择我喜欢的猫咪</a>]</p>
 				<!--{else}-->
+				<input type="hidden" name="favcatname" value="{$favcatName}"></input>
 				<p><input id="J_catselect_specified" type="radio" name="catselect" value="specified"></input><em><span style="font-size:16px;color:#003399;">　{$favcatName}</span></em> [<a href="category.php?id=1">重新选择</a>]</p>
 				<blockquote><div id="J_catselect_specified_addition">
 					<p>选择它的原因是：<input id="J_catselect_reason" type="text" name="catselect_reason" maxlength="100" style="width: 300px;"></input></p>
@@ -145,7 +146,6 @@ $('#J_CatSelectForm').submit(function() {
 			url:"adopt.php",
 			cache:false,
 			dataType:'json',
-			data:'act=selectcat',
 			success:submitCatSelectResponse
 		});
 	} catch (err) {
