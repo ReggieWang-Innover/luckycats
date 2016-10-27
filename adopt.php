@@ -241,8 +241,6 @@ else if ($action == 'submitsurvey')
         $surveyb64 = base64_encode($survey);
         $realname = $_POST['realname'];
 
-        error_log($survey);
-
         $sql =  "UPDATE " . $ecs->table('adoptor') . " SET person_realname='$realname', person_survey = '$surveyb64'";
         if ($info['adopt_step'] == ADOPT_STEP_USERSUVERY)
         {
@@ -262,11 +260,13 @@ else if ($action == 'submitsurvey')
 
     echo $json->encode($result);
 }
-else if ($action == 'catselect')
+else if ($action == 'selectcat')
 {
     $json   = new JSON;
     $result = array('errorcode' => 'success');
-    error_log($_POST);
+    
+    $selectinfo = $json->encode($_POST);
+    error_log($selectinfo);
     
     echo $json->encode($result);
 }
