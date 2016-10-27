@@ -192,10 +192,10 @@
 				<blockquote>
 				  <span id="J_q11_notnow_adds">
 					<p>最近一次养猫的经历是：
-					  <input id="J_q11_notnow_add1" type="text" name="J_q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
+					  <input id="J_q11_notnow_add1" type="text" name="q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
 					</p>
 					<p>离开时的年纪是：
-					  <input id="J_q11_notnow_add2" type="text" name="J_q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
+					  <input id="J_q11_notnow_add2" type="text" name="q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
 					</p>
 					<p>离开的原因是：
 					  <textarea id="J_q11_notnow_add3" name="q11_notnow_add3" rows="4" maxlength="300" style="width: 260px;"></textarea>
