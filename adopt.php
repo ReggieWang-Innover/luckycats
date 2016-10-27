@@ -374,7 +374,7 @@ else if ($action == 'selectcat')
     
     for ($qid=1; $qid <= 20; $qid++)
     {
-        fillSurveyInfo($smt, $smtparams, $qid);
+        fillSurveyInfo($smt, $smtparams, $surveyinfo, $qid);
     }
     
     $smt->assign($smtparams);
@@ -389,11 +389,11 @@ else if ($action == 'selectcat')
     echo $json->encode($result);
 }
 
-function fillSurveyInfo(&$smt, &$smtparams, $qid)
+function fillSurveyInfo(&$smt, &$smtparams, $surveyinfo, $qid)
 {
     global $QuestionDescPool;
     $qk = 'q' . $qid;
-    $qkv = $qk . '_' . $smtparams[$qk];
+    $qkv = $qk . '_' . $surveyinfo[$qk];
     $qas = $QuestionDescPool[$qkv];
     $fas = $smt->fetch('str:' . $qas);
     $smtparams[$qk] = $fas;
