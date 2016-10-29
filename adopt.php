@@ -168,11 +168,14 @@ if ($adoptor)
     $info = $adoptor;
     $info['person_survey'] = $json->urljson_decode_arry(base64_decode($info['person_survey']));
     $passtime = time() - $info['identify_time'];
-    if ($passtime > 86400)
+    
+    $timeout = $info['adopt_step'] == ADOPT_STEP_ADOPTAUDIT ? 604800 : 86400;
+    
+    if ($info['adopt_step'] > 0 && $passtime > $timeout)
     {
         $sql = 'UPDATE ' . $ecs->table('adoptor') . 'SET adopt_step = 0 WHERE user_id = ' . $userid;
         $db->query($sql);
-        $info['adopt_step'] = ADOPT_STEP_CONNECTINFO;
+        $info['adopt_step'] = ADOPT_STEP_CONNECTINFO;        
     }
 }
 
@@ -228,6 +231,10 @@ if ($action == 'adopt')
         }
         
         $smarty->display('adopt_catselect.dwt');
+    }
+    else if ($info['adopt_step'] == ADOPT_STEP_ADOPTAUDIT)
+    {
+        
     }
 }
 else if ($action == 'identify')
@@ -350,7 +357,6 @@ else if ($action == 'selectcat')
     $surveyinfo = $info['person_survey'];
     
     $smt = $GLOBALS['smarty'];
-    $tpl = get_mail_template('adopt_survey');
     
     $smt->assign($surveyinfo);
     
@@ -379,20 +385,31 @@ else if ($action == 'selectcat')
     }
     
     $smt->assign($smtparams);
+    
+    $tpl = get_mail_template('adopt_survey');
     $mailsubject = '【领养申请】申请人：' . $surveyinfo['realname'] . '（' . $_SESSION['user_name'] . '）';
-    $mailbody = '亲爱的 ' . $surveyinfo['realname'] . '，您好！'
-              . "\n您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！"
-              . "\n\n\n\n\n"
-              . "再次感谢您对幸运土猫的理解和关注！\n\n\n\n";
+    $mailbody = '亲爱的　' . $surveyinfo['realname'] . '，您好！'
+              . "\n\n您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！"
+              . "\n\n\n\n"
+              . "\n\n另：请在回信中保留我们之间所有的通信内容，以方便信息整理和保存。非常感谢！"
+              . "\n\n再次感谢您对幸运土猫的理解和关注！\n\n\n\n";
     $smt->assign('mailsubject', urlencode($mailsubject));
     $smt->assign('mailbody', urlencode($mailbody));
     
     $content = $smt->fetch('str:' . $tpl['template_content']);
     
-    if (!send_mail('', $userEmail, $mailsubject, $content, $tpl['is_html'], false, 'adopt'))
+    if (!send_mail('', 'adopt@luckycats.org.cn', $mailsubject, $content, $tpl['is_html'], false))
     {
         $result['errorcode'] = '邮件发送失败，请稍后再试';
     }
+    
+    $tpl = get_mail_template('adopt_confirm');
+    $content = $smt->fetch('str:' . $tpl['template_content']);
+    send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt');
+    
+    $nextStep = ADOPT_STEP_ADOPTAUDIT;
+    $sql =  "UPDATE " . $ecs->table('adoptor') . " SET adopt_step = $nextStep WHERE user_id = $userid";
+    $db->query($sql);
     
     echo $json->encode($result);
 }

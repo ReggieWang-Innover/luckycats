@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="stylesheet" href="themes/xiaomi/css/user-center.min.css" />
+<script src="themes/xiaomi/js/jquery.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="container breadcrumbs">
+<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+<!-- #EndLibraryItem -->
+</div>
+<!-- .breadcrumbs END -->
+
+<div class="container">
+  <div class="uc-full-box">
+    <div class="row">
+      <div class="span4">
+        <div class="uc-adoptnav-box">
+          <div class="box-hd">
+            <h3 class="title">领养流程</h3>
+            <h3 class="title"></h3>
+          </div>
+          <div class="box-bd">
+            <ul class="uc-adoptnav-list">
+              <li class="finished">用户注册</li>
+              <li class="finished">领养之前</li>
+              <li class="finished">问卷调查</li>
+              <li class="finished">选择猫咪</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="span15">
+        <div class="m_reserver" style="padding-left: 10px; color: #333;">
+        	<h1 align="center">领养进行中</h1>
+			<hr/>
+			<p><br/></p>
+			<h3 align="left"><span style="font-size:16px;color:#E53333;"><strong>您已提交领养申请</strong></span></h3>
+			<p><span style="font-size:14px;color:#003399;">我们已经收到了您提出的领养申请。</span></p>
+				
+			<p><span style="font-size:14px;color:#003399;">
+				<br/>感谢您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪。
+			    <br/>幸运土猫领养工作人员将在提交后一个工作日内与您通过邮件取得联系。
+				<br/>请您耐心等待并查收邮件！
+				<br/><br/>
+				<br/>若没有收到领养沟通确认邮件，您可以<a href="mailto:adopt@luckycats.org.cn?subject=%e3%80%90%e8%af%a2%e9%97%ae%e9%a2%86%e5%85%bb%e7%8a%b6%e6%80%81%e3%80%91">向幸运土猫领养工作组询问领养状态</a>
+			</span></p>
+			
+			<h3>等待好漫长，您可以</h3>
+			<p><br/></p>
+			<blockquote>
+				<a href="index.php" class="btn btn-primary">浏览幸运土猫官网</a>
+				<a href="http://weibo.com/luckycats" class="btn btn-primary">关注幸运土猫微博</a>
+				<a href="http://blog.sina.com.cn/luckycats" class="btn btn-primary">关注幸运土猫微博</a>
+			</blockquote>
+		<hr/><p><br/></p>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+</body>
