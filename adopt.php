@@ -400,7 +400,7 @@ else if ($action == 'selectcat')
     
     if (!send_mail('', 'adopt@luckycats.org.cn', $mailsubject, $content, $tpl['is_html'], false))
     {
-        $result['errorcode'] = '邮件发送失败，请稍后再试';
+        $result['errorcode'] = '申请提交失败，请稍后再试';
     }
     
     $tpl = get_mail_template('adopt_confirm');
