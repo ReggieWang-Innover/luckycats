@@ -380,6 +380,20 @@ else if ($action == 'selectcat')
     
     $smt->assign($smtparams);
     
+    $mailbody = '<p>亲爱的 ' . $info['realname'] . '，您好！</p>'
+              . '<p>您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！</p>'
+              . '<br></br><br></br><br></br><br></br>'
+              . '再次感谢您对幸运土猫的理解和关注！<br></br><br></br>'
+              . '<hr style="WIDTH: 210px" align="left" color="#B5C4DF" size="1"></hr>'
+              . '<font color="#c0c0c0"><span style="font-size: 10pt;">'
+              . '<p><b>领养项目工作组主管 Blue</b></p>'
+              . '<p></p>'
+              . '<p>幸运土猫 <a href="http://www.luckycats.org.cn/">www.luckycats.org.cn</href></p>'
+              . '<p></p></span></font><font color="#c0c0c0"><span style="font-size: 8pt;">'
+              . '<p>您可以关注幸运土猫的<a href="http://weibo.com/luckycats">微博</a>，阅读我们的<a href="http://blog.sina.com.cn/luckycats">博客</a></p>'
+              . '</span></font>';
+    $smt->assign('mailbody', urlencode($mailbody));
+    
     $content = $smt->fetch('str:' . $tpl['template_content']);
     
     if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt'))
