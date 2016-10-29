@@ -234,7 +234,7 @@ if ($action == 'adopt')
     }
     else if ($info['adopt_step'] == ADOPT_STEP_ADOPTAUDIT)
     {
-        
+        $smarty->display('adopt_adoptaudit.dwt');
     }
 }
 else if ($action == 'identify')
