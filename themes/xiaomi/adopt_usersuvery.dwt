@@ -160,7 +160,7 @@
 				<p><input id="J_q8_parentin" type="radio" name="q8" value="parentin"></input>　是</p>
 				<p><input id="J_q8_parentout" type="radio" name="q8" value="parentout"></input>　否，我的父母生活在&nbsp;
 				  <span id="J_q8_parentout_adds">
-				    <input id="J_q8_parentout_add1" type="text" name="q8" maxlength="10" style="width: 100px;"></input>&nbsp;（城市名）
+				    <input id="J_q8_parentout_add1" type="text" name="q8_parentout_add1" maxlength="10" style="width: 100px;"></input>&nbsp;（城市名）
 				  </span>
 				</p>
 				<p><input id="J_q8_other" type="radio" name="q8" value="other"></input>　其他，请注明：
