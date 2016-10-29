@@ -381,15 +381,15 @@ else if ($action == 'selectcat')
     $smt->assign($smtparams);
     $mailsubject = '【领养申请】申请人：' . $surveyinfo['realname'] . '（' . $_SESSION['user_name'] . '）';
     $mailbody = '亲爱的 ' . $surveyinfo['realname'] . '，您好！'
-              . '\n您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！'
-              . '\n\n\n\n\n'
-              . '再次感谢您对幸运土猫的理解和关注！\n\n\n\n';
+              . "\n您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！"
+              . "\n\n\n\n\n"
+              . "再次感谢您对幸运土猫的理解和关注！\n\n\n\n";
     $smt->assign('mailsubject', urlencode($mailsubject));
     $smt->assign('mailbody', urlencode($mailbody));
     
     $content = $smt->fetch('str:' . $tpl['template_content']);
     
-    if (!send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt'))
+    if (!send_mail('', $userEmail, $mailsubject, $content, $tpl['is_html'], false, 'adopt'))
     {
         $result['errorcode'] = '邮件发送失败，请稍后再试';
     }
