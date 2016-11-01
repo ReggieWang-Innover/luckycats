@@ -398,7 +398,7 @@ else if ($action == 'selectcat')
     
     $content = $smt->fetch('str:' . $tpl['template_content']);
     
-    if (!send_mail('', 'adopt@luckycats.org.cn', $mailsubject, $content, $tpl['is_html'], false))
+    if (!send_mail('', 'adopt@luckycats.org.cn', $mailsubject, $content, $tpl['is_html'], false, 'adopt'))
     {
         $result['errorcode'] = '申请提交失败，请稍后再试';
     }
