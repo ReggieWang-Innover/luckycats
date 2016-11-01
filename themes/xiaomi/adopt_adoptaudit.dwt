@@ -64,8 +64,8 @@
 			<p><br/></p>
 			<blockquote>
 				<a href="index.php" class="btn btn-primary">浏览幸运土猫官网</a>
-				<a href="http://weibo.com/luckycats" class="btn btn-primary">关注幸运土猫微博</a>
-				<a href="http://blog.sina.com.cn/luckycats" class="btn btn-primary">关注幸运土猫微博</a>
+				<a href="http://weibo.com/luckycats" target="_blank" class="btn btn-primary">关注幸运土猫微博</a>
+				<a href="http://blog.sina.com.cn/luckycats" target="_blank" class="btn btn-primary">关注幸运土猫微博</a>
 			</blockquote>
 		<hr/><p><br/></p>
 		</div>

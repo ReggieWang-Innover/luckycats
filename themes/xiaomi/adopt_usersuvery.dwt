@@ -435,7 +435,7 @@ $('#J_SurveyForm').submit(function() {
 			return false;
 		}
 			
-		$('#J_SurveySubmit').attr('disabled');
+		$('#J_SurveySubmit').attr('disabled', 'disabled');
 		
 		$(this).ajaxSubmit({
 			type:"POST",

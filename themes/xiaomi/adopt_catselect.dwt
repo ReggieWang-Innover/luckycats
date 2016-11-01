@@ -109,7 +109,7 @@ if (favcat != 0){
 	$('#J_catselect_specified_addition').hide();
 }
 
-function submitCatSelectResponse()
+function submitCatSelectResponse(result)
 {
 	if (result.errorcode == 'success') {
 	} else {
@@ -139,7 +139,7 @@ $('#J_CatSelectForm').submit(function() {
 			}
 		}
 		
-		$('#J_SelectSubmit').attr('disabled');
+		$('#J_SelectSubmit').attr('disabled', 'disabled');
 		
 		$(this).ajaxSubmit({
 			type:"POST",
