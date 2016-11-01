@@ -342,6 +342,8 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                         $GLOBALS['err']->add($err_msg);
                     }
                 }
+                
+                error_log('send email failed: ' . $err_msg);
 
                 return false;
             }

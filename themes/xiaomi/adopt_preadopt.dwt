@@ -149,7 +149,7 @@ function submitAdoptConnect()
 		return false;
 	}
 	
-	$('#J_IdentifySubmit').attr('disabled', true);
+	$('#J_IdentifySubmit').attr('disabled', 'disabled');
 	
 	$.ajax({
 		type:"POST",

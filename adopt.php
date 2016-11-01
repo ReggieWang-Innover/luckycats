@@ -402,7 +402,7 @@ else if ($action == 'selectcat')
     {
         $result['errorcode'] = '申请提交失败，请稍后再试';
     }
-    
+
     $tpl = get_mail_template('adopt_confirm');
     $content = $smt->fetch('str:' . $tpl['template_content']);
     send_mail('', $userEmail, $tpl['template_subject'], $content, $tpl['is_html'], false, 'adopt');
