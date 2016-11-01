@@ -391,7 +391,7 @@ else if ($action == 'selectcat')
     $mailbody = '亲爱的　' . $surveyinfo['realname'] . '，您好！'
               . "\n\n您所提交的领养申请表单我们已经收到了，非常感谢您如此认真的回答申请表中所提出的问题，对于您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪，我们也感到特别的感动和欣慰！"
               . "\n\n\n\n"
-              . "\n\n<hr>另：请在回信中保留我们之间所有的通信内容，以方便信息整理和保存。非常感谢！"
+              . "\n\n另：请在回信中保留我们之间所有的通信内容，以方便信息整理和保存。非常感谢！"
               . "\n\n再次感谢您对幸运土猫的理解和关注！\n\n\n\n";
     $smt->assign('mailsubject', urlencode($mailsubject));
     $smt->assign('mailbody', urlencode($mailbody));
