@@ -309,8 +309,6 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
 
             if ($smtp->connect() && $smtp->send($send_params))
             {
-                $smtp->Quit();
-                $smtp->Close();
                 return true;
             }
             else
@@ -341,9 +339,6 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                 }
                 
                 error_log('send email failed: ' . $err_msg);
-                
-                $smtp->Quit();
-                $smtp->Close();
 
                 return false;
             }
