@@ -1475,6 +1475,10 @@ function get_goods_fittings($goods_list = array())
         $arr[$temp_index]['goods_thumb']       = get_image_path($row['goods_id'], $row['goods_thumb'], true);
         $arr[$temp_index]['goods_img']         = get_image_path($row['goods_id'], $row['goods_img']);
         $arr[$temp_index]['url']               = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
+		
+		$arr[$temp_index]['fittings_price_nformat']   = $row['goods_price'];//888
+		$arr[$temp_index]['shop_price_nformat']      = $row['shop_price'];//去格式化配件原价格
+        $arr[$temp_index]['fittings_price_nformat']    = $row['goods_price'];//去格式化配件价格
         $temp_index ++;
     }
 

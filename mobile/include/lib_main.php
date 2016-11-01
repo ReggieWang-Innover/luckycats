@@ -248,6 +248,12 @@ function assign_ur_here($cat = 0, $str = '')
                 $ur_here   .= ' <code>&gt;</code> <a href="exchange.php">' .
                                 $GLOBALS['_LANG']['exchange'] . '</a>';
             }
+            elseif ('adopt' == $filename)
+            {
+                $page_title = '申请领养_' . $page_title;
+                $args = array('wsid' => '0');
+                $ur_here .= ' <code>&gt;</code> 申请领养';
+            }
             /* 其他的在这里补充 */
         }
     }

@@ -254,6 +254,44 @@ function insert_member_info()
     return $output;
 }
 
+
+/**
+ * 调用评论信息
+ *
+ * @access  public
+ * @return  string
+ */
+function insert_comments_cat($arr)
+{
+    $need_cache = $GLOBALS['smarty']->caching;
+    $need_compile = $GLOBALS['smarty']->force_compile;
+
+    $GLOBALS['smarty']->caching = false;
+    $GLOBALS['smarty']->force_compile = true;
+
+    /* 验证码相关设置 */
+    if ((intval($GLOBALS['_CFG']['captcha']) & CAPTCHA_COMMENT) && gd_version() > 0)
+    {
+        $GLOBALS['smarty']->assign('enabled_captcha', 1);
+        $GLOBALS['smarty']->assign('rand', mt_rand());
+    }
+    $GLOBALS['smarty']->assign('username',     stripslashes($_SESSION['user_name']));
+    $GLOBALS['smarty']->assign('email',        $_SESSION['email']);
+    $GLOBALS['smarty']->assign('comment_type', $arr['type']);
+    $GLOBALS['smarty']->assign('id',           $arr['id']);
+    $cmt = assign_comment($arr['id'],          $arr['type']);
+    $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
+    $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+
+
+    $val = $GLOBALS['smarty']->fetch('library/comments_list_cat.lbi');
+
+    $GLOBALS['smarty']->caching = $need_cache;
+    $GLOBALS['smarty']->force_compile = $need_compile;
+
+    return $val;
+}
+
 /**
  * 调用评论信息
  *

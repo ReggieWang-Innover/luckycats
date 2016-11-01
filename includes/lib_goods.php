@@ -624,9 +624,11 @@ function get_goods_properties($goods_id)
 
     /* 获得商品的规格 */
     $sql = "SELECT a.attr_id, a.attr_name, a.attr_group, a.is_linked, a.attr_type, ".
-                "g.goods_attr_id, g.attr_value, g.attr_price " .
+                "g.goods_attr_id, g.attr_value, g.attr_price, " .
+				"p.product_sn, p.product_number " ./* 这一行是我加的*/
             'FROM ' . $GLOBALS['ecs']->table('goods_attr') . ' AS g ' .
             'LEFT JOIN ' . $GLOBALS['ecs']->table('attribute') . ' AS a ON a.attr_id = g.attr_id ' .
+			'LEFT JOIN ' . $GLOBALS['ecs']->table('products') . ' AS p ON g.goods_attr_id = p.goods_attr ' . /* 这一行也是我加的*/
             "WHERE g.goods_id = '$goods_id' " .
             'ORDER BY a.sort_order, g.attr_price, g.goods_attr_id';
     $res = $GLOBALS['db']->getAll($sql);
@@ -654,7 +656,9 @@ function get_goods_properties($goods_id)
                                                         'label'        => $row['attr_value'],
                                                         'price'        => $row['attr_price'],
                                                         'format_price' => price_format(abs($row['attr_price']), false),
-                                                        'id'           => $row['goods_attr_id']);
+                                                        'id'           => $row['goods_attr_id'],
+														'product_sn'   => $row["product_sn"],/* 这一行是我加的*/
+														'product_number' => $row["product_number"]);/* 这一行是我加的*/
         }
 
         if ($row['is_linked'] == 1)
@@ -808,6 +812,7 @@ function assign_cat_goods($cat_id, $num = 0, $from = 'web', $order_rule = '')
     $cat['name'] = $GLOBALS['db']->getOne($sql);
     $cat['url']  = build_uri('category', array('cid' => $cat_id), $cat['name']);
     $cat['id']   = $cat_id;
+	$cat['cat_id'] = get_child_tree($cat_id);//增加子类别调用 by Bragg
 
     return $cat;
 }

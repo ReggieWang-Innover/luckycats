@@ -197,7 +197,7 @@ function get_crlf()
  *
  * @return boolean
  */
-function send_mail($name, $email, $subject, $content, $type = 0, $notification=false)
+function send_mail($name, $email, $subject, $content, $type = 0, $notification=false, $senderid = null, $replyemail = null)
 {
     /* 如果邮件编码不是EC_CHARSET，创建字符集转换对象，转换编码 */
     if ($GLOBALS['_CFG']['mail_charset'] != EC_CHARSET)
@@ -208,6 +208,16 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         $shop_name = ecs_iconv(EC_CHARSET, $GLOBALS['_CFG']['mail_charset'], $GLOBALS['_CFG']['shop_name']);
     }
     $charset   = $GLOBALS['_CFG']['mail_charset'];
+    
+    if ($replyemail != null)
+    {
+        $mailfrom = $replyemail;
+    }
+    else 
+    {
+        $mailfrom = $senderid == null ? $GLOBALS['_CFG']['smtp_mail'] : $GLOBALS['_CFG']['smtp_mail_' . $senderid];
+    }
+    
     /**
      * 使用mail函数发送邮件
      */
@@ -216,11 +226,11 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         /* 邮件的头部信息 */
         $content_type = ($type == 0) ? 'Content-Type: text/plain; charset=' . $charset : 'Content-Type: text/html; charset=' . $charset;
         $headers = array();
-        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         $headers[] = $content_type . '; format=flowed';
         if ($notification)
         {
-            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         }
 
         $res = @mail($email, '=?' . $charset . '?B?' . base64_encode($subject) . '?=', $content, implode("\r\n", $headers));
@@ -249,21 +259,27 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
         $headers = array();
         $headers[] = 'Date: ' . gmdate('D, j M Y H:i:s') . ' +0000';
         $headers[] = 'To: "' . '=?' . $charset . '?B?' . base64_encode($name) . '?=' . '" <' . $email. '>';
-        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+        $headers[] = 'From: "' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         $headers[] = 'Subject: ' . '=?' . $charset . '?B?' . base64_encode($subject) . '?=';
         $headers[] = $content_type . '; format=flowed';
         $headers[] = 'Content-Transfer-Encoding: base64';
         $headers[] = 'Content-Disposition: inline';
         if ($notification)
         {
-            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $GLOBALS['_CFG']['smtp_mail'] . '>';
+            $headers[] = 'Disposition-Notification-To: ' . '=?' . $charset . '?B?' . base64_encode($shop_name) . '?='.'" <' . $mailfrom . '>';
         }
 
         /* 获得邮件服务器的参数设置 */
         $params['host'] = $GLOBALS['_CFG']['smtp_host'];
         $params['port'] = $GLOBALS['_CFG']['smtp_port'];
-        $params['user'] = $GLOBALS['_CFG']['smtp_user'];
-        $params['pass'] = $GLOBALS['_CFG']['smtp_pass'];
+        if ($senderid == null) {
+            $params['user'] = $GLOBALS['_CFG']['smtp_user'];
+            $params['pass'] = $GLOBALS['_CFG']['smtp_pass'];
+        }
+        else {
+            $params['user'] = $GLOBALS['_CFG']['smtp_user_' . $senderid];
+            $params['pass'] = $GLOBALS['_CFG']['smtp_pass_' . $senderid];
+        }
 
         if (empty($params['host']) || empty($params['port']))
         {
@@ -283,18 +299,13 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                 return false;
             }
 
-            include_once(ROOT_PATH . 'include/cls_smtp.php');
-            static $smtp;
+            include_once(ROOT_PATH . 'includes/cls_smtp.php');
+            $smtp = new smtp($params);
 
             $send_params['recipients'] = $email;
             $send_params['headers']    = $headers;
-            $send_params['from']       = $GLOBALS['_CFG']['smtp_mail'];
+            $send_params['from']       = $mailfrom;            
             $send_params['body']       = $content;
-
-            if (!isset($smtp))
-            {
-                $smtp = new smtp($params);
-            }
 
             if ($smtp->connect() && $smtp->send($send_params))
             {
@@ -326,6 +337,8 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                         $GLOBALS['err']->add($err_msg);
                     }
                 }
+                
+                error_log('send email failed: ' . $err_msg);
 
                 return false;
             }
@@ -775,7 +788,7 @@ function make_semiangle($str)
  */
 function compile_str($str)
 {
-    $arr = array('<' => '＜', '>' => '＞');
+    $arr = array('<' => '＜', '>' => '＞','"'=>'”',"'"=>'’');
 
     return strtr($str, $arr);
 }
