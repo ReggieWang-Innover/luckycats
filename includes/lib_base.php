@@ -300,20 +300,17 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
             }
 
             include_once(ROOT_PATH . 'includes/cls_smtp.php');
-            static $smtp;
+            $smtp = new smtp($params);
 
             $send_params['recipients'] = $email;
             $send_params['headers']    = $headers;
             $send_params['from']       = $mailfrom;            
             $send_params['body']       = $content;
 
-            if (!isset($smtp))
-            {
-                $smtp = new smtp($params);
-            }
-
             if ($smtp->connect() && $smtp->send($send_params))
             {
+                $smtp->Quit();
+                $smtp->Close();
                 return true;
             }
             else
@@ -344,6 +341,9 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                 }
                 
                 error_log('send email failed: ' . $err_msg);
+                
+                $smtp->Quit();
+                $smtp->Close();
 
                 return false;
             }
