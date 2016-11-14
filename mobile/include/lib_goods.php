@@ -184,7 +184,7 @@ function get_top10($cats = '')
  */
 function get_recommend_goods($type = '', $cats = '')
 {
-    if (!in_array($type, array('best', 'new', 'hot')))
+    if (!in_array($type, array('best', 'new', 'hot', 'cats')))
     {
         return array();
     }
@@ -197,6 +197,7 @@ function get_recommend_goods($type = '', $cats = '')
         $type_goods['best'] = array();
         $type_goods['new'] = array();
         $type_goods['hot'] = array();
+        $type_goods['cats'] = array();
         $data = read_static_cache('recommend_goods');
         if ($data === false)
         {
@@ -211,25 +212,32 @@ function get_recommend_goods($type = '', $cats = '')
             $goods_data['new'] = array();
             $goods_data['hot'] = array();
             $goods_data['brand'] = array();
+            $goods_data['cats'] = array();
             if (!empty($goods_res))
             {
                 foreach($goods_res as $data)
                 {
-                    if ($data['is_best'] == 1)
+                    if ($data['goods_type'] == 1)
                     {
-                        $goods_data['best'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
+                        $goods_data['cats'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
                     }
-                    if ($data['is_new'] == 1)
-                    {
-                        $goods_data['new'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
-                    }
-                    if ($data['is_hot'] == 1)
-                    {
-                        $goods_data['hot'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
-                    }
-                    if ($data['brand_name'] != '')
-                    {
-                        $goods_data['brand'][$data['goods_id']] = $data['brand_name'];
+                    else {
+                        if ($data['is_best'] == 1)
+                        {
+                            $goods_data['best'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
+                        }
+                        if ($data['is_new'] == 1)
+                        {
+                            $goods_data['new'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
+                        }
+                        if ($data['is_hot'] == 1)
+                        {
+                            $goods_data['hot'][] = array('goods_id' => $data['goods_id'], 'sort_order' => $data['sort_order']);
+                        }
+                        if ($data['brand_name'] != '')
+                        {
+                            $goods_data['brand'][$data['goods_id']] = $data['brand_name'];
+                        }
                     }
                 }
             }
@@ -294,7 +302,7 @@ function get_recommend_goods($type = '', $cats = '')
                 'FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
                 "LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
                 "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ";
-        $type_merge = array_merge($type_array['new'], $type_array['best'], $type_array['hot']);
+        $type_merge = array_merge($type_array['new'], $type_array['best'], $type_array['hot'], $type_array['cats']);
         $type_merge = array_unique($type_merge);
         $sql .= ' WHERE g.goods_id ' . db_create_in($type_merge);
         $sql .= ' ORDER BY g.sort_order, g.last_update DESC';
@@ -337,6 +345,10 @@ function get_recommend_goods($type = '', $cats = '')
             if (in_array($row['goods_id'], $type_array['hot']))
             {
                 $type_goods['hot'][] = $goods[$idx];
+            }
+            if (in_array($row['goods_id'], $type_array['cats'])
+            {
+                $type_goods['cats'][] = $goods[$idx];
             }
         }
     }
