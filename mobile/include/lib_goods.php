@@ -346,7 +346,7 @@ function get_recommend_goods($type = '', $cats = '')
             {
                 $type_goods['hot'][] = $goods[$idx];
             }
-            if (in_array($row['goods_id'], $type_array['cats'])
+            if (in_array($row['goods_id'], $type_array['cats']))
             {
                 $type_goods['cats'][] = $goods[$idx];
             }
