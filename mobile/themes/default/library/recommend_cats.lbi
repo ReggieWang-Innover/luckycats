@@ -35,7 +35,7 @@
       </a> </div>
     <div class="position_a_rb">
       <div> </div>
-      <a href="search.php?intro=best">
+      <a href="category.php?id=1">
       <p class="ico_04_b"> </p>
       <p> 更多 </p>
       </a> </div>

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * ECSHOP À—À˜≥Ã–Ú
+ * ECSHOP ÊêúÁ¥¢Á®ãÂ∫è
  * ============================================================================
- * * ∞Ê»®À˘”– 2005-2012 …œ∫£…Ã≈…Õ¯¬Áø∆ºº”–œﬁπ´Àæ£¨≤¢±£¡ÙÀ˘”–»®¿˚°£
- * Õ¯’æµÿ÷∑: http://www.ecshop.com£ª
+ * * ÁâàÊùÉÊâÄÊúâ 2005-2012 ‰∏äÊµ∑ÂïÜÊ¥æÁΩëÁªúÁßëÊäÄÊúâÈôêÂÖ¨Âè∏ÔºåÂπ∂‰øùÁïôÊâÄÊúâÊùÉÂà©„ÄÇ
+ * ÁΩëÁ´ôÂú∞ÂùÄ: http://www.ecshop.comÔºõ
  * ----------------------------------------------------------------------------
- * ’‚≤ª «“ª∏ˆ◊‘”…»Ìº˛£°ƒ˙÷ªƒ‹‘⁄≤ª”√”⁄…Ã“µƒøµƒµƒ«∞Ã·œ¬∂‘≥Ã–Ú¥˙¬ÎΩ¯–––ﬁ∏ƒ∫Õ
- *  π”√£ª≤ª‘ –Ì∂‘≥Ã–Ú¥˙¬Î“‘»Œ∫Œ–Œ Ω»Œ∫Œƒøµƒµƒ‘Ÿ∑¢≤º°£
+ * Ëøô‰∏çÊòØ‰∏Ä‰∏™Ëá™Áî±ËΩØ‰ª∂ÔºÅÊÇ®Âè™ËÉΩÂú®‰∏çÁî®‰∫éÂïÜ‰∏öÁõÆÁöÑÁöÑÂâçÊèê‰∏ãÂØπÁ®ãÂ∫è‰ª£Á†ÅËøõË°å‰øÆÊîπÂíå
+ * ‰ΩøÁî®Ôºõ‰∏çÂÖÅËÆ∏ÂØπÁ®ãÂ∫è‰ª£Á†Å‰ª•‰ªª‰ΩïÂΩ¢Âºè‰ªª‰ΩïÁõÆÁöÑÁöÑÂÜçÂèëÂ∏É„ÄÇ
  * ============================================================================
  * $Author: liubo $
  * $Id: search.php 17217 2011-01-19 06:29:08Z liubo $
@@ -46,7 +46,7 @@ else
         $string = unserialize($string);
         if ($string !== false)
         {
-            /* ”√ªß‘⁄÷ÿ∂®œÚµƒ«Èøˆœ¬µ±◊˜“ª¥Œ∑√Œ  */
+            /* Áî®Êà∑Âú®ÈáçÂÆöÂêëÁöÑÊÉÖÂÜµ‰∏ãÂΩì‰Ωú‰∏ÄÊ¨°ËÆøÈóÆ */
             if (!empty($string['search_encode_time']))
             {
                 if (time() > $string['search_encode_time'] + 2)
@@ -76,7 +76,7 @@ $_REQUEST = array_merge($_REQUEST, addslashes_deep($string));
 
 $_REQUEST['act'] = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
 /*------------------------------------------------------ */
-//-- ∏ﬂº∂À—À˜
+//-- È´òÁ∫ßÊêúÁ¥¢
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'advanced_search')
 {
@@ -89,12 +89,12 @@ if ($_REQUEST['act'] == 'advanced_search')
     assign_template();
     assign_dynamic('search');
     $position = assign_ur_here(0, $_LANG['advanced_search']);
-    $smarty->assign('page_title', $position['title']);    // “≥√Ê±ÍÃ‚
-    $smarty->assign('ur_here',    $position['ur_here']);  // µ±«∞Œª÷√
+    $smarty->assign('page_title', $position['title']);    // È°µÈù¢Ê†áÈ¢ò
+    $smarty->assign('ur_here',    $position['ur_here']);  // ÂΩìÂâç‰ΩçÁΩÆ
 
-    $smarty->assign('categories', get_categories_tree()); // ∑÷¿‡ ˜
-    $smarty->assign('helps',      get_shop_help());       // Õ¯µÍ∞Ô÷˙
-    $smarty->assign('top_goods',  get_top10());           // œ˙ €≈≈––
+    $smarty->assign('categories', get_categories_tree()); // ÂàÜÁ±ªÊ†ë
+    $smarty->assign('helps',      get_shop_help());       // ÁΩëÂ∫óÂ∏ÆÂä©
+    $smarty->assign('top_goods',  get_top10());           // ÈîÄÂîÆÊéíË°å
     $smarty->assign('promotion_info', get_promotion_info());
     $smarty->assign('cat_list',   cat_list(0, 0, true, 2, false));
     $smarty->assign('brand_list', get_brand_list());
@@ -105,7 +105,7 @@ if ($_REQUEST['act'] == 'advanced_search')
     exit;
 }
 /*------------------------------------------------------ */
-//-- À—À˜Ω·π˚
+//-- ÊêúÁ¥¢ÁªìÊûú
 /*------------------------------------------------------ */
 else
 {
@@ -121,7 +121,7 @@ else
     $action = '';
     if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'form')
     {
-        /* “™œ‘ æ∏ﬂº∂À—À˜¿∏ */
+        /* Ë¶ÅÊòæÁ§∫È´òÁ∫ßÊêúÁ¥¢Ê†è */
         $adv_value['keywords']  = htmlspecialchars(stripcslashes($_REQUEST['keywords']));
         $adv_value['brand']     = $_REQUEST['brand'];
         $adv_value['min_price'] = $_REQUEST['min_price'];
@@ -130,7 +130,7 @@ else
 
         $attributes = get_seachable_attributes($_REQUEST['goods_type']);
 
-        /* Ω´Ã·Ωª ˝æ›÷ÿ–¬∏≥÷µ */
+        /* Â∞ÜÊèê‰∫§Êï∞ÊçÆÈáçÊñ∞ËµãÂÄº */
         foreach ($attributes['attr'] AS $key => $val)
         {
             if (!empty($_REQUEST['attr'][$val['id']]))
@@ -161,7 +161,7 @@ else
 
         $action = 'form';
     }
-    /* ≥ı ºªØÀ—À˜Ãıº˛ */
+    /* ÂàùÂßãÂåñÊêúÁ¥¢Êù°‰ª∂ */
     $keywords  = '';
     $tag_where = '';
     if (!empty($_REQUEST['keywords']))
@@ -169,25 +169,25 @@ else
         $arr = array();
         if (stristr($_REQUEST['keywords'], ' AND ') !== false)
         {
-            /* ºÏ≤Èπÿº¸◊÷÷– «∑Ò”–AND£¨»Áπ˚¥Ê‘⁄æÕ «≤¢ */
+            /* Ê£ÄÊü•ÂÖ≥ÈîÆÂ≠ó‰∏≠ÊòØÂê¶ÊúâANDÔºåÂ¶ÇÊûúÂ≠òÂú®Â∞±ÊòØÂπ∂ */
             $arr        = explode('AND', $_REQUEST['keywords']);
             $operator   = " AND ";
         }
         elseif (stristr($_REQUEST['keywords'], ' OR ') !== false)
         {
-            /* ºÏ≤Èπÿº¸◊÷÷– «∑Ò”–OR£¨»Áπ˚¥Ê‘⁄æÕ «ªÚ */
+            /* Ê£ÄÊü•ÂÖ≥ÈîÆÂ≠ó‰∏≠ÊòØÂê¶ÊúâORÔºåÂ¶ÇÊûúÂ≠òÂú®Â∞±ÊòØÊàñ */
             $arr        = explode('OR', $_REQUEST['keywords']);
             $operator   = " OR ";
         }
         elseif (stristr($_REQUEST['keywords'], ' + ') !== false)
         {
-            /* ºÏ≤Èπÿº¸◊÷÷– «∑Ò”–º”∫≈£¨»Áπ˚¥Ê‘⁄æÕ «ªÚ */
+            /* Ê£ÄÊü•ÂÖ≥ÈîÆÂ≠ó‰∏≠ÊòØÂê¶ÊúâÂä†Âè∑ÔºåÂ¶ÇÊûúÂ≠òÂú®Â∞±ÊòØÊàñ */
             $arr        = explode('+', $_REQUEST['keywords']);
             $operator   = " OR ";
         }
         else
         {
-            /* ºÏ≤Èπÿº¸◊÷÷– «∑Ò”–ø’∏Ò£¨»Áπ˚¥Ê‘⁄æÕ «≤¢ */
+            /* Ê£ÄÊü•ÂÖ≥ÈîÆÂ≠ó‰∏≠ÊòØÂê¶ÊúâÁ©∫Ê†ºÔºåÂ¶ÇÊûúÂ≠òÂú®Â∞±ÊòØÂπ∂ */
             $arr        = explode(' ', $_REQUEST['keywords']);
             $operator   = " AND ";
         }
@@ -232,7 +232,7 @@ else
     $min_price  = $_REQUEST['min_price'] != 0                               ? " AND g.shop_price >= '$_REQUEST[min_price]'" : '';
     $max_price  = $_REQUEST['max_price'] != 0 || $_REQUEST['min_price'] < 0 ? " AND g.shop_price <= '$_REQUEST[max_price]'" : '';
 
-    /* ≈≈–Ú°¢œ‘ æ∑Ω Ω“‘º∞¿‡–Õ */
+    /* ÊéíÂ∫è„ÄÅÊòæÁ§∫ÊñπÂºè‰ª•ÂèäÁ±ªÂûã */
     $default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_order_type'] == '1' ? 'grid' : 'text');
     $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
     $default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
@@ -246,7 +246,7 @@ else
     $page       = !empty($_REQUEST['page'])  && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
     $size       = !empty($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
 
-    $intromode = '';    //∑Ω Ω£¨”√”⁄æˆ∂®À—À˜Ω·π˚“≥±ÍÃ‚Õº∆¨
+    $intromode = '';    //ÊñπÂºèÔºåÁî®‰∫éÂÜ≥ÂÆöÊêúÁ¥¢ÁªìÊûúÈ°µÊ†áÈ¢òÂõæÁâá
 
     if (!empty($_REQUEST['intro']))
     {
@@ -288,7 +288,7 @@ else
     }
 
     /*------------------------------------------------------ */
-    //--  Ù–‘ºÏÀ˜
+    //-- Â±ûÊÄßÊ£ÄÁ¥¢
     /*------------------------------------------------------ */
     $attr_in  = '';
     $attr_num = 0;
@@ -325,7 +325,7 @@ else
                 }
                 else
                 {
-                    /* ¥¶¿Ì—°π∫÷––ƒπ˝¿¥µƒ¡¥Ω” */
+                    /* Â§ÑÁêÜÈÄâË¥≠‰∏≠ÂøÉËøáÊù•ÁöÑÈìæÊé• */
                     $sql .= isset($_REQUEST['pickout']) ? " AND attr_id = '$key' AND attr_value = '" . $val . "' " : " AND attr_id = '$key' AND attr_value LIKE '%" . mysql_like_quote($val) . "%' ";
                     $attr_url .= "&amp;attr[$key]=$val";
                     $attr_arg["attr[$key]"] = $val;
@@ -335,7 +335,7 @@ else
             }
         }
 
-        /* »Áπ˚ºÏÀ˜Ãıº˛∂º «Œﬁ–ßµƒ£¨æÕ≤ª”√ºÏÀ˜ */
+        /* Â¶ÇÊûúÊ£ÄÁ¥¢Êù°‰ª∂ÈÉΩÊòØÊó†ÊïàÁöÑÔºåÂ∞±‰∏çÁî®Ê£ÄÁ¥¢ */
         if ($attr_num > 0)
         {
             $sql .= " GROUP BY goods_id HAVING num = '$attr_num'";
@@ -353,19 +353,19 @@ else
     }
     elseif (isset($_REQUEST['pickout']))
     {
-        /* ¥”—°π∫÷––ƒΩ¯»Îµƒ¡¥Ω” */
+        /* ‰ªéÈÄâË¥≠‰∏≠ÂøÉËøõÂÖ•ÁöÑÈìæÊé• */
         $sql = "SELECT DISTINCT(goods_id) FROM " . $ecs->table('goods_attr');
         $col = $db->getCol($sql);
-        //»Áπ˚…ÃµÍ√ª”–…Ë÷√…Ã∆∑ Ù–‘,ƒ«√¥¥ÀºÏÀ˜Ãıº˛ «Œﬁ–ßµƒ
+        //Â¶ÇÊûúÂïÜÂ∫óÊ≤°ÊúâËÆæÁΩÆÂïÜÂìÅÂ±ûÊÄß,ÈÇ£‰πàÊ≠§Ê£ÄÁ¥¢Êù°‰ª∂ÊòØÊó†ÊïàÁöÑ
         if (!empty($col))
         {
             $attr_in = " AND " . db_create_in($col, 'g.goods_id');
         }
     }
 
-    /* ªÒµ√∑˚∫œÃıº˛µƒ…Ã∆∑◊‹ ˝ */
+    /* Ëé∑ÂæóÁ¨¶ÂêàÊù°‰ª∂ÁöÑÂïÜÂìÅÊÄªÊï∞ */
     $sql   = "SELECT COUNT(*) FROM " .$ecs->table('goods'). " AS g ".
-        "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in ".
+        "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in AND g.goods_type <> 1 ".
         "AND (( 1 " . $categories . $keywords . $brand . $min_price . $max_price . $intro . $outstock ." ) ".$tag_where." )";
     $count = $db->getOne($sql);
 
@@ -375,14 +375,14 @@ else
         $page = $max_page;
     }
 
-    /* ≤È—Ø…Ã∆∑ */
-    $sql = "SELECT g.goods_id, g.goods_name, g.market_price, g.is_new, g.is_best, g.is_hot, g.shop_price AS org_price, ".
+    /* Êü•ËØ¢ÂïÜÂìÅ */
+    $sql = "SELECT g.goods_id, g.goods_type, g.goods_name, g.market_price, g.is_new, g.is_best, g.is_hot, g.shop_price AS org_price, ".
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
                 "g.promote_price, g.promote_start_date, g.promote_end_date, g.goods_thumb, g.goods_img, g.goods_brief, g.goods_type ".
             "FROM " .$ecs->table('goods'). " AS g ".
             "LEFT JOIN " . $GLOBALS['ecs']->table('member_price') . " AS mp ".
                     "ON mp.goods_id = g.goods_id AND mp.user_rank = '$_SESSION[user_rank]' ".
-            "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in ".
+            "WHERE g.is_delete = 0 AND g.is_on_sale = 1 AND g.is_alone_sale = 1 $attr_in AND g.goods_type <> 1 ".
                 "AND (( 1 " . $categories . $keywords . $brand . $min_price . $max_price . $intro . $outstock . " ) ".$tag_where." ) " .
             "ORDER BY g.$sort $order"; 
     $res = $db->SelectLimit($sql, $size, ($page - 1) * $size);
@@ -398,8 +398,8 @@ else
             $promote_price = 0;
         }
 
-        /* ¥¶¿Ì…Ã∆∑ÀÆ”°Õº∆¨ */
-        /* ¥¶¿Ì…Ã∆∑ÀÆ”°Õº∆¨ */
+        /* Â§ÑÁêÜÂïÜÂìÅÊ∞¥Âç∞ÂõæÁâá */
+        /* Â§ÑÁêÜÂïÜÂìÅÊ∞¥Âç∞ÂõæÁâá */
         $watermark_img = '';
 
         if ($promote_price != 0)
@@ -460,7 +460,7 @@ else
     $smarty->assign('max_price',  $max_price);
     $smarty->assign('outstock',  $_REQUEST['outstock']);
 
-    /* ∑÷“≥ */
+    /* ÂàÜÈ°µ */
     $url_format = "search.php?category=$category&amp;keywords=" . urlencode(stripslashes($_REQUEST['keywords'])) . "&amp;brand=" . $_REQUEST['brand']."&amp;action=".$action."&amp;goods_type=" . $_REQUEST['goods_type'] . "&amp;sc_ds=" . $_REQUEST['sc_ds'];
     if (!empty($intromode))
     {
@@ -500,12 +500,12 @@ else
     assign_template();
     assign_dynamic('search');
     $position = assign_ur_here(0, $ur_here . ($_REQUEST['keywords'] ? '_' . $_REQUEST['keywords'] : ''));
-    $smarty->assign('page_title', $position['title']);    // “≥√Ê±ÍÃ‚
-    $smarty->assign('ur_here',    $position['ur_here']);  // µ±«∞Œª÷√
+    $smarty->assign('page_title', $position['title']);    // È°µÈù¢Ê†áÈ¢ò
+    $smarty->assign('ur_here',    $position['ur_here']);  // ÂΩìÂâç‰ΩçÁΩÆ
     $smarty->assign('intromode',      $intromode);
-    $smarty->assign('categories', get_categories_tree()); // ∑÷¿‡ ˜
-    $smarty->assign('helps',       get_shop_help());      // Õ¯µÍ∞Ô÷˙
-    $smarty->assign('top_goods',  get_top10());           // œ˙ €≈≈––
+    $smarty->assign('categories', get_categories_tree()); // ÂàÜÁ±ªÊ†ë
+    $smarty->assign('helps',       get_shop_help());      // ÁΩëÂ∫óÂ∏ÆÂä©
+    $smarty->assign('top_goods',  get_top10());           // ÈîÄÂîÆÊéíË°å
     $smarty->assign('promotion_info', get_promotion_info());
 
     $smarty->assign('script_name', 'search');
@@ -536,7 +536,7 @@ function is_not_null($value)
 }
 
 /**
- * ªÒµ√ø…“‘ºÏÀ˜µƒ Ù–‘
+ * Ëé∑ÂæóÂèØ‰ª•Ê£ÄÁ¥¢ÁöÑÂ±ûÊÄß
  *
  * @access  public
  * @params  integer $cat_id
@@ -549,13 +549,13 @@ function get_seachable_attributes($cat_id = 0)
         'attr' => array()
     );
 
-    /* ªÒµ√ø…”√µƒ…Ã∆∑¿‡–Õ */
+    /* Ëé∑ÂæóÂèØÁî®ÁöÑÂïÜÂìÅÁ±ªÂûã */
     $sql = "SELECT t.cat_id, cat_name FROM " .$GLOBALS['ecs']->table('goods_type'). " AS t, ".
            $GLOBALS['ecs']->table('attribute') ." AS a".
            " WHERE t.cat_id = a.cat_id AND t.enabled = 1 AND a.attr_index > 0 ";
     $cat = $GLOBALS['db']->getAll($sql);
 
-    /* ªÒ»°ø…“‘ºÏÀ˜µƒ Ù–‘ */
+    /* Ëé∑ÂèñÂèØ‰ª•Ê£ÄÁ¥¢ÁöÑÂ±ûÊÄß */
     if (!empty($cat))
     {
         foreach ($cat AS $val)
