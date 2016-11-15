@@ -78,6 +78,8 @@ TouchSlide({
   </div>
   <!--快速连接e-->
 <!-- TemplateBeginEditable name="中部主区域" -->
+<!-- #BeginLibraryItem "/library/recommend_cats.lbi" -->
+ <!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
  <!-- #EndLibraryItem -->
 <!-- #BeginLibraryItem "/library/recommend_new.lbi" -->

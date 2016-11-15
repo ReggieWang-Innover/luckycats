@@ -201,7 +201,7 @@ function get_recommend_goods($type = '', $cats = '')
         $data = read_static_cache('recommend_goods');
         if ($data === false)
         {
-            $sql = 'SELECT g.goods_id, g.is_best, g.is_new, g.is_hot, g.is_promote, b.brand_name,g.sort_order ' .
+            $sql = 'SELECT g.goods_id, g.goods_type, g.is_best, g.is_new, g.is_hot, g.is_promote, b.brand_name,g.sort_order ' .
                ' FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
                ' LEFT JOIN ' . $GLOBALS['ecs']->table('brand') . ' AS b ON b.brand_id = g.brand_id ' .
                ' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND (g.is_best = 1 OR g.is_new =1 OR g.is_hot = 1)'.
@@ -253,7 +253,7 @@ function get_recommend_goods($type = '', $cats = '')
 
         //按推荐数量及排序取每一项推荐显示的商品 order_type可以根据后台设定进行各种条件显示
         static $type_array = array();
-        $type2lib = array('best'=>'recommend_best', 'new'=>'recommend_new', 'hot'=>'recommend_hot');
+        $type2lib = array('best'=>'recommend_best', 'new'=>'recommend_new', 'hot'=>'recommend_hot', 'cats'=>'recommend_cats');
         if (empty($type_array))
         {
             foreach($type2lib as $key => $data)

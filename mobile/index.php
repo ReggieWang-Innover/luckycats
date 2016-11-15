@@ -64,7 +64,8 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('helps',           get_shop_help());       // 网店帮助
     $smarty->assign('top_goods',       get_top10());           // 销售排行
 
-    $smarty->assign('best_goods',      get_recommend_goods('cats'));    // 推荐商品
+    $smarty->assign('cats_adopt',      get_recommend_goods('cats'));
+    $smarty->assign('best_goods',      get_recommend_goods('best'));    // 推荐商品
     $smarty->assign('new_goods',       get_recommend_goods('new'));     // 最新商品
     $smarty->assign('hot_goods',       get_recommend_goods('hot'));     // 热点文章
     $smarty->assign('promotion_goods', get_promote_goods()); // 特价商品
