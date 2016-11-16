@@ -401,19 +401,24 @@ if (!$smarty->is_cached('category.dwt', $cache_id))
             foreach ($goodslist as $vo) {
                 $shop_price = empty($vo['promote_price']) ? $vo['shop_price']:$vo['promote_price'];
                 $watermark_img = empty($vo['watermark_img']) ? '':'<img width="55" height="16" src="'.'themes/' . $_CFG['template'].'/images/'.$vo['watermark_img'].'.png" alt="'.$vo['goods_name'].'" />';
+                
+                $innerPro = '<div class="proImg-wrap"> <a href="'
+                    .$vo['url'].'" > <img src="'
+                    .$config['site_url'].$vo['goods_thumb'].'" alt="'
+                    .$vo['goods_name'].'"> </a> </div><div class="proInfo-wrap"><div class="proTitle"> <a href="'
+                    .$vo['url'].'" >'.$vo['name'].'</a> </div><div class="proSKU"></div>';
+                
+                if ($cat_id != 1)
+                {
+                    $innerPro .= '<div class="proPrice"><em>'. $shop_price .'</em></div>'
+                        .'<div class="proService"> <del>'
+                        .$vo['market_price'].'</del></div><div class="proSales">月销:<em>'
+                        .$vo['sales_count'].'</em></div><div class="proIcons">'
+                        .$watermark_img.'</div></div>';
+                }
+                
                 $sayList[] = array(
-                    'pro-inner' => '
-        <div class="proImg-wrap"> <a href="'.$vo['url'].'" > <img src="'.$config['site_url'].$vo['goods_thumb'].'" alt="'.$vo['goods_name'].'"> </a> </div>
-        <div class="proInfo-wrap">
-          <div class="proTitle"> <a href="'.$vo['url'].'" >'.$vo['name'].'</a> </div>
-          <div class="proSKU"></div>
-          <div class="proPrice">
-            <em>'. $shop_price .'</em> 
-          </div>
-          <div class="proService"> <del>'.$vo['market_price'].'</del></div>
-          <div class="proSales">月销:<em>'.$vo['sales_count'].'</em></div>
-          <div class="proIcons">'.$watermark_img.'</div>
-        </div>'
+                    'pro-inner' => $innerPro
                 );
             }
         }
