@@ -193,6 +193,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $smarty->assign('promote_end_time',   $goods['gmt_end_time']);
         $smarty->assign('sales_count',        get_goods_sales_count($goods['goods_id'])); // by wang
         $smarty->assign('categories',         get_categories_tree($goods['cat_id']));  // 分类树
+        $smarty->assign('cat_id',             $goods['cat_id']);
 
         /* meta */
         $smarty->assign('keywords',           htmlspecialchars($goods['keywords']));

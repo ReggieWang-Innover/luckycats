@@ -95,10 +95,13 @@ function showPic(){
 <!--商品图 end---> 
 <!--商品参数-->
 <section class="goodsInfo">
+  <!-- {if $cat_id neq 1} -->
   <a class="collect" id="collect_box" href="javascript:collect({$goods.goods_id})" style="display: inline;">{$record_count}</a>
+  <!-- {/if} -->
   <div class="title">
     <h1> {$goods.goods_style_name} </h1>
   </div>
+  <!-- {if $cat_id neq 1} -->
   <ul>
     <!--{if $goods.is_promote and $goods.gmt_end_time } 促销-->
     <li>{$lang.promote_price}<b class="price">{$goods.promote_price}</b>　<!-- {if $cfg.show_marketprice} 市场价格-->
@@ -122,6 +125,7 @@ function showPic(){
     <li> <span class="time">时间剩余：<time class="countdown" id="leftTime">{$lang.please_waiting}</time></span> </li>
   </ul>
   <!--{/if}-->
+  
   <!-- {if $promotion} -->
   <ul>
     <li>
@@ -145,7 +149,9 @@ function showPic(){
   <ul>
     <li>月销量：{$sales_count}件</li>
   </ul>
+  <!-- {/if} -->
 </section>
+
 <!--商品参数 begin-->
 <div class="wrap">
   <section class="goodsBuy radius5">
