@@ -152,7 +152,7 @@ function showPic(){
   <!-- {else} -->
   <ul>
     <!-- {foreach from=$goodprop item=propval key=propkey} -->
-    <li>{$propkey}：{propval}</li>
+    <li>{$propkey}：{$propval}</li>
     <!-- {/foreach} -->
   </ul>
   <!-- {/if} -->
