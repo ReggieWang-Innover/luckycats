@@ -149,6 +149,10 @@ function showPic(){
   <ul>
     <li>月销量：{$sales_count}件</li>
   </ul>
+  <!-- {else} -->
+  <ul>
+  
+  </ul>
   <!-- {/if} -->
 </section>
 
