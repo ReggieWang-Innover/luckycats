@@ -301,7 +301,11 @@ function tab(id){
     <ul style="position: static;" id="detail_nav">
       <li id="tabs1" onClick="tab(1)" class="current"> 详情 </li>
       <li id="tabs2" onClick="tab(2)" class=""> 评价 <span class="review-count">({$goods.comment_count})</span> </li>
-      <li id="tabs3" onClick="tab(3)" class=""> 热销 </li>
+      <li id="tabs3" onClick="tab(3)" class="">
+        <!-- {if $cat_id neq 1} -->热销
+        <!-- {else} -->更多
+        <!-- {/if} -->
+       </li>
     </ul>
   </header>
   <div id="tab1" class="">
