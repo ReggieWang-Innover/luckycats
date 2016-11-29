@@ -393,8 +393,11 @@ onload = function(){
 function resizeImg()
 {
 	$("#tab1").find('img').each(function() {
-		alert($(this).width()));
-	})
+		if ($(this).width() > 200) {
+			$(this).css("width", "100%");
+			$(this).css("display", "block");
+		}
+	});
 }
 
 /**
