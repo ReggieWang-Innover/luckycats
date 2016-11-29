@@ -238,8 +238,6 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
                 $goodprop[$pair['name']] = $pair['value'];
             }
         }
-        
-        error_log(var_dump($goodprop));
 
         $smarty->assign('goodprop',            $goodprop);
         $smarty->assign('properties',          $properties['pro']);                              // 商品属性
