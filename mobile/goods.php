@@ -233,9 +233,9 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
         $goodprop = array();
         foreach($properties['pro'] as $k => $v)
         {
-            foreach($v as $name=>$val)
+            foreach($v as $pair)
             {
-                $goodprop[$name] = $val;
+                $goodprop[$pair['name']] = $pair['value'];
             }
         }
         
