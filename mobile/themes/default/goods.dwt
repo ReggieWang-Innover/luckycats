@@ -388,6 +388,11 @@ onload = function(){
   catch (e) {}
 }
 
+function resizeImg()
+{
+	
+}
+
 /**
  * 点选可选属性或改变数量时修改商品价格的函数
  */
