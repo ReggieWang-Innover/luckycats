@@ -155,11 +155,6 @@ function showPic(){
     <li>{$propkey}：{$propval}</li>
     <!-- {/foreach} -->
   </ul>
-  <section class="goodsBuy radius5">
-  <div class="option" >
-    <button type="button" class="btn buy radius5" onClick="addToCart_quick({$goods.goods_id})">我要领养</button>
-  </div>
-  </section>
   <!-- {/if} -->
 </section>
 
@@ -313,6 +308,13 @@ function tab(id){
     <div class="desc wrap">
       <div class="blank2"></div>
       {$goods.goods_desc}
+      <!-- {if $cat_id eq 1} -->
+      <section class="goodsBuy radius5">
+  		<div class="option" >
+    		<button type="button" class="btn buy radius5" onClick="addToCart_quick({$goods.goods_id})">我要领养</button>
+  		</div>
+  	  </section>
+  	  <!-- {/if} -->
     </div>
   </div>
   <div id="tab2" class="hidden">
