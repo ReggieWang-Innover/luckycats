@@ -324,9 +324,11 @@ function tab(id){
   <div id="tab2" class="hidden">
     <div class="wrap">
       <div class="blank2"></div>
-      <!-- #BeginLibraryItem "/library/comments.lbi" --> {insert_scripts files='transport.js,utils.js'}
-      <div id="ECS_COMMENT"> {* ECSHOP 提醒您：动态载入comments_list.lbi，显示评论列表和评论表单 *}{insert name='comments' type=$type id=$id}</div>
-      <!-- #EndLibraryItem --> </div>
+      <!-- {if $cat_id eq 1} -->
+      <div id="ECS_COMMENT">{insert name='comments_cat' type=$type id=$id}</div>
+      <!-- {else} -->
+      <div id="ECS_COMMENT">{insert name='comments' type=$type id=$id}</div>
+      <!-- {/if} -->
   </div>
   <div id="tab3" class="hidden">
     <div class="wrap">
