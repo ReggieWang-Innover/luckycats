@@ -405,7 +405,7 @@ function resizeImg()
  */
 function changePrice()
 {
-  if ($("#ECS_FORMBUY")) {
+  if ($("#ECS_FORMBUY").length > 0) {
   var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
   var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
   Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
