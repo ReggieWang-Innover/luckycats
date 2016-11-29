@@ -384,13 +384,17 @@ var now_time = {$now_time};
 onload = function(){
   changePrice();
   fixpng();
+  resizeImg();
+  
   try { onload_leftTime(); }
   catch (e) {}
 }
 
 function resizeImg()
 {
-	
+	$("#tab1").find('img').each(function() {
+		alert($(this).width()));
+	})
 }
 
 /**
