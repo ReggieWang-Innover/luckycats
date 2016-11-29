@@ -4,10 +4,9 @@
 <!-- {foreach from=$comments item=comment} -->
 <li class="radius5">
 	<div class="tit radius5" > <span><!-- {if $comment.username} -->{$comment.username|escape:html}<!-- {else} -->{$lang.anonymous}<!-- {/if} --></span>  {$comment.add_time}</div>
-	<p>评分：<img src="{$ectouch_themes}/images/stars{$comment.rank}.png" class="star" alt="{$comment.comment_rank}" /></p>
 	<p>评论：{$comment.content}</p>
 	<!-- {if $comment.re_content} -->
-	<p>{$lang.admin_username}{$comment.re_content}</p>
+	<p>幸运土猫领养工作组回复：{$comment.re_content}</p>
 	<!-- {/if} -->
 </li>
 <!-- {/foreach} --> 
