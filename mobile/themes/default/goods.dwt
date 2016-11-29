@@ -155,9 +155,11 @@ function showPic(){
     <li>{$propkey}：{$propval}</li>
     <!-- {/foreach} -->
   </ul>
+  <section class="goodsBuy radius5">
   <div class="option" >
     <button type="button" class="btn buy radius5" onClick="addToCart_quick({$goods.goods_id})">我要领养</button>
   </div>
+  </section>
   <!-- {/if} -->
 </section>
 
