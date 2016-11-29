@@ -337,12 +337,17 @@ function tab(id){
         <div class="summary radius5"> <img src="{$site_url}{$releated_goods_data.goods_thumb}" alt=""/>
           <div class="price"> 
             
+            <!-- {if $cat_id neq 1} -->
+            
             <!-- {if $releated_goods_data.promote_price neq 0} --> 
             {$releated_goods_data.formated_promote_price} 
             <!-- {else} --> 
             {$releated_goods_data.shop_price} 
             <!-- {/if} --> 
             
+            <!-- {else} -->
+            {$releated_goods_data.goods_name}
+            <!-- {/if} -->
           </div>
         </div>
         <!--{if $goods.goods_comment}-->
