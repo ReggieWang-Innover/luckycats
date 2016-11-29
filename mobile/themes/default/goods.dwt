@@ -154,6 +154,7 @@ function showPic(){
 
 <!--商品参数 begin-->
 <div class="wrap">
+  <!-- {if $cat_id neq 1} -->
   <section class="goodsBuy radius5">
     <input id="goodsBuy-open" type="checkbox">
     <label class="info" for="goodsBuy-open">
@@ -261,7 +262,7 @@ function showPic(){
       </div>
     </form>
   </section>
-  <div class="guarantee">微信支付商家,正品保证,假一罚三,七天无条件退换货。</div>
+  <!-- {/if} -->
 </div>
 
 <script type="text/javascript">
