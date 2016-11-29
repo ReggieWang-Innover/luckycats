@@ -2,7 +2,7 @@
 <div class="filter" style="position:static; top:0px; width:100%;">
   <form method="GET" class="sort" name="listform">
     <ul class="filter-inner">
-      <!-- {if $category neq 0} -->
+      <!-- {if $category neq 1} -->
       <li class="{if $pager.sort == 'goods_id' && $pager.order == 'DESC'}filter-cur{/if}"> <a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=DESC#goods_list">综合</a> </li>
       <li class="{if $pager.sort =='click_count' && $pager.order == 'DESC'}filter-cur{/if}"> <a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=click_count&order=DESC#goods_list">人气<i class="f-ico-arrow-d"></i></a> </li>
       <li class="{if $pager.sort =='sales_count' && $pager.order == 'DESC'}filter-cur{/if}"> <a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sales_count&order=DESC#goods_list">销量</a></li>
