@@ -1253,7 +1253,7 @@ box-shadow: 0 0 0.6rem rgba(250,0,0,0.1);
 	border: 0;
 	height: 2.5rem;
 	line-height: 2.5rem;
-	width: 50%;
+	width: 100%;
 	-webkit-box-flex: 1;
 	display: block;
 	-webkit-user-select: none;
