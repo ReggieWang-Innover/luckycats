@@ -35,7 +35,11 @@ function changenum(diff) {
 <body>
 <header id="header">
   <div class="header_l header_return"> <a class="ico_10" href="cat_all.php"> 返回 </a> </div>
+  <!-- {if cat_id neq 1} -->
   <h1> 商品详情 </h1>
+  <!-- {else} -->
+  <h1> 领养猫咪 </h1>
+  <!-- {/if} -->
   <div class="header_r header_search"> <a class="ico_15" href="ectouch.php?act=share&content={$goods.goods_name}&pic={$goods.original_img}"> 分享 </a> </div>
 </header>
 
@@ -319,7 +323,7 @@ function tab(id){
       <!-- {if $cat_id eq 1} -->
       <section class="goodsBuy radius5">
   		<div class="option" >
-    		<button type="button" class="btn buy radius5" onClick="addToCart_quick({$goods.goods_id})">我要领养</button>
+    		<a class="btn buy radius5" href="adopt.php?favcat={$goods.goods_id})">我要领养</a>
   		</div>
   	  </section>
   	  <!-- {/if} -->
