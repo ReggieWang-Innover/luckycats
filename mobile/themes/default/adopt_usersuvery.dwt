@@ -93,8 +93,8 @@
 				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>　已婚，无孩</p>
 				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>　已婚，有孩，孩子的年龄是：&nbsp;
 				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="text" name="q4_haskid_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;岁</p>
-				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>　其他，请注明：
-				   <span id="J_q4_other_adds"><input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
+				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>　其他，请注明：<br/>
+				   <span id="J_q4_other_adds">　　<input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q5" style="font-size:14px;color:#003399;">&gt; 请问您目前的居住状况是怎样的？</span></p>
@@ -103,8 +103,8 @@
 				<p><input id="J_q5_business" type="radio" name="q5" value="business"></input>　商住两用楼</p>
 				<p><input id="J_q5_bungalow" type="radio" name="q5" value="bungalow"></input>　平房</p>
 				<p><input id="J_q5_house" type="radio" name="q5" value="house"></input>　别墅</p>
-				<p><input id="J_q5_other" type="radio" name="q5" value="other"></input>　其他，请注明：
-				   <span id="J_q5_other_adds"><input id="J_q5_other_add1" type="text" name="q5_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
+				<p><input id="J_q5_other" type="radio" name="q5" value="other"></input>　其他，请注明：<br/>
+				   <span id="J_q5_other_adds">　　<input id="J_q5_other_add1" type="text" name="q5_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q6" style="font-size:14px;color:#003399;">&gt; 请问您对住所的所有情况是怎样的？</span></p>
@@ -126,8 +126,8 @@
 				     <input id="J_q6_ownedhome_add1" type="text" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
-				<p><input id="J_q6_other" type="radio" name="q6" value="other"></input>　其他，请注明：
-				  <span id="J_q6_other_adds"><input id="J_q6_other_add1" type="text" name="q6_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
+				<p><input id="J_q6_other" type="radio" name="q6" value="other"></input>　其他，请注明：<br/>
+				  <span id="J_q6_other_adds">　　<input id="J_q6_other_add1" type="text" name="q6_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q7" style="font-size:14px;color:#003399;">&gt; 请问您的 房东 / 合租伙伴 对您计划领养猫咪持怎样的态度？</span></p>
@@ -136,7 +136,7 @@
 				<p><input id="J_q7_agree" type="radio" name="q7" value="agree"></input>　同意</p>
 				<p><input id="J_q7_notcare" type="radio" name="q7" value="notcare"></input>　无所谓</p>
 				<p><input id="J_q7_other" type="radio" name="q7" value="other"></input>　其他，请注明：</p>
-				<p><span id="J_q7_other_adds"><textarea id="J_q7_other_add1" name="q7_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
+				<p><span id="J_q7_other_adds">　　<textarea id="J_q7_other_add1" name="q7_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q8" style="font-size:14px;color:#003399;">&gt; 请问您是否与 父母 / 配偶的父母 生活在一起？</span></p>
@@ -147,8 +147,8 @@
 				    <input id="J_q8_parentout_add1" type="text" name="q8_parentout_add1" maxlength="10" style="width: 100px;"></input>&nbsp;（城市名）
 				  </span>
 				</p>
-				<p><input id="J_q8_other" type="radio" name="q8" value="other"></input>　其他，请注明：
-				  <span id="J_q8_other_adds"><input id="J_q8_other_add1" type="text" name="q8_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
+				<p><input id="J_q8_other" type="radio" name="q8" value="other"></input>　其他，请注明：<br/>
+				  <span id="J_q8_other_adds">　　<input id="J_q8_other_add1" type="text" name="q8_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q9" style="font-size:14px;color:#003399;">&gt; 请问您的家人（父母/伴侣/配偶/子女）对您计划领养猫咪持怎样的态度？</span></p>
@@ -169,26 +169,26 @@
 			<blockquote>
 				<p><input id="J_q11_hascat" type="radio" name="q11" value="hascat"></input>　家中有猫：
 				  <span id="J_q11_hascat_adds">
-				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，<br/>已经和我一起生活的时间是：
-				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年<br/>（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
+				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，<br/>　　已经和我一起生活的时间是：
+				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年<br/>　　（请按最早进家的猫咪生活时间填写）
 				  </span>
 				<p><input id="J_q11_notnow" type="radio" name="q11" value="notnow"></input>　家中无猫，曾经养过猫：</p>
 				<blockquote>
 				  <span id="J_q11_notnow_adds">
-					<p>最近一次养猫的经历是：
+					<p>　　最近一次养猫的经历是：
 					  <input id="J_q11_notnow_add1" type="text" name="q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
 					</p>
-					<p>离开时的年纪是：
+					<p>　　离开时的年纪是：
 					  <input id="J_q11_notnow_add2" type="text" name="q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
 					</p>
-					<p>离开的原因是：
+					<p>　　离开的原因是：<br/>　　
 					  <textarea id="J_q11_notnow_add3" name="q11_notnow_add3" rows="4" maxlength="300" style="width: 260px;"></textarea>
 					</p>
 				  </span>
 				</blockquote>
 				<p><input id="J_q11_notyet" type="radio" name="q11" value="notyet"></input>　家中无猫，未曾养过猫</p>
 				<p><input id="J_q11_other" type="radio" name="q11" value="other"></input>　其他，请注明：</p>
-				  <p><span id="J_q11_other_adds"><textarea id="J_q11_other_add1" name="q11_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
+				  <p><span id="J_q11_other_adds">　　<textarea id="J_q11_other_add1" name="q11_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q12" style="font-size:14px;color:#003399;">&gt; 请问目前您自己常住的家中是否还有其他动物？</span></p>
@@ -218,7 +218,7 @@
 			<input id="J_q15_default" type="radio" name="q15" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q15_default_adds">
-				<p><textarea id="J_q15_default_add1" name="q15_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+				<p>　　<textarea id="J_q15_default_add1" name="q15_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -240,7 +240,7 @@
 			<input id="J_q18_default" type="radio" name="q18" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q18_default_adds">
-				<p><textarea id="J_q18_default_add1" name="q18_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+				<p>　　<textarea id="J_q18_default_add1" name="q18_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -248,7 +248,7 @@
 			<input id="J_q19_default" type="radio" name="q19" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q19_default_adds">
-				<p><textarea id="J_q19_default_add1" name="q19_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
+				<p>　　<textarea id="J_q19_default_add1" name="q19_default_add1" rows="3" maxlength="300" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
@@ -256,7 +256,7 @@
 			<input id="J_q20_default" type="radio" name="q20" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id="J_q20_default_adds">
-				<p><textarea id="J_q20_default_add1" name="q20_default_add1" rows="5" maxlength="500" style="width: 260px;"></textarea></p>
+				<p>　　<textarea id="J_q20_default_add1" name="q20_default_add1" rows="5" maxlength="500" style="width: 260px;"></textarea></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
