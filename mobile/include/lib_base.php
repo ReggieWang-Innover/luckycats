@@ -299,7 +299,7 @@ function send_mail($name, $email, $subject, $content, $type = 0, $notification=f
                 return false;
             }
 
-            include_once(ROOT_PATH . 'includes/cls_smtp.php');
+            include_once(ROOT_PATH . 'include/cls_smtp.php');
             $smtp = new smtp($params);
 
             $send_params['recipients'] = $email;
