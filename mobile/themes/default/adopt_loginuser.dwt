@@ -24,7 +24,7 @@
 </header>
 
 <section class="s-detail">
-	<div style="padding-left: 10px; color: #333;">
+	<div style="padding-left: 10px; padding-right: 10px; color: #333;">
 		<h1 align="center"><span style="font-family:Microsoft YaHei;">注册用户，开始领养</span></h1>
 		<hr>
 		<p><span style="font-size:14px;">请登录后开始领养申请流程</span></p>
