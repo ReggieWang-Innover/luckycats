@@ -48,9 +48,10 @@
 					<option value="female">女</option>
 				  </select>　年龄：<input id="J_PersonInfo_Age" class="numberinput" name="age" type="text" maxlength="3" style="width: 40px;"></input></p>
 				<p>　　从事职业：<input id="J_PersonInfo_Job" name="job" type="text" maxlength="20"></input>　</p>
-				<p>月收入：<input id="J_PersonInfo_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
-			    <p>　现居住地址：<input id="J_PersonInfo_Address" name="address" type="text" maxlength="60"  style="width: 240px;"></input></p>
-				<p>家中常驻人口：<input id="J_PersonInfo_HomeMumber" class="numberinput" name="homemember" type="text" maxlength="2" style="width: 30px;"></input>　分别是：<input id="J_PersonInfo_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
+				<p>　　　月收入：<input id="J_PersonInfo_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
+			    <p>　现居住地址：<input id="J_PersonInfo_Address" name="address" type="text" maxlength="60"  style="width: 200px;"></input></p>
+				<p>家中常驻人口：<input id="J_PersonInfo_HomeMumber" class="numberinput" name="homemember" type="text" maxlength="2" style="width: 30px;"></input></p>
+				<p>　　　分别是：<input id="J_PersonInfo_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
 				<p>个人联系电话：<input id="J_PersonInfo_PhoneNumber" class="numberinput" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
 				<p><br></p>
 			</blockquote>
@@ -80,9 +81,9 @@
 			<p><span id="J_q3" style="font-size:14px;color:#003399;">&gt; 请问您是否有在北京长期定居的打算？</span></p>
 			<blockquote>
 				<p><input id="J_q3_alwayslocal" type="radio" name="q3" value="alwayslocal"></input>　是，我会一直在北京安家</p>
-				<p><input id="J_q3_pannedleave" type="radio" name="q3" value="plannedleave"></input>　否，我未来几年会离开北京，将来会在&nbsp;
+				<p><input id="J_q3_pannedleave" type="radio" name="q3" value="plannedleave"></input>　否，我未来几年会离开北京，<br/>将来会在&nbsp;
 				   <span id = "J_q3_plannedleave_adds"><input id="J_q3_plannedleave_add1" type="text" name="q3_plannedleave_add1" maxlength="10" style="width: 100px;"></input></span>&nbsp;生活（城市名）</p>
-				<p><input id="J_q3_notlocalyet" type="radio" name="q3" value="notlocalyet"></input>　否，我目前不在北京，我在&nbsp;
+				<p><input id="J_q3_notlocalyet" type="radio" name="q3" value="notlocalyet"></input>　否，我目前不在北京，<br/>我在&nbsp;
 				   <span id = "J_q3_notlocalyet_adds"><input id="J_q3_outsider_add1" type="text" name="q3_outsider_add1" maxlength="10" style="width: 100px;"></input></span>&nbsp;生活（城市名）</p>
 				<p><br></p>
 			</blockquote>
@@ -168,8 +169,8 @@
 			<blockquote>
 				<p><input id="J_q11_hascat" type="radio" name="q11" value="hascat"></input>　家中有猫：
 				  <span id="J_q11_hascat_adds">
-				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，已经和我一起生活的时间是：
-				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
+				    <input id="J_q11_hascat_add1" type="text" name="q11_hascat_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;只 ，<br/>已经和我一起生活的时间是：
+				    <input id="J_q11_hascat_add2" type="text" name="q11_hascat_add2" maxlength="2" style="width: 30px;"  class="numberinput"></input>&nbsp;年<br/>（如家中有多只猫咪，请按最早进家的猫咪生活时间填写）
 				  </span>
 				<p><input id="J_q11_notnow" type="radio" name="q11" value="notnow"></input>　家中无猫，曾经养过猫：</p>
 				<blockquote>
@@ -203,7 +204,7 @@
 			<blockquote>
 			  <span id ="J_q13_default_adds">
 				<p>　　出行次数约：<input id="J_q13_default_add1" type="text" name="q13_default_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;次</p>
-				<p>　　计划如何安置猫咪：<input id="J_q13_default_add2" type="text" name="q13_default_add2" maxlength="40" style="width: 260px;"></input></p>
+				<p>　　计划如何安置猫咪：<br/>　　<input id="J_q13_default_add2" type="text" name="q13_default_add2" maxlength="40" style="width: 260px;"></input></p>
 				<p><br></p>
 			  </span>
 			</blockquote>
