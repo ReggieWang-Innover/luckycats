@@ -1246,3 +1246,18 @@ box-shadow: 0 0 0.6rem rgba(250,0,0,0.1);
     white-space: nowrap;
 }
 .side img{ width:100%; height:auto;}
+
+.btnlink {
+	background-color: #6bd0a2;
+	color: #fff;
+	border: 0;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	width: 50%;
+	-webkit-box-flex: 1;
+	display: block;
+	-webkit-user-select: none;
+	font-size: 0.9rem;
+	text-decoration: none;
+	text-align: center;
+}
