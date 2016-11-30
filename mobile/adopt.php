@@ -13,7 +13,7 @@
  * $Id: goods.php 17217 2011-01-19 06:29:08Z liubo $
 */
 
-define('IN_ECS', true);
+define('IN_ECTOUCH', true);
 
 define('ADOPT_STEP_CONNECTINFO',      0); //填写联系信息
 define('ADOPT_STEP_USERSUVERY',       1); //填写调查问卷
@@ -106,8 +106,8 @@ $QuestionDescPool = array(
     'q20_default' => '{$q20_default_add1}'
 );
 
-require(dirname(__FILE__) . '/includes/init.php');
-require(ROOT_PATH . 'includes/cls_json.php');
+require(dirname(__FILE__) . '/include/init.php');
+require(ROOT_PATH . 'include/cls_json.php');
 
 if ((DEBUG_MODE & 2) != 2)
 {
