@@ -46,11 +46,11 @@
 				<p>　　　　性别：<select id="J_PersonInfo_Gender" name="gender" style="width:60px">
 					<option value="male">男</option>
 					<option value="female">女</option>
-				  </select>　年龄：<input id="J_PersonInfo_Age" class="numberinput" name="age" type="text" maxlength="3" style="width: 40px;"></input></p>
+				  </select>　年龄：<input id="J_PersonInfo_Age" class="numberinput" name="age" type="number" min="1" max="99" maxlength="3" style="width: 40px;"></input></p>
 				<p>　　从事职业：<input id="J_PersonInfo_Job" name="job" type="text" maxlength="20"></input>　</p>
 				<p>　　　月收入：<input id="J_PersonInfo_Income" name="income" type="text" maxlength="20" style="width: 80px;"></input></p>
 			    <p>　现居住地址：<input id="J_PersonInfo_Address" name="address" type="text" maxlength="60"  style="width: 200px;"></input></p>
-				<p>家中常驻人口：<input id="J_PersonInfo_HomeMumber" class="numberinput" name="homemember" type="text" maxlength="2" style="width: 30px;"></input></p>
+				<p>家中常驻人口：<input id="J_PersonInfo_HomeMumber" class="numberinput" name="homemember" type="number" min="1" max="10" maxlength="2" style="width: 30px;"></input></p>
 				<p>　　　分别是：<input id="J_PersonInfo_HomeMumberDetail" name="homememberdetail" type="text" maxlength="60"></input></p>
 				<p>个人联系电话：<input id="J_PersonInfo_PhoneNumber" class="numberinput" name="phonenumber" type="text" maxlength="13" style="width: 150px;"></input></p> 
 				<p><br></p>
@@ -74,7 +74,7 @@
 			<p><span id="J_q2" style="font-size:14px;color:#003399;">&gt; 请问您在北京生活了多长时间？</span></p>
 			<blockquote>
 				<p><input id="J_q2_outsider" type="radio" name="q2" value="outsider"></input>　已经在北京生活&nbsp;
-				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="text" name="q2_outsider_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;年</p>
+				   <span id="J_q2_outsider_adds"><input id="J_q2_outsider_add1" type="number" min="1" max="99" name="q2_outsider_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;年</p>
 				<p><input id="J_q2_beijinger" type="radio" name="q2" value="beijinger"></input>　从小一直在北京生活，老土著了喵~</p>
 				<p><br></p>
 			</blockquote>
@@ -92,7 +92,7 @@
 				<p><input id="J_q4_single" type="radio" name="q4" value="single"></input>　单身</p>
 				<p><input id="J_q4_nokid" type="radio" name="q4" value="nokid"></input>　已婚，无孩</p>
 				<p><input id="J_q4_haskid" type="radio" name="q4" value="haskid"></input>　已婚，有孩，孩子的年龄是：&nbsp;
-				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="text" name="q4_haskid_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;岁</p>
+				   <span id = "J_q4_haskid_adds"><input id="J_q4_haskid_add1" type="number" min="1" max="99" name="q4_haskid_add1" maxlength="2" style="width: 30px;"  class="numberinput"></input></span>&nbsp;岁</p>
 				<p><input id="J_q4_other" type="radio" name="q4" value="other"></input>　其他，请注明：<br/>
 				   <span id="J_q4_other_adds">　　<input id="J_q4_other_add1" type="text" name="q4_other_add1" maxlength="40" style="width: 260px;"></input></span></p>
 				<p><br></p>
@@ -111,19 +111,19 @@
 			<blockquote>
 				<p><input id="J_q6_sharerant" type="radio" name="q6" value="sharerant"></input>　合租，
 				   <span id="J_q6_sharerant_adds">共有&nbsp;
-				     <input id="J_q6_sharerant_add1" type="text" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;户合租在一套&nbsp; 
-				     <input id="J_q6_sharerant_add2" type="text" name="q6_sharerant_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;居室的房子内，我租住的房间面积约&nbsp;
-				     <input id="J_q6_sharerant_add3" type="text" name="q6_sharerant_add3" maxlength="3" style="width: 40px;" class="numberinput"></input>&nbsp;平米
+				     <input id="J_q6_sharerant_add1" type="number" min="2" max="20" name="q6_sharerant_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;户合租在一套&nbsp; 
+				     <input id="J_q6_sharerant_add2" type="number" min="1" max="20" name="q6_sharerant_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;居室的房子内，我租住的房间面积约&nbsp;
+				     <input id="J_q6_sharerant_add3" type="number" min="1" max="400" name="q6_sharerant_add3" maxlength="3" style="width: 40px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_singlerant" type="radio" name="q6" value="singlerant"></input>　独立整租， 
 				   <span id="J_q6_singlerant_adds">居室面积约&nbsp;
-				     <input id="J_q6_singlerant_add1" type="text" name="q6_singlerant_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
+				     <input id="J_q6_singlerant_add1" type="number" min="10" max="800" step="10" name="q6_singlerant_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_ownedhome" type="radio" name="q6" value="ownedhome"></input>　居住于自有房产中，
 				  <span id="J_q6_ownedhome_adds">居室面积约&nbsp;
-				     <input id="J_q6_ownedhome_add1" type="text" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
+				     <input id="J_q6_ownedhome_add1" type="number" min="10" max="800" name="q6_ownedhome_add1" maxlength="4" style="width: 50px;" class="numberinput"></input>&nbsp;平米
 				   </span>
 				</p>
 				<p><input id="J_q6_other" type="radio" name="q6" value="other"></input>　其他，请注明：<br/>
@@ -156,7 +156,7 @@
 				<p><input id="J_q9_agree" type="radio" name="q9" value="agree"></input>　同意</p>
 				<p><input id="J_q9_notcare" type="radio" name="q9" value="notcare"></input>　无所谓</p>
 				<p><input id="J_q9_other" type="radio" name="q9" value="other"></input>　其他，请注明：</p>
-				  <p><span id="J_q9_other_adds"><textarea id="J_q9_other_add1" name="q9_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
+				  <p>　　<span id="J_q9_other_adds"><textarea id="J_q9_other_add1" name="q9_other_add1" rows="4" maxlength="300" style="width: 260px;"></textarea></span></p>
 				<p><br></p>
 			</blockquote>
 			<p><span id="J_q10" style="font-size:14px;color:#003399;">&gt; 请问您或家人是否有与猫咪一起生活的经历？</span></p>
@@ -176,10 +176,10 @@
 				<blockquote>
 				  <span id="J_q11_notnow_adds">
 					<p>　　最近一次养猫的经历是：
-					  <input id="J_q11_notnow_add1" type="text" name="q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
+					  <input id="J_q11_notnow_add1" type="number" min="1" max="80" name="q11_notnow_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;年前
 					</p>
 					<p>　　离开时的年纪是：
-					  <input id="J_q11_notnow_add2" type="text" name="q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
+					  <input id="J_q11_notnow_add2" type="number" min="1" max="30" name="q11_notnow_add2" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;岁
 					</p>
 					<p>　　离开的原因是：<br/>　　
 					  <textarea id="J_q11_notnow_add3" name="q11_notnow_add3" rows="4" maxlength="300" style="width: 260px;"></textarea>
@@ -194,8 +194,8 @@
 			<p><span id="J_q12" style="font-size:14px;color:#003399;">&gt; 请问目前您自己常住的家中是否还有其他动物？</span></p>
 			<blockquote>
 				<p><input id="J_q12_yes" type="radio" name="q12" value="yes"></input>　没有</p>
-				<p><input id="J_q12_no" type="radio" name="q12" value="no"></input>　有，请注明：
-				  <span id="J_q12_no_adds"><input id="J_q12_no_add1" type="text" name="q12_no_add1" maxlength="40" style="width: 260px;"></input></span>
+				<p><input id="J_q12_no" type="radio" name="q12" value="no"></input>　有，请注明：<br/>
+				  <span id="J_q12_no_adds">　　<input id="J_q12_no_add1" type="text" name="q12_no_add1" maxlength="40" style="width: 260px;"></input></span>
 				</p>
 				<p><br></p>
 			</blockquote>
@@ -203,7 +203,7 @@
 			<input id="J_q13_default" type="radio" name="q13" value="default" hidden="true" checked="true"></input></p>
 			<blockquote>
 			  <span id ="J_q13_default_adds">
-				<p>　　出行次数约：<input id="J_q13_default_add1" type="text" name="q13_default_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;次</p>
+				<p>　　出行次数约：<input id="J_q13_default_add1" type="number" min="0" max="20" name="q13_default_add1" maxlength="2" style="width: 30px;" class="numberinput"></input>&nbsp;次</p>
 				<p>　　计划如何安置猫咪：<br/>　　<input id="J_q13_default_add2" type="text" name="q13_default_add2" maxlength="40" style="width: 260px;"></input></p>
 				<p><br></p>
 			  </span>
