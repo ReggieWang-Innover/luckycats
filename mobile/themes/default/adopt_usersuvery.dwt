@@ -38,7 +38,7 @@
 			<p><br></p>
 			<hr><p><br></p>
 			<form id = "J_SurveyForm" method="post" action="adopt.php">
-			<span style="font-size:14px;">
+			<span style="font-size:14px;line-height: 1.5rem;">
 			<div id = "J_PersonInfo">
 			<p><span style="font-size:14px;color:#003399;">&gt; 您的基本信息：</span></p>
 			<blockquote>
