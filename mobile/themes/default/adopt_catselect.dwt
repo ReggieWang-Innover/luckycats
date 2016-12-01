@@ -1,52 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Keywords" content="{$keywords}" />
-<meta name="Description" content="{$description}" />
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>{$page_title}</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link rel="stylesheet" href="themes/xiaomi/css/user-center.min.css" />
-<script src="themes/xiaomi/js/jquery.js"></script>
 
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta charset="utf-8" />
+<title>{$page_title} 触屏版</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<link href="{$ectouch_themes}/images/touch-icon.png" rel="apple-touch-icon-precomposed" />
+<link href="{$ectouch_themes}/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="{$ectouch_themes}/ectouch.css" rel="stylesheet" type="text/css" />
+{insert_scripts files='common.js'}
+<script type="text/javascript" src="{$ectouch_themes}/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="{$ectouch_themes}/js/jquery.json.min.js"></script>
 </head>
 
 <body>
 
-
-<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-
-<div class="container breadcrumbs">
-<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
-<!-- #EndLibraryItem -->
-</div>
-<!-- .breadcrumbs END -->
-
-<div class="container">
-  <div class="uc-full-box">
-    <div class="row">
-      <div class="span4">
-        <div class="uc-adoptnav-box">
-          <div class="box-hd">
-            <h3 class="title">领养流程</h3>
-            <h3 class="title"></h3>
-          </div>
-          <div class="box-bd">
-            <ul class="uc-adoptnav-list">
-              <li class="finished">用户注册</li>
-              <li class="finished">领养之前</li>
-              <li class="finished">问卷调查</li>
-              <li class="current">选择猫咪</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="span15">
-        <div class="m_reserver" style="padding-left: 10px; color: #333;">
-        	<h1 align="center">选择猫咪</h1>
+<section class="s-detail">
+  <div style="padding-left: 10px; padding-right: 10px; color: #333;">
+          	<h1 align="center">选择猫咪</h1>
 			<h3><hr></h3>
 			<ul>
 				<li><span style="font-size:12px;"><em>非常感谢您认真的回答申请表中所提出的问题，感谢您关注土猫、选择来幸运土猫领养一只已经被救助且正等待进入新家的流浪猫咪。</em></span></li>
@@ -76,19 +51,17 @@
 			<p><br></p>
 			<blockquote>
 				<input type="hidden" name="act" value="selectcat"></input>
-				<p><input type="submit" id="J_SelectSubmit" class="btn btn-primary" value="提交申请 &gt;"></input></p>
+				<p><input type="submit" id="J_SelectSubmit" class="btnlink" value="提交申请 &gt;"></input></p>
 			</blockquote>
 			</form>
 		<hr><p><br></p>
-		</div>
-      </div>
-    </div>
   </div>
-</div>
+</section>
+
 <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 
-<script type="text/javascript" src="themes/xiaomi/js/jquery.form.js"></script>
-<script type="Text/Javascript" language="JavaScript">
+<script type="text/javascript" src="{$ectouch_themes}/js/jquery.form.js"></script>
+<script type="Text/Javascript">
 $(function(){
 
 $("input[name='catselect']").click(function(){
@@ -158,3 +131,4 @@ $('#J_CatSelectForm').submit(function() {
 });
 </script>
 </body>
+</html>
